@@ -1,13 +1,22 @@
 // IMPORT
 
+// Next
+import Link from "next/link";
+
 // React
+import { useState } from "react";
 
 // Components
 
+// Styled components
+import { NavContainer } from "./StyledComp/NavContainer";
+
 // Material UI
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { styled } from "@mui/system";
 
-// Utils
+// Icon
+import MenuIcon from "@mui/icons-material/Menu";
 
 // Data
 import { navItems } from "./NavItems";
@@ -21,20 +30,36 @@ interface ListItem {
 
 export const Nav = () => {
   // State
+  const [isOpen, setIsOpen] = useState("none");
 
   // Custom hook
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(max-width:600px)");
 
   // Functions
+  // Toggle Ul's "display" property between "flex" and "none"
+  const toggleMenu = () => {
+    if (isOpen === "none") {
+      setIsOpen("flex");
+      return;
+    }
+    setIsOpen("none");
+  };
 
   // Return
   return (
-    <nav>
+    <NavContainer matches={matches} isOpen={isOpen}>
+      {matches && <MenuIcon onClick={toggleMenu} />}
       <ul>
         {navItems.map((item: ListItem) => {
-          return <li key={item.id}>{item.title}</li>;
+          return (
+            <li key={item.id}>
+              <Link href={item.href}>
+                <a>{item.title}</a>
+              </Link>
+            </li>
+          );
         })}
       </ul>
-    </nav>
+    </NavContainer>
   );
 };
