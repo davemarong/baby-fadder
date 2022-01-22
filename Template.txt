@@ -14,7 +14,7 @@
 
 // TYPE/INTERFACE
 
-// RETURN
+// Functional component
 export const Nav = () => {
   // State
 
