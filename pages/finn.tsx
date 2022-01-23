@@ -2,6 +2,7 @@
 
 // Next
 import type { NextPage } from "next";
+import { ClothingAds } from "../src/components/ClothingAds/ClothingAds";
 
 // React
 
@@ -30,7 +31,9 @@ const Finn: NextPage = () => {
       <SearchField
         placeholder="Søk etter klær"
         suggestions="Body, genser, sko, stilongs"
+        // func={null}
       />
+      <ClothingAds />
     </>
   );
 };

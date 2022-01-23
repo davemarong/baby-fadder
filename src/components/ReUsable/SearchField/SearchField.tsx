@@ -7,7 +7,6 @@
 // Material UI
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
-import Typography from "@mui/material/Typography";
 
 // Icons
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
@@ -22,9 +21,10 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 interface Props {
   placeholder: string;
   suggestions: string;
+  func?: () => void;
 }
 // Functional component
-export const SearchField = ({ placeholder, suggestions }: Props) => {
+export const SearchField = ({ placeholder, suggestions, func }: Props) => {
   // State
 
   // Functions
@@ -38,7 +38,7 @@ export const SearchField = ({ placeholder, suggestions }: Props) => {
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <SearchRoundedIcon />
+              <SearchRoundedIcon onClick={func} />
             </InputAdornment>
           ),
         }}
