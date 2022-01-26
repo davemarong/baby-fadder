@@ -62,7 +62,6 @@ const Finn: NextPage = () => {
   const SearchFieldProps = {
     placeholder: "Søk etter klær",
     suggestions: "Body, genser, sko, stilongs",
-    profileData: profileData,
     filterCategories: filterCategories,
     setProfileData: setProfileData,
   };

@@ -29,7 +29,6 @@ import { FilterCategories } from "../../../types/Types";
 interface Props {
   placeholder: string;
   suggestions: string;
-  profileData: Profile;
   setProfileData: React.Dispatch<React.SetStateAction<Profile>>;
   filterCategories: FilterCategories;
 }
@@ -37,7 +36,6 @@ interface Props {
 // Functional component
 export const SearchField = ({
   placeholder,
-  profileData,
   setProfileData,
   suggestions,
   filterCategories,
