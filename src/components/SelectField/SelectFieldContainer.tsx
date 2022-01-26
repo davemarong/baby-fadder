@@ -6,6 +6,7 @@
 import React, { ReactNode } from "react";
 
 // Material UI
+import Grid from "@mui/material/Grid";
 
 // Components
 
@@ -31,13 +32,13 @@ type Options = {
 export const SelectFieldContainer = ({ children }: Props) => {
   // Return
   return (
-    <>
+    <Grid container justifyContent="space-evenly" spacing={4}>
       {filterOptions.map((filterOption: FilterOptions) => {
         return React.cloneElement(children as React.ReactElement<any>, {
           key: filterOption.title,
           filterOption: filterOption,
         });
       })}
-    </>
+    </Grid>
   );
 };

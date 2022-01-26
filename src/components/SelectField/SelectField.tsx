@@ -8,6 +8,7 @@ import React, { useState } from "react";
 // Material UI
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
+import Grid from "@mui/material/Grid";
 
 // Components
 
@@ -18,6 +19,18 @@ import MenuItem from "@mui/material/MenuItem";
 // TYPE/INTERFACE
 interface Props {
   filterOption?: FilterOptions;
+  filterCategories: {
+    gender: string;
+    size: string;
+    color: string;
+  };
+  setFilterCategories: React.Dispatch<
+    React.SetStateAction<{
+      gender: string;
+      size: string;
+      color: string;
+    }>
+  >;
 }
 
 type FilterOptions = {
@@ -31,7 +44,11 @@ type Options = {
 // Functional component
 export const SelectField = (props: Props) => {
   // Props
-  const { filterOption = { title: "", options: [{ value: "" }] } } = props;
+  const {
+    filterOption = { title: "", options: [{ value: "" }] },
+    filterCategories,
+    setFilterCategories,
+  } = props;
 
   // State
   const [selectValue, setSelectValue] = useState("");
@@ -39,11 +56,20 @@ export const SelectField = (props: Props) => {
   // Functions
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectValue(event.target.value);
+    if (filterOption.title === "Kjønn") {
+      setFilterCategories({ ...filterCategories, gender: event.target.value });
+    }
+    if (filterOption.title === "Størrelse") {
+      setFilterCategories({ ...filterCategories, size: event.target.value });
+    }
+    if (filterOption.title === "Farge") {
+      setFilterCategories({ ...filterCategories, color: event.target.value });
+    }
   };
 
   // Return
   return (
-    <>
+    <Grid item md={2} sm={3} xs={6}>
       <TextField
         fullWidth
         select
@@ -58,6 +84,6 @@ export const SelectField = (props: Props) => {
           </MenuItem>
         ))}
       </TextField>
-    </>
+    </Grid>
   );
 };
