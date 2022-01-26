@@ -2,27 +2,37 @@
 
 // Next
 import type { NextPage } from "next";
-import { ClothingAds } from "../src/components/ClothingAds/ClothingAds";
 
 // React
+import React from "react";
 
 // Material UI
 
 // Components
 import { Nav } from "../src/components/Nav/Nav";
 import { SearchField } from "../src/components/ReUsable/SearchField/SearchField";
+import { SelectField } from "../src/components/SelectField/SelectField";
+import { ClothingAds } from "../src/components/ClothingAds/ClothingAds";
 
 // Utils
 
 // Data
+import filterOptions from "../src/dummyData/FilterOptions";
+import { SelectFieldContainer } from "../src/components/SelectField/SelectFieldContainer";
 
 // TYPE/INTERFACE
+type FilterOptions = {
+  title: string;
+  options: Options[];
+};
+
+type Options = {
+  value: string;
+};
 
 // Functional component
 const Finn: NextPage = () => {
   // State
-
-  // Functions
 
   // Return
   return (
@@ -31,8 +41,10 @@ const Finn: NextPage = () => {
       <SearchField
         placeholder="Søk etter klær"
         suggestions="Body, genser, sko, stilongs"
-        // func={null}
       />
+      <SelectFieldContainer>
+        <SelectField />
+      </SelectFieldContainer>
       <ClothingAds />
     </>
   );
