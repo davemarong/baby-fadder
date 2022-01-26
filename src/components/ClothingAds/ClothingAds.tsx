@@ -19,32 +19,27 @@ import { profiles } from "../../dummyData/Profiles";
 import babyclothes from "../../dummyData/images/babyclothes.jpg";
 
 // TYPE/INTERFACE
-type Ad = {
-  title: string;
-  description: string;
-  brand: string;
-  price: number;
-  sex: string;
-  size: string;
-  color: string;
-  clothingType: string;
-  img: string;
-};
-type Profile = {
+import { Ad } from "../../types/Types";
+import { Profile } from "../../types/Types";
+
+type ProfileMapped = {
   name: string;
   id: number;
   ad: Ad[];
 };
+type Props = {
+  profileData: Profile;
+};
 // Functional component
-export const ClothingAds = () => {
+export const ClothingAds = ({ profileData }: Props) => {
   // State
 
   // Functions
 
   // Return
   return (
-    <Grid container spacing={4}>
-      {profiles.map((profile: Profile) => {
+    <Grid container justifyContent="space-evenly" spacing={4}>
+      {profileData.map((profile: ProfileMapped) => {
         return profile.ad.map((ad: Ad) => {
           return (
             <Grid key={ad.title} item md={4} sm={6}>

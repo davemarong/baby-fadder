@@ -4,48 +4,84 @@
 import type { NextPage } from "next";
 
 // React
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // Material UI
+
+// Icon
 
 // Components
 import { Nav } from "../src/components/Nav/Nav";
 import { SearchField } from "../src/components/ReUsable/SearchField/SearchField";
 import { SelectField } from "../src/components/SelectField/SelectField";
 import { ClothingAds } from "../src/components/ClothingAds/ClothingAds";
+import { SelectFieldContainer } from "../src/components/SelectField/SelectFieldContainer";
 
 // Utils
 
 // Data
-import filterOptions from "../src/dummyData/FilterOptions";
-import { SelectFieldContainer } from "../src/components/SelectField/SelectFieldContainer";
+import { profiles } from "../src/dummyData/Profiles";
 
 // TYPE/INTERFACE
-type FilterOptions = {
-  title: string;
-  options: Options[];
-};
-
-type Options = {
-  value: string;
-};
+import { Profile } from "../src/types/Types";
 
 // Functional component
 const Finn: NextPage = () => {
   // State
+  const [filterCategories, setFilterCategories] = useState({
+    gender: "",
+    size: "",
+    color: "",
+  });
+  const [profileData, setProfileData] = useState<Profile>([
+    {
+      name: "",
+      id: 0,
+      ad: [
+        {
+          title: "",
+          description: "",
+          brand: "",
+          price: 0,
+          gender: "",
+          size: "",
+          color: "",
+          clothingType: "",
+          img: "",
+        },
+      ],
+    },
+  ]);
 
+  // UseEffect
+  useEffect(() => {
+    setProfileData(profiles);
+  }, []);
+
+  // Props object
+  const SearchFieldProps = {
+    placeholder: "Søk etter klær",
+    suggestions: "Body, genser, sko, stilongs",
+    profileData: profileData,
+    filterCategories: filterCategories,
+    setProfileData: setProfileData,
+  };
+  const SelectFieldProps = {
+    setFilterCategories: setFilterCategories,
+    filterCategories: filterCategories,
+  };
+  const ClothingAdsProps = {
+    profileData: profileData,
+  };
   // Return
   return (
     <>
       <Nav />
-      <SearchField
-        placeholder="Søk etter klær"
-        suggestions="Body, genser, sko, stilongs"
-      />
+      <SearchField {...SearchFieldProps} />
       <SelectFieldContainer>
-        <SelectField />
+        <SelectField {...SelectFieldProps} />
       </SelectFieldContainer>
-      <ClothingAds />
+      <ClothingAds {...ClothingAdsProps} />
     </>
   );
 };

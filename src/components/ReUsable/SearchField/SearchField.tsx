@@ -3,10 +3,13 @@
 // Next
 
 // React
+import { useState } from "react";
 
 // Material UI
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
 
 // Icons
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
@@ -14,31 +17,67 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 // Components
 
 // Utils
+import { filterSearchItems } from "./Utils";
 
 // Data
+import { profiles } from "../../../dummyData/Profiles";
 
 // TYPE/INTERFACE
+import { Profile } from "../../../types/Types";
+import { FilterCategories } from "../../../types/Types";
+
 interface Props {
   placeholder: string;
   suggestions: string;
-  func?: () => void;
+  profileData: Profile;
+  setProfileData: React.Dispatch<React.SetStateAction<Profile>>;
+  filterCategories: FilterCategories;
 }
+
 // Functional component
-export const SearchField = ({ placeholder, suggestions, func }: Props) => {
+export const SearchField = ({
+  placeholder,
+  profileData,
+  setProfileData,
+  suggestions,
+  filterCategories,
+}: Props) => {
   // State
+  const [searchInput, setSearchInput] = useState("");
 
   // Functions
 
+  // Handle search query input by user
+  const handleUserInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(event.target.value);
+  };
+
+  const updateSearchResults = (result: Profile) => {
+    setProfileData(result);
+  };
   // Return
   return (
-    <>
+    <Container maxWidth="sm">
       <TextField
         placeholder={placeholder}
+        value={searchInput}
+        onChange={handleUserInput}
         fullWidth
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <SearchRoundedIcon onClick={func} />
+              <IconButton
+                onClick={() => {
+                  const result = filterSearchItems(
+                    profiles,
+                    searchInput,
+                    filterCategories
+                  );
+                  updateSearchResults(result);
+                }}
+              >
+                <SearchRoundedIcon />
+              </IconButton>
             </InputAdornment>
           ),
         }}
@@ -47,6 +86,6 @@ export const SearchField = ({ placeholder, suggestions, func }: Props) => {
         <b>Forslag: </b>
         {suggestions}
       </p>
-    </>
+    </Container>
   );
 };
