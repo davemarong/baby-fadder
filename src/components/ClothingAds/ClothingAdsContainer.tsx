@@ -21,7 +21,7 @@ import { ClothingAds } from "./ClothingAds";
 
 type ProfileMapped = {
   name: string;
-  id: number;
+  profileId: number;
   ad: Ad[];
 };
 
@@ -45,7 +45,6 @@ export const ClothingAdsContainer = ({ profileData, children }: Props) => {
               {React.cloneElement(children, { ad: ad })}
             </React.Fragment>
           );
-          // return <ClothingAds key={ad.id} ad={ad} />;
         });
       })}
     </Grid>

@@ -14,7 +14,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 // CSS
-import styles from "./Style.module.css";
+import styles from "../ClothingAds/Style.module.css";
 
 // Components
 import { PreviewButtonAndLink } from "./PreviewButtonAndLink";
@@ -27,6 +27,9 @@ import babyclothes from "../../dummyData/images/babyclothes.jpg";
 
 // Data
 
+// Default values
+import { defaultValue_Ad } from "../../types/DefaultValues";
+
 // TYPE/INTERFACE
 import { Ad } from "../../types/Types";
 type Props = {
@@ -36,20 +39,7 @@ type Props = {
 // Functional component
 export const Preview = (props: Props) => {
   // Props
-  const {
-    ad = {
-      title: "",
-      id: 0,
-      description: "",
-      brand: "",
-      price: 0,
-      gender: "",
-      size: "",
-      color: "",
-      clothingType: "",
-      img: "",
-    },
-  } = props;
+  const { ad = defaultValue_Ad } = props;
   // State
 
   // Functions

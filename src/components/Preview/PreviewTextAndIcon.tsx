@@ -15,7 +15,7 @@ import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded
 // Components
 
 // Styled component
-import { AdText } from "./StyledComp/AdText";
+import { AdText } from "../ReUsable/StyledComp/AdText";
 
 // Utils
 

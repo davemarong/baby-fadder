@@ -1,4 +1,6 @@
 export type Ad = {
+  name: string;
+  profileId: number;
   title: string;
   id: number;
   description: string;
@@ -13,7 +15,7 @@ export type Ad = {
 
 export type Profile = {
   name: string;
-  id: number;
+  profileId: number;
   ad: Ad[];
 }[];
 

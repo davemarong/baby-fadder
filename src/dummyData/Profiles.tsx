@@ -1,9 +1,11 @@
 export const profiles = [
   {
     name: "james",
-    id: 0,
+    profileId: 0,
     ad: [
       {
+        name: "james",
+        profileId: 0,
         id: 0,
         title: "Fin rød bukse",
         description: "Enda en perfekt bukse",
@@ -16,6 +18,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "james",
+        profileId: 0,
         id: 1,
         title: "Fin gul genser",
         description: "Enda en perfekt bukse",
@@ -28,6 +32,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "james",
+        profileId: 0,
         id: 2,
         title: "Fin grønn sko",
         description: "Enda en perfekt bukse",
@@ -40,6 +46,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "james",
+        profileId: 0,
         id: 3,
         title: "Fin blå bukse",
         description: "Enda en perfekt bukse",
@@ -55,9 +63,11 @@ export const profiles = [
   },
   {
     name: "carl",
-    id: 1,
+    profileId: 1,
     ad: [
       {
+        name: "carl",
+        profileId: 1,
         id: 4,
         title: "Fin rød bukse",
         description: "Enda en perfekt bukse",
@@ -70,6 +80,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "carl",
+        profileId: 1,
         id: 5,
         title: "Fin gul genser",
         description: "Enda en perfekt bukse",
@@ -82,6 +94,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "carl",
+        profileId: 1,
         id: 6,
         title: "Fin grønn sko",
         description: "Enda en perfekt bukse",
@@ -94,6 +108,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "carl",
+        profileId: 1,
         id: 7,
         title: "Fin blå bukse",
         description: "Enda en perfekt bukse",
@@ -108,10 +124,12 @@ export const profiles = [
     ],
   },
   {
-    name: "james",
-    id: 0,
+    name: "Dave",
+    profileId: 2,
     ad: [
       {
+        name: "Dave",
+        profileId: 2,
         id: 8,
         title: "Fin rød bukse",
         description: "Enda en perfekt bukse",
@@ -124,6 +142,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "Dave",
+        profileId: 2,
         id: 9,
         title: "Fin gul genser",
         description: "Enda en perfekt bukse",
@@ -136,6 +156,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "Dave",
+        profileId: 2,
         id: 10,
         title: "Fin grønn sko",
         description: "Enda en perfekt bukse",
@@ -148,6 +170,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "Dave",
+        profileId: 2,
         id: 11,
         title: "Fin blå genser",
         description: "Enda en perfekt bukse",
@@ -162,10 +186,12 @@ export const profiles = [
     ],
   },
   {
-    name: "james",
-    id: 0,
+    name: "Durek",
+    profileId: 3,
     ad: [
       {
+        name: "Durek",
+        profileId: 3,
         id: 12,
         title: "Fin rød bukse",
         description: "Enda en perfekt bukse",
@@ -178,6 +204,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "Durek",
+        profileId: 3,
         id: 13,
         title: "Fin gul genser",
         description: "Enda en perfekt bukse",
@@ -190,6 +218,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "Durek",
+        profileId: 3,
         id: 14,
         title: "Fin grønn sko",
         description: "Enda en perfekt bukse",
@@ -202,6 +232,8 @@ export const profiles = [
         img: "",
       },
       {
+        name: "Durek",
+        profileId: 3,
         id: 15,
         title: "Fin blå genser",
         description: "Enda en perfekt bukse",
