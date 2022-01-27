@@ -29,7 +29,6 @@ import babyclothes from "../../dummyData/images/babyclothes.jpg";
 import { Ad } from "../../types/Types";
 import { Profile } from "../../types/Types";
 import { TransparentButton } from "../Buttons/TranparentButton";
-import { PreviewCard } from "./PreviewCard";
 
 type ProfileMapped = {
   name: string;

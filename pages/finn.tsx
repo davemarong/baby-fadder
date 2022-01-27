@@ -17,7 +17,7 @@ import { SelectField } from "../src/components/SelectField/SelectField";
 import { SelectFieldContainer } from "../src/components/SelectField/SelectFieldContainer";
 import { ClothingAds } from "../src/components/ClothingAds/ClothingAds";
 import { ClothingAdsContainer } from "../src/components/ClothingAds/ClothingAdsContainer";
-import { PreviewCard } from "../src/components/ClothingAds/PreviewCard";
+import { Preview } from "../src/components/ClothingAds/Preview";
 
 // Utils
 
@@ -85,7 +85,7 @@ const Finn: NextPage = () => {
       </SelectFieldContainer>
       <ClothingAdsContainer {...ClothingAdsProps}>
         <ClothingAds>
-          <PreviewCard />
+          <Preview />
         </ClothingAds>
       </ClothingAdsContainer>
     </>
