@@ -2,31 +2,32 @@ const FilterOptions = [
   {
     title: "Kjønn",
     options: [
-      {
-        value: "Gutt",
-      },
-      {
-        value: "Jente",
-      },
-      {
-        value: "Unisex",
-      },
+      { label: "Ingen", value: "" },
+      { label: "Gutt", value: "Gutt" },
+      { label: "Jente", value: "Jente" },
+      { label: "Unisex", value: "Unisex" },
     ],
   },
   {
     title: "Størrelse",
-    options: [{ value: "82-92" }, { value: "92-102" }, { value: "102-112" }],
+    options: [
+      { label: "Ingen", value: "" },
+      { label: "82-92", value: "82-92" },
+      { label: "92-102", value: "92-102" },
+      { label: "102-112", value: "102-112" },
+    ],
   },
   {
     title: "Farge",
     options: [
-      { value: "Grønn" },
-      { value: "Rød" },
-      { value: "Gul" },
-      { value: "Svart" },
-      { value: "Grå" },
-      { value: "Hvit" },
-      { value: "Blå" },
+      { label: "Ingen", value: "" },
+      { label: "Grønn", value: "Grønn" },
+      { label: "Rød", value: "Rød" },
+      { label: "Gul", value: "Gul" },
+      { label: "Svart", value: "Svart" },
+      { label: "Grå", value: "Grå" },
+      { label: "Hvit", value: "Hvit" },
+      { label: "Blå", value: "Blå" },
     ],
   },
 ];

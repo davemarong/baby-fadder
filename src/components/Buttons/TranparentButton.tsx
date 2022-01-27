@@ -22,12 +22,13 @@ type Props = {
   func?: () => void;
 };
 // Functional component
-export const MainButton = ({ children, func, icon }: Props) => {
+export const TransparentButton = ({ children, func, icon }: Props) => {
   // Styled component
 
-  const MainButton = styled(Button)`
-    margin: 20px;
-    background-color: #ee7768;
+  const TransparentButton = styled(Button)`
+    color: #373a4d;
+    background-color: transparent;
+    border: 2px solid #ee7768;
     &:hover {
       background-color: #bd5d51;
     }
@@ -37,8 +38,8 @@ export const MainButton = ({ children, func, icon }: Props) => {
 
   // Return
   return (
-    <MainButton variant="contained" onClick={func} endIcon={icon}>
+    <TransparentButton variant="contained" onClick={func} endIcon={icon}>
       {children}
-    </MainButton>
+    </TransparentButton>
   );
 };

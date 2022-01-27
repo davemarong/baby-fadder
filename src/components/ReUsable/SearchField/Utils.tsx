@@ -13,7 +13,9 @@ export const filterSearchItems = (
   filterCategories: FilterCategories
 ): Profile => {
   let searchItems: any;
-  searchItems = filterQuerySearch(profileData, query);
+  if (query) {
+    searchItems = filterQuerySearch(profileData, query);
+  }
   if (filterCategories.gender) {
     searchItems = filterGenderSearch(searchItems, filterCategories);
   }
@@ -23,7 +25,6 @@ export const filterSearchItems = (
   if (filterCategories.size) {
     searchItems = filterSizeSearch(searchItems, filterCategories);
   }
-  console.log(searchItems);
   return searchItems;
 };
 /**

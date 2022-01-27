@@ -39,13 +39,14 @@ type FilterOptions = {
 };
 type Options = {
   value: string;
+  label: string;
 };
 
 // Functional component
 export const SelectField = (props: Props) => {
   // Props
   const {
-    filterOption = { title: "", options: [{ value: "" }] },
+    filterOption = { title: "", options: [{ label: "", value: "" }] },
     filterCategories,
     setFilterCategories,
   } = props;
@@ -80,7 +81,7 @@ export const SelectField = (props: Props) => {
       >
         {filterOption.options.map((option: Options) => (
           <MenuItem key={option.value} value={option.value}>
-            {option.value}
+            {option.label}
           </MenuItem>
         ))}
       </TextField>

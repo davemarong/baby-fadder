@@ -18,19 +18,20 @@ import { styled } from "@mui/system";
 type Props = {
   children: ReactNode;
   bigText: string;
+  fontSize: number;
 };
 // Functional component
-export const AdText = ({ children, bigText }: Props) => {
+export const AdText = ({ children, bigText, fontSize }: Props) => {
   // Styled component
   const AdText = styled("p")`
     margin-top: 10px;
     margin-bottom: 40px;
     text-align: center;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: ${fontSize + 1.1}rem;
     & > small {
       font-weight: lighter;
-      font-size: 0.8rem;
+      font-size: ${fontSize + 0.8}rem;
     }
   `;
 

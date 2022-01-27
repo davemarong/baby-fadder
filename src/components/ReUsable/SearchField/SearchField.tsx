@@ -51,7 +51,9 @@ export const SearchField = ({
   };
 
   const updateSearchResults = (result: Profile) => {
-    setProfileData(result);
+    if (result) {
+      setProfileData(result);
+    }
   };
   // Return
   return (

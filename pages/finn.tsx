@@ -14,8 +14,10 @@ import React, { useState, useEffect } from "react";
 import { Nav } from "../src/components/Nav/Nav";
 import { SearchField } from "../src/components/ReUsable/SearchField/SearchField";
 import { SelectField } from "../src/components/SelectField/SelectField";
-import { ClothingAds } from "../src/components/ClothingAds/ClothingAds";
 import { SelectFieldContainer } from "../src/components/SelectField/SelectFieldContainer";
+import { ClothingAds } from "../src/components/ClothingAds/ClothingAds";
+import { ClothingAdsContainer } from "../src/components/ClothingAds/ClothingAdsContainer";
+import { PreviewCard } from "../src/components/ClothingAds/PreviewCard";
 
 // Utils
 
@@ -40,6 +42,7 @@ const Finn: NextPage = () => {
       ad: [
         {
           title: "",
+          id: 0,
           description: "",
           brand: "",
           price: 0,
@@ -80,7 +83,11 @@ const Finn: NextPage = () => {
       <SelectFieldContainer>
         <SelectField {...SelectFieldProps} />
       </SelectFieldContainer>
-      <ClothingAds {...ClothingAdsProps} />
+      <ClothingAdsContainer {...ClothingAdsProps}>
+        <ClothingAds>
+          <PreviewCard />
+        </ClothingAds>
+      </ClothingAdsContainer>
     </>
   );
 };
