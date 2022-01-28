@@ -4,6 +4,7 @@ export const profiles = [
     id: 0,
     ad: [
       {
+        id: 0,
         title: "Fin rød bukse",
         description: "Enda en perfekt bukse",
         brand: "H&M",
@@ -15,6 +16,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 1,
         title: "Fin gul genser",
         description: "Enda en perfekt bukse",
         brand: "H&M",
@@ -26,6 +28,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 2,
         title: "Fin grønn sko",
         description: "Enda en perfekt bukse",
         brand: "H&M",
@@ -37,6 +40,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 3,
         title: "Fin blå bukse",
         description: "Enda en perfekt bukse",
         brand: "BabyShop",
@@ -54,6 +58,7 @@ export const profiles = [
     id: 1,
     ad: [
       {
+        id: 4,
         title: "Fin rød bukse",
         description: "Enda en perfekt bukse",
         brand: "BabyShop",
@@ -65,6 +70,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 5,
         title: "Fin gul genser",
         description: "Enda en perfekt bukse",
         brand: "BabyShop",
@@ -76,6 +82,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 6,
         title: "Fin grønn sko",
         description: "Enda en perfekt bukse",
         brand: "Cubus",
@@ -87,6 +94,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 7,
         title: "Fin blå bukse",
         description: "Enda en perfekt bukse",
         brand: "Cubus",
@@ -104,6 +112,7 @@ export const profiles = [
     id: 0,
     ad: [
       {
+        id: 8,
         title: "Fin rød bukse",
         description: "Enda en perfekt bukse",
         brand: "Gucci",
@@ -115,6 +124,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 9,
         title: "Fin gul genser",
         description: "Enda en perfekt bukse",
         brand: "Gucci",
@@ -126,6 +136,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 10,
         title: "Fin grønn sko",
         description: "Enda en perfekt bukse",
         brand: "Cubus",
@@ -137,6 +148,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 11,
         title: "Fin blå genser",
         description: "Enda en perfekt bukse",
         brand: "Cubus",
@@ -154,6 +166,7 @@ export const profiles = [
     id: 0,
     ad: [
       {
+        id: 12,
         title: "Fin rød bukse",
         description: "Enda en perfekt bukse",
         brand: "Cubus",
@@ -165,6 +178,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 13,
         title: "Fin gul genser",
         description: "Enda en perfekt bukse",
         brand: "Cubus",
@@ -176,6 +190,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 14,
         title: "Fin grønn sko",
         description: "Enda en perfekt bukse",
         brand: "Cubus",
@@ -187,6 +202,7 @@ export const profiles = [
         img: "",
       },
       {
+        id: 15,
         title: "Fin blå genser",
         description: "Enda en perfekt bukse",
         brand: "Cubus",
