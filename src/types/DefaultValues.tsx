@@ -32,3 +32,8 @@ export const defaultValue_Profile = {
     },
   ],
 };
+export const defaultValue_FilterCategories = {
+  gender: "",
+  size: "",
+  color: "",
+};
