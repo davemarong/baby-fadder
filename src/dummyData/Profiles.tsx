@@ -8,7 +8,8 @@ export const profiles = [
         profileId: 0,
         id: 0,
         title: "Fin rød bukse",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "H&M",
         price: 200,
         gender: "Gutt",
@@ -22,7 +23,8 @@ export const profiles = [
         profileId: 0,
         id: 1,
         title: "Fin gul genser",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "H&M",
         price: 200,
         gender: "Jente",
@@ -36,7 +38,8 @@ export const profiles = [
         profileId: 0,
         id: 2,
         title: "Fin grønn sko",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "H&M",
         price: 200,
         gender: "unisex",
@@ -50,7 +53,8 @@ export const profiles = [
         profileId: 0,
         id: 3,
         title: "Fin blå bukse",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "BabyShop",
         price: 200,
         gender: "Gutt",
@@ -70,7 +74,8 @@ export const profiles = [
         profileId: 1,
         id: 4,
         title: "Fin rød bukse",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "BabyShop",
         price: 200,
         gender: "Jente",
@@ -84,7 +89,8 @@ export const profiles = [
         profileId: 1,
         id: 5,
         title: "Fin gul genser",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "BabyShop",
         price: 200,
         gender: "Jente",
@@ -98,7 +104,8 @@ export const profiles = [
         profileId: 1,
         id: 6,
         title: "Fin grønn sko",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "Cubus",
         price: 200,
         gender: "Jente",
@@ -112,7 +119,8 @@ export const profiles = [
         profileId: 1,
         id: 7,
         title: "Fin blå bukse",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "Cubus",
         price: 200,
         gender: "Gutt",
@@ -132,7 +140,8 @@ export const profiles = [
         profileId: 2,
         id: 8,
         title: "Fin rød bukse",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "Gucci",
         price: 200,
         gender: "Gutt",
@@ -146,7 +155,8 @@ export const profiles = [
         profileId: 2,
         id: 9,
         title: "Fin gul genser",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "Gucci",
         price: 200,
         gender: "Gutt",
@@ -160,7 +170,8 @@ export const profiles = [
         profileId: 2,
         id: 10,
         title: "Fin grønn sko",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "Cubus",
         price: 200,
         gender: "Jente",
@@ -174,7 +185,8 @@ export const profiles = [
         profileId: 2,
         id: 11,
         title: "Fin blå genser",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "Cubus",
         price: 200,
         gender: "Jente",
@@ -194,7 +206,8 @@ export const profiles = [
         profileId: 3,
         id: 12,
         title: "Fin rød bukse",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "Cubus",
         price: 200,
         gender: "Jente",
@@ -208,7 +221,8 @@ export const profiles = [
         profileId: 3,
         id: 13,
         title: "Fin gul genser",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "Cubus",
         price: 200,
         gender: "Gutt",
@@ -222,7 +236,8 @@ export const profiles = [
         profileId: 3,
         id: 14,
         title: "Fin grønn sko",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "Cubus",
         price: 200,
         gender: "Gutt",
@@ -236,7 +251,8 @@ export const profiles = [
         profileId: 3,
         id: 15,
         title: "Fin blå genser",
-        description: "Enda en perfekt bukse",
+        description:
+          "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
         brand: "Cubus",
         price: 200,
         gender: "Gutt",

@@ -24,13 +24,20 @@ import { Preview } from "../../src/components/Preview/Preview";
 // Data
 import { profiles } from "../../src/dummyData/Profiles";
 
-// TYPE/INTERFACE
-import { Profile } from "../../src/types/Types";
-
 // Default value
 import { defaultValue_Profile } from "../../src/types/DefaultValues";
+
+// TYPE/INTERFACE
+import { Profile } from "../../src/types/Types";
+import { Ad } from "../../src/types/Types";
+import { PreviewButtonAndLink } from "../../src/components/Preview/PreviewButtonAndLink";
+type Props = {
+  currentAd: Ad;
+  setCurrentAd: (value: Ad) => void;
+};
+
 // Functional component
-const Finn: NextPage = () => {
+const Finn = ({ currentAd, setCurrentAd }: Props) => {
   // State
   const [filterCategories, setFilterCategories] = useState({
     gender: "",
@@ -60,6 +67,9 @@ const Finn: NextPage = () => {
   const ClothingAdsProps = {
     profileData: profileData,
   };
+  const PreviewButtonAndLinkProps = {
+    setCurrentAd: setCurrentAd,
+  };
   // Return
   return (
     <>
@@ -70,7 +80,9 @@ const Finn: NextPage = () => {
       </SelectFieldContainer>
       <ClothingAdsContainer {...ClothingAdsProps}>
         <ClothingAds>
-          <Preview />
+          <Preview>
+            <PreviewButtonAndLink {...PreviewButtonAndLinkProps} />
+          </Preview>
         </ClothingAds>
       </ClothingAdsContainer>
     </>

@@ -44,7 +44,7 @@ export const ClothingAds = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   // Functions
   const toggleModal = () => {
-    setIsOpen(false);
+    setIsOpen(!isOpen);
   };
   const openModal = () => {
     setIsOpen(true);
@@ -64,7 +64,7 @@ export const ClothingAds = (props: Props) => {
         xs={6}
       >
         <MuiModal open={isOpen} func={toggleModal} width="sm">
-          {React.cloneElement(children, { ad: ad })}
+          {React.cloneElement(children, { ad: ad, toggleModal: toggleModal })}
         </MuiModal>
         <Image
           className={styles.ad_image}
@@ -76,7 +76,7 @@ export const ClothingAds = (props: Props) => {
         <AdText fontSize={0} bigText={ad.title}>
           {ad.brand} - {ad.size} - {ad.price}kr
         </AdText>
-        <TransparentButton func={openModal}>Se mer</TransparentButton>
+        <TransparentButton func={toggleModal}>Se mer</TransparentButton>
       </Grid>
     </>
   );

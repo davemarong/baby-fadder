@@ -11,6 +11,7 @@ import IconButton from "@mui/material/IconButton";
 
 // Icons
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
+import { HearthIcon } from "../../assets/icons/MuiIcons";
 
 // Components
 
@@ -43,9 +44,7 @@ export const PreviewTextAndIcon = ({ ad }: Props) => {
           item
           xs={3}
         >
-          <IconButton size="large">
-            <FavoriteBorderRoundedIcon fontSize="inherit" />
-          </IconButton>
+          <IconButton>{HearthIcon}</IconButton>
         </Grid>
         <Grid item xs={6}>
           <AdText fontSize={0.5} bigText={ad.title}>
@@ -53,9 +52,9 @@ export const PreviewTextAndIcon = ({ ad }: Props) => {
           </AdText>
         </Grid>
         <Grid item xs={3}></Grid>
-      </Grid>
-      <Grid container justifyContent="center" item xs={8}>
-        <Typography>{ad.description}</Typography>
+        <Grid item xs={8}>
+          <Typography>{ad.description}</Typography>
+        </Grid>
       </Grid>
     </>
   );

@@ -4,6 +4,7 @@
 import Image from "next/image";
 
 // React
+import React, { ReactNode } from "react";
 
 // Material UI
 import Card from "@mui/material/Card";
@@ -12,12 +13,11 @@ import IconButton from "@mui/material/IconButton";
 
 // Icons
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-
+import { CloseIcon } from "../../assets/icons/MuiIcons";
 // CSS
 import styles from "../ClothingAds/Style.module.css";
 
 // Components
-import { PreviewButtonAndLink } from "./PreviewButtonAndLink";
 import { PreviewTextAndIcon } from "./PreviewTextAndIcon";
 
 // Utils
@@ -33,13 +33,15 @@ import { defaultValue_Ad } from "../../types/DefaultValues";
 // TYPE/INTERFACE
 import { Ad } from "../../types/Types";
 type Props = {
+  children: any;
   ad?: Ad;
+  toggleModal?: () => void;
 };
 
 // Functional component
 export const Preview = (props: Props) => {
   // Props
-  const { ad = defaultValue_Ad } = props;
+  const { ad = defaultValue_Ad, children, toggleModal } = props;
   // State
 
   // Functions
@@ -49,9 +51,7 @@ export const Preview = (props: Props) => {
     <Card>
       <Grid container direction="column" alignItems="center">
         <Grid container justifyContent="flex-end">
-          <IconButton>
-            <CloseRoundedIcon />
-          </IconButton>
+          <IconButton onClick={toggleModal}>{CloseIcon}</IconButton>
         </Grid>
         <Image
           className={styles.ad_image}
@@ -61,7 +61,7 @@ export const Preview = (props: Props) => {
           alt=""
         />
         <PreviewTextAndIcon ad={ad} />
-        <PreviewButtonAndLink />
+        {React.cloneElement(children, { ad: ad })}
       </Grid>
     </Card>
   );
