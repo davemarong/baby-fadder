@@ -13,13 +13,13 @@ import IconButton from "@mui/material/IconButton";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 // Icons
-import { HearthIcon } from "../../../src/assets/icons/MuiIcons";
+import { HearthIcon } from "../../assets/icons/MuiIcons";
 
 // CSS
 import styles from "../../../src/components/ClothingAds/Style.module.css";
 
 // Components
-import { MainButton } from "../../../src/components/Buttons/MainButton";
+import { MainButton } from "../Buttons/MainButton";
 import { CurrentAdProductText } from "./CurrentAdProductText";
 
 // Images
@@ -28,13 +28,13 @@ import babyclothes from "../../../src/dummyData/images/babyclothes.jpg";
 // Data
 
 // TYPE/INTERFACE
-import { Ad } from "../../../src/types/Types";
+import { Ad } from "../../types/Types";
 type Props = {
   currentAd: Ad;
   children: ReactNode;
 };
 // Functional component
-export const CurrentAdContent = ({ currentAd, children }: Props) => {
+export const CurrentAdContentDesktop = ({ currentAd, children }: Props) => {
   // State
 
   // Media Query

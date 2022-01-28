@@ -11,11 +11,12 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
+// Icon
+import { ArrowDownIcon, ArrowUpIcon } from "../../assets/icons/MuiIcons";
 // Components
 import { MuiModal } from "../ReUsable/Modal/MuiModal";
 import { TransparentButton } from "../Buttons/TranparentButton";
 import { PreviewButtonAndLink } from "../Preview/PreviewButtonAndLink";
-
 // Styled component
 import { AdText } from "../ReUsable/StyledComp/AdText";
 
@@ -41,7 +42,7 @@ type Props = {
   setCurrentAd: (value: Ad) => void;
 };
 // Functional component
-export const ClothingAds = (props: Props) => {
+export const ClothingAdMobile = (props: Props) => {
   // Props
   const { children, setCurrentAd, ad = defaultValue_Ad } = props;
 
@@ -72,32 +73,30 @@ export const ClothingAds = (props: Props) => {
         direction="column"
         alignItems="center"
         item
-        md={3}
-        sm={4}
-        xs={6}
+        xs={12}
       >
         <Image
           className={styles.ad_image}
           src={babyclothes}
-          height={200}
-          width={150}
+          height={250}
+          width={225}
           alt=""
         />
         <AdText fontSize={0} bigText={ad.title}>
           {ad.brand} - {ad.size} - {ad.price}kr
         </AdText>
-        {/* {mobileMatches && mobilePreview && (
-          <>
+        {mobilePreview && (
+          <Grid style={{ margin: "0 20px" }}>
             <Typography>{ad.description}</Typography>
-            <PreviewButtonAndLink setCurrentAd={setCurrentAd} />
-          </>
+            <PreviewButtonAndLink setCurrentAd={setCurrentAd} ad={ad} />
+          </Grid>
         )}
-        {desktopMatches && ( */}
-        <MuiModal open={isOpen} func={toggleModal} width="sm">
-          {React.cloneElement(children, { ad: ad, toggleModal: toggleModal })}
-        </MuiModal>
-        {/* )} */}
-        <TransparentButton func={toggleModal}>Se mer</TransparentButton>
+        <TransparentButton
+          func={toggleMobilePreview}
+          icon={mobilePreview ? ArrowUpIcon : ArrowDownIcon}
+        >
+          Se mer
+        </TransparentButton>
       </Grid>
     </>
   );

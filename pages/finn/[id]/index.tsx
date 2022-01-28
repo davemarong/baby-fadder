@@ -5,10 +5,11 @@
 // React
 
 // Material UI
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 // Components
 import { CurrentAdContainer } from "../../../src/components/CurrentAd/CurrentAdContainer";
-import { CurrentAdContent } from "../../../src/components/CurrentAd/CurrentAdContent";
+import { CurrentAdContentDesktop } from "../../../src/components/CurrentAd/CurrentAdContentDesktop";
 import { CurrentAdContentMobile } from "../../../src/components/CurrentAd/CurrentAdContentMobile";
 import { CurrentAdProductText } from "../../../src/components/CurrentAd/CurrentAdProductText";
 
@@ -25,6 +26,12 @@ type Props = {
 const CurrentAdPage = ({ currentAd }: Props) => {
   // State
 
+  // Media Query
+  const matches = useMediaQuery("(min-width:600px)");
+  const CurrentAdContent = matches
+    ? CurrentAdContentDesktop
+    : CurrentAdContentMobile;
+
   // Functions
 
   // Props object
@@ -34,15 +41,9 @@ const CurrentAdPage = ({ currentAd }: Props) => {
   // Return
   return (
     <CurrentAdContainer {...CurrentAdProp}>
-      {/* Desktop */}
       <CurrentAdContent {...CurrentAdProp}>
         <CurrentAdProductText {...CurrentAdProp} />
       </CurrentAdContent>
-
-      {/* Mobile */}
-      <CurrentAdContentMobile {...CurrentAdProp}>
-        <CurrentAdProductText {...CurrentAdProp} />
-      </CurrentAdContentMobile>
     </CurrentAdContainer>
   );
 };

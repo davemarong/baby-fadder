@@ -42,13 +42,13 @@ export const PreviewButtonAndLink = (props: Props) => {
   // Return
   return (
     <Grid container alignItems="center">
-      <Grid item xs={5}></Grid>
-      <Grid item xs={2}>
+      <Grid item xs={0} sm={5}></Grid>
+      <Grid item xs={4} sm={2}>
         <Typography onClick={redirectToAdPage} align="center">
           Les mer
         </Typography>
       </Grid>
-      <Grid container justifyContent="flex-end" item xs={5}>
+      <Grid container justifyContent="flex-end" item xs={8} sm={5}>
         <MainButton>Send melding</MainButton>
       </Grid>
     </Grid>

@@ -7,6 +7,7 @@ import type { NextPage } from "next";
 import React, { useState, useEffect } from "react";
 
 // Material UI
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 // Icon
 
@@ -16,6 +17,7 @@ import { SearchField } from "../../src/components/ReUsable/SearchField/SearchFie
 import { SelectField } from "../../src/components/SelectField/SelectField";
 import { SelectFieldContainer } from "../../src/components/SelectField/SelectFieldContainer";
 import { ClothingAds } from "../../src/components/ClothingAds/ClothingAds";
+import { ClothingAdMobile } from "../../src/components/ClothingAds/ClothingAdMobile";
 import { ClothingAdsContainer } from "../../src/components/ClothingAds/ClothingAdsContainer";
 import { Preview } from "../../src/components/Preview/Preview";
 
@@ -25,7 +27,10 @@ import { Preview } from "../../src/components/Preview/Preview";
 import { profiles } from "../../src/dummyData/Profiles";
 
 // Default value
-import { defaultValue_Profile } from "../../src/types/DefaultValues";
+import {
+  defaultValue_Profile,
+  defaultValue_FilterCategories,
+} from "../../src/types/DefaultValues";
 
 // TYPE/INTERFACE
 import { Profile } from "../../src/types/Types";
@@ -39,19 +44,14 @@ type Props = {
 // Functional component
 const Finn = ({ currentAd, setCurrentAd }: Props) => {
   // State
-  const [filterCategories, setFilterCategories] = useState({
-    gender: "",
-    size: "",
-    color: "",
-  });
-  const [profileData, setProfileData] = useState<Profile>([
-    defaultValue_Profile,
-  ]);
+  const [filterCategories, setFilterCategories] = useState(
+    defaultValue_FilterCategories
+  );
+  const [profileData, setProfileData] = useState<Profile>(profiles);
 
-  // UseEffect
-  useEffect(() => {
-    setProfileData(profiles);
-  }, []);
+  // Media Query
+  const matches = useMediaQuery("(min-width:600px)");
+  const ClothingAd = matches ? ClothingAds : ClothingAdMobile;
 
   // Props object
   const SearchFieldProps = {
@@ -64,12 +64,13 @@ const Finn = ({ currentAd, setCurrentAd }: Props) => {
     setFilterCategories: setFilterCategories,
     filterCategories: filterCategories,
   };
-  const ClothingAdsProps = {
+  const ClothingAdsContainerProps = {
     profileData: profileData,
   };
-  const PreviewButtonAndLinkProps = {
+  const setCurrentAdProp = {
     setCurrentAd: setCurrentAd,
   };
+
   // Return
   return (
     <>
@@ -78,12 +79,12 @@ const Finn = ({ currentAd, setCurrentAd }: Props) => {
       <SelectFieldContainer>
         <SelectField {...SelectFieldProps} />
       </SelectFieldContainer>
-      <ClothingAdsContainer {...ClothingAdsProps}>
-        <ClothingAds>
+      <ClothingAdsContainer {...ClothingAdsContainerProps}>
+        <ClothingAd {...setCurrentAdProp}>
           <Preview>
-            <PreviewButtonAndLink {...PreviewButtonAndLinkProps} />
+            <PreviewButtonAndLink {...setCurrentAdProp} />
           </Preview>
-        </ClothingAds>
+        </ClothingAd>
       </ClothingAdsContainer>
     </>
   );
