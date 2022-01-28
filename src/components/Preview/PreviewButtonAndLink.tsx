@@ -1,7 +1,7 @@
 // IMPORT
 
 // Next
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 // React
 
@@ -16,23 +16,36 @@ import { MainButton } from "../Buttons/MainButton";
 
 // Data
 
-// TYPE/INTERFACE
+// Default values
+import { defaultValue_Ad } from "../../types/DefaultValues";
 
+// TYPE/INTERFACE
+import { Ad } from "../../types/Types";
+type Props = {
+  setCurrentAd: (value: Ad) => void;
+  ad?: Ad;
+};
 // Functional component
-export const PreviewButtonAndLink = () => {
-  // State
+export const PreviewButtonAndLink = (props: Props) => {
+  // Props
+  const { setCurrentAd, ad = defaultValue_Ad } = props;
+
+  // Router
+  const router = useRouter();
 
   // Functions
-
+  const redirectToAdPage = () => {
+    setCurrentAd(ad);
+    const slug = ad.title.split(" ").join("_");
+    router.push(`/finn/${slug}`);
+  };
   // Return
   return (
     <Grid container alignItems="center">
       <Grid item xs={5}></Grid>
       <Grid item xs={2}>
-        <Typography align="center">
-          <Link href="">
-            <a>Les mer</a>
-          </Link>
+        <Typography onClick={redirectToAdPage} align="center">
+          Les mer
         </Typography>
       </Grid>
       <Grid container justifyContent="flex-end" item xs={5}>
