@@ -10,6 +10,12 @@ import Grid from "@mui/material/Grid";
 
 // Components
 
+// Styled component
+import { AdText } from "./StyledComp/AdText";
+
+// CSS
+import styles from "./Style.module.css";
+
 // Utils
 
 // Data
@@ -33,23 +39,35 @@ type Props = {
 // Functional component
 export const ClothingAds = ({ profileData }: Props) => {
   // State
-
   // Functions
 
   // Return
   return (
-    <Grid container justifyContent="space-evenly" spacing={4}>
+    <Grid container>
       {profileData.map((profile: ProfileMapped) => {
         return profile.ad.map((ad: Ad) => {
           return (
-            <Grid key={ad.title} item md={4} sm={6}>
-              <Image src={babyclothes} height={200} width={150} alt="" />
-              <p>
-                <b>{ad.title}</b>
-              </p>
-              <p>
-                {ad.brand} - {ad.size} - {ad.price}kr{" "}
-              </p>
+            <Grid
+              style={{ marginTop: 50 }}
+              key={ad.title}
+              container
+              direction="column"
+              alignItems="center"
+              item
+              md={3}
+              sm={4}
+              xs={6}
+            >
+              <Image
+                className={styles.ad_image}
+                src={babyclothes}
+                height={200}
+                width={150}
+                alt=""
+              />
+              <AdText bigText={ad.title}>
+                {ad.brand} - {ad.size} - {ad.price}kr
+              </AdText>
             </Grid>
           );
         });
