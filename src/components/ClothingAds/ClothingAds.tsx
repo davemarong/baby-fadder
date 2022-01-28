@@ -11,9 +11,10 @@ import Grid from "@mui/material/Grid";
 
 // Components
 import { MuiModal } from "../ReUsable/Modal/MuiModal";
+import { TransparentButton } from "../Buttons/TranparentButton";
 
 // Styled component
-import { AdText } from "./StyledComp/AdText";
+import { AdText } from "../ReUsable/StyledComp/AdText";
 
 // CSS
 import styles from "./Style.module.css";
@@ -25,16 +26,12 @@ import styles from "./Style.module.css";
 // Images
 import babyclothes from "../../dummyData/images/babyclothes.jpg";
 
+// Default values
+import { defaultValue_Ad } from "../../types/DefaultValues";
+
 // TYPE/INTERFACE
 import { Ad } from "../../types/Types";
-import { Profile } from "../../types/Types";
-import { TransparentButton } from "../Buttons/TranparentButton";
 
-type ProfileMapped = {
-  name: string;
-  id: number;
-  ad: Ad[];
-};
 type Props = {
   children: any;
   ad?: Ad;
@@ -42,21 +39,7 @@ type Props = {
 // Functional component
 export const ClothingAds = (props: Props) => {
   // Props
-  const {
-    children,
-    ad = {
-      title: "",
-      id: 0,
-      description: "",
-      brand: "",
-      price: 0,
-      gender: "",
-      size: "",
-      color: "",
-      clothingType: "",
-      img: "",
-    },
-  } = props;
+  const { children, ad = defaultValue_Ad } = props;
   // State
   const [isOpen, setIsOpen] = useState(false);
   // Functions

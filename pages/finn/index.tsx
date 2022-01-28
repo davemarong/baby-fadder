@@ -11,22 +11,24 @@ import React, { useState, useEffect } from "react";
 // Icon
 
 // Components
-import { Nav } from "../src/components/Nav/Nav";
-import { SearchField } from "../src/components/ReUsable/SearchField/SearchField";
-import { SelectField } from "../src/components/SelectField/SelectField";
-import { SelectFieldContainer } from "../src/components/SelectField/SelectFieldContainer";
-import { ClothingAds } from "../src/components/ClothingAds/ClothingAds";
-import { ClothingAdsContainer } from "../src/components/ClothingAds/ClothingAdsContainer";
-import { Preview } from "../src/components/ClothingAds/Preview";
+import { Nav } from "../../src/components/Nav/Nav";
+import { SearchField } from "../../src/components/ReUsable/SearchField/SearchField";
+import { SelectField } from "../../src/components/SelectField/SelectField";
+import { SelectFieldContainer } from "../../src/components/SelectField/SelectFieldContainer";
+import { ClothingAds } from "../../src/components/ClothingAds/ClothingAds";
+import { ClothingAdsContainer } from "../../src/components/ClothingAds/ClothingAdsContainer";
+import { Preview } from "../../src/components/Preview/Preview";
 
 // Utils
 
 // Data
-import { profiles } from "../src/dummyData/Profiles";
+import { profiles } from "../../src/dummyData/Profiles";
 
 // TYPE/INTERFACE
-import { Profile } from "../src/types/Types";
+import { Profile } from "../../src/types/Types";
 
+// Default value
+import { defaultValue_Profile } from "../../src/types/DefaultValues";
 // Functional component
 const Finn: NextPage = () => {
   // State
@@ -36,24 +38,7 @@ const Finn: NextPage = () => {
     color: "",
   });
   const [profileData, setProfileData] = useState<Profile>([
-    {
-      name: "",
-      id: 0,
-      ad: [
-        {
-          title: "",
-          id: 0,
-          description: "",
-          brand: "",
-          price: 0,
-          gender: "",
-          size: "",
-          color: "",
-          clothingType: "",
-          img: "",
-        },
-      ],
-    },
+    defaultValue_Profile,
   ]);
 
   // UseEffect
