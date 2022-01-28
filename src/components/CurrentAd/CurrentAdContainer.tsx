@@ -14,8 +14,6 @@ import Container from "@mui/material/Container";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 // Components
-import { CurrentAdContent } from "./CurrentAdContent";
-import { CurrentAdContentMobile } from "./CurrentAdContentMobile";
 
 // Icons
 import { BackArrowIcon } from "../../../src/assets/icons/MuiIcons";
