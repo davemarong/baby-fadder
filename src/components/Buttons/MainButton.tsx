@@ -8,6 +8,7 @@ import { ReactNode } from "react";
 // Material UI
 import { styled } from "@mui/system";
 import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 
 // Components
 
@@ -19,10 +20,16 @@ import Button from "@mui/material/Button";
 type Props = {
   children: ReactNode;
   icon?: any;
+  align?: string;
   func?: () => void;
 };
 // Functional component
-export const MainButton = ({ children, func, icon }: Props) => {
+export const MainButton = ({
+  children,
+  func,
+  icon,
+  align = "flex-end",
+}: Props) => {
   // Styled component
 
   const MainButton = styled(Button)`
@@ -37,8 +44,10 @@ export const MainButton = ({ children, func, icon }: Props) => {
 
   // Return
   return (
-    <MainButton variant="contained" onClick={func} endIcon={icon}>
-      {children}
-    </MainButton>
+    <Grid container justifyContent={align}>
+      <MainButton variant="contained" onClick={func} endIcon={icon}>
+        {children}
+      </MainButton>
+    </Grid>
   );
 };

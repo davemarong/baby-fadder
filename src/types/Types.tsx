@@ -24,3 +24,11 @@ export type FilterCategories = {
   size: string;
   color: string;
 };
+export type FilterOption = {
+  title: string;
+  titleNorwegian: string;
+  options: {
+    label: string;
+    value: string;
+  }[];
+};

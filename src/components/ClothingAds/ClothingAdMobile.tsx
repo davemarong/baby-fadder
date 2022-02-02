@@ -91,12 +91,11 @@ export const ClothingAdMobile = (props: Props) => {
             <PreviewButtonAndLink setCurrentAd={setCurrentAd} ad={ad} />
           </Grid>
         )}
-        <TransparentButton
-          func={toggleMobilePreview}
-          icon={mobilePreview ? ArrowUpIcon : ArrowDownIcon}
-        >
-          Se mer
-        </TransparentButton>
+        {!mobilePreview && (
+          <TransparentButton func={toggleMobilePreview} icon={ArrowDownIcon}>
+            Se mer
+          </TransparentButton>
+        )}
       </Grid>
     </>
   );

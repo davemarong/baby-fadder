@@ -1,6 +1,7 @@
 const FilterOptions = [
   {
-    title: "Kjønn",
+    title: "gender",
+    titleNorwegian: "Kjønn",
     options: [
       { label: "Ingen", value: "" },
       { label: "Gutt", value: "Gutt" },
@@ -9,7 +10,8 @@ const FilterOptions = [
     ],
   },
   {
-    title: "Størrelse",
+    title: "size",
+    titleNorwegian: "Størrelse",
     options: [
       { label: "Ingen", value: "" },
       { label: "82-92", value: "82-92" },
@@ -18,7 +20,8 @@ const FilterOptions = [
     ],
   },
   {
-    title: "Farge",
+    title: "color",
+    titleNorwegian: "Farge",
     options: [
       { label: "Ingen", value: "" },
       { label: "Grønn", value: "Grønn" },
