@@ -57,15 +57,10 @@ export const SelectField = (props: Props) => {
   // Functions
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectValue(event.target.value);
-    if (filterOption.title === "Kjønn") {
-      setFilterCategories({ ...filterCategories, gender: event.target.value });
-    }
-    if (filterOption.title === "Størrelse") {
-      setFilterCategories({ ...filterCategories, size: event.target.value });
-    }
-    if (filterOption.title === "Farge") {
-      setFilterCategories({ ...filterCategories, color: event.target.value });
-    }
+    setFilterCategories({
+      ...filterCategories,
+      [filterOption.title]: event.target.value,
+    });
   };
 
   // Return
