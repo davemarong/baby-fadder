@@ -25,6 +25,7 @@ import InputData from "../src/dummyData/InputData";
 // Default value
 import { defaultValue_Ad } from "../src/types/DefaultValues";
 import { MainButton } from "../src/components/Buttons/MainButton";
+import { UploadImage } from "../src/components/UploadImage/UploadImage";
 
 // TYPE/INTERFACE
 
@@ -47,6 +48,7 @@ const LeggUt = () => {
         <SelectFieldContainer>
           <SelectField newAd={newAd} setNewAd={setNewAd} />
         </SelectFieldContainer>
+        <UploadImage />
         <MainButton>Publiser</MainButton>
       </Container>
     </>
