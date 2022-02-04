@@ -11,6 +11,8 @@ export type Ad = {
   color: string;
   clothingType: string;
   img: string;
+  town: string;
+  fabric: string;
 };
 
 export type Profile = {
@@ -23,6 +25,8 @@ export type FilterCategories = {
   gender: string;
   size: string;
   color: string;
+  town: string;
+  fabric: string;
 };
 export type FilterOption = {
   title: string;

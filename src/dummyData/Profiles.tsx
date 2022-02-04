@@ -17,6 +17,8 @@ export const profiles = [
         color: "Rød",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Oslo",
       },
       {
         name: "james",
@@ -32,6 +34,8 @@ export const profiles = [
         color: "Grønn",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Oslo",
       },
       {
         name: "james",
@@ -47,6 +51,8 @@ export const profiles = [
         color: "Blå",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Oslo",
       },
       {
         name: "james",
@@ -62,6 +68,8 @@ export const profiles = [
         color: "Grå",
         clothingType: "bukse",
         img: "",
+        fabric: "Ull",
+        town: "Oslo",
       },
     ],
   },
@@ -83,6 +91,8 @@ export const profiles = [
         color: "Svart",
         clothingType: "bukse",
         img: "",
+        fabric: "Ull",
+        town: "Oslo",
       },
       {
         name: "carl",
@@ -98,6 +108,8 @@ export const profiles = [
         color: "Hvit",
         clothingType: "bukse",
         img: "",
+        fabric: "Ull",
+        town: "Tromsø",
       },
       {
         name: "carl",
@@ -113,6 +125,8 @@ export const profiles = [
         color: "Gul",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Tromsø",
       },
       {
         name: "carl",
@@ -128,6 +142,8 @@ export const profiles = [
         color: "Rød",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Tromsø",
       },
     ],
   },
@@ -149,6 +165,8 @@ export const profiles = [
         color: "Rød",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Oslo",
       },
       {
         name: "Dave",
@@ -164,6 +182,8 @@ export const profiles = [
         color: "Rød",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Oslo",
       },
       {
         name: "Dave",
@@ -179,6 +199,8 @@ export const profiles = [
         color: "Rød",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Skien",
       },
       {
         name: "Dave",
@@ -194,6 +216,8 @@ export const profiles = [
         color: "Rød",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Skien",
       },
     ],
   },
@@ -215,6 +239,8 @@ export const profiles = [
         color: "Rød",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Skien",
       },
       {
         name: "Durek",
@@ -230,6 +256,8 @@ export const profiles = [
         color: "Rød",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Oslo",
       },
       {
         name: "Durek",
@@ -245,6 +273,8 @@ export const profiles = [
         color: "Rød",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Oslo",
       },
       {
         name: "Durek",
@@ -260,6 +290,8 @@ export const profiles = [
         color: "Rød",
         clothingType: "bukse",
         img: "",
+        fabric: "Bomull",
+        town: "Oslo",
       },
     ],
   },

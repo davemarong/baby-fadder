@@ -8,6 +8,7 @@ import React, { useState, useEffect } from "react";
 
 // Material UI
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Container from "@mui/material/Container";
 
 // Icon
 
@@ -20,6 +21,7 @@ import { ClothingAds } from "../../src/components/ClothingAds/ClothingAds";
 import { ClothingAdMobile } from "../../src/components/ClothingAds/ClothingAdMobile";
 import { ClothingAdsContainer } from "../../src/components/ClothingAds/ClothingAdsContainer";
 import { Preview } from "../../src/components/Preview/Preview";
+import { PreviewButtonAndLink } from "../../src/components/Preview/PreviewButtonAndLink";
 
 // Utils
 
@@ -35,7 +37,6 @@ import {
 // TYPE/INTERFACE
 import { Profile } from "../../src/types/Types";
 import { Ad } from "../../src/types/Types";
-import { PreviewButtonAndLink } from "../../src/components/Preview/PreviewButtonAndLink";
 type Props = {
   currentAd: Ad;
   setCurrentAd: (value: Ad) => void;
@@ -73,7 +74,7 @@ const Finn = ({ currentAd, setCurrentAd }: Props) => {
 
   // Return
   return (
-    <>
+    <Container>
       <Nav />
       <SearchField {...SearchFieldProps} />
       <SelectFieldContainer>
@@ -86,7 +87,7 @@ const Finn = ({ currentAd, setCurrentAd }: Props) => {
           </Preview>
         </ClothingAd>
       </ClothingAdsContainer>
-    </>
+    </Container>
   );
 };
 export default Finn;

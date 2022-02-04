@@ -17,24 +17,16 @@ import Grid from "@mui/material/Grid";
 // Data
 
 // TYPE/INTERFACE
+import { FilterCategories } from "../../types/Types";
 interface Props {
   filterOption?: FilterOptions;
-  filterCategories: {
-    gender: string;
-    size: string;
-    color: string;
-  };
-  setFilterCategories: React.Dispatch<
-    React.SetStateAction<{
-      gender: string;
-      size: string;
-      color: string;
-    }>
-  >;
+  filterCategories: FilterCategories;
+  setFilterCategories: React.Dispatch<React.SetStateAction<FilterCategories>>;
 }
 
 type FilterOptions = {
   title: string;
+  titleNorwegian: string;
   options: Options[];
 };
 type Options = {
@@ -46,7 +38,11 @@ type Options = {
 export const SelectField = (props: Props) => {
   // Props
   const {
-    filterOption = { title: "", options: [{ label: "", value: "" }] },
+    filterOption = {
+      title: "",
+      titleNorwegian: "",
+      options: [{ label: "", value: "" }],
+    },
     filterCategories,
     setFilterCategories,
   } = props;
@@ -65,11 +61,11 @@ export const SelectField = (props: Props) => {
 
   // Return
   return (
-    <Grid item md={2} sm={3} xs={6}>
+    <Grid item md={2} sm={3} xs={5} style={{ margin: "0 10px" }}>
       <TextField
         fullWidth
         select
-        label={filterOption.title}
+        label={filterOption.titleNorwegian}
         value={selectValue}
         onChange={handleChange}
         key={filterOption.title}

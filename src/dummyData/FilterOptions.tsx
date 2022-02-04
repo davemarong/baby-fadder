@@ -33,18 +33,31 @@ const FilterOptions = [
       { label: "Blå", value: "Blå" },
     ],
   },
-  // {
-  //   title: "fabric",
-  //   titleNorwegian: "Stoff",
-  //   options: [
-  //     { label: "Ingen", value: "" },
-  //     { label: "Bomull", value: "Bomull" },
-  //     { label: "Silke", value: "Silke" },
-  //     { label: "Polyester", value: "Polyester" },
-  //     { label: "Ull", value: "Ull" },
-  //     { label: "Mix", value: "Mix" },
-  //     { label: "Syntetisk", value: "Syntetisk" },
-  //   ],
-  // },
+  {
+    title: "fabric",
+    titleNorwegian: "Stoff",
+    options: [
+      { label: "Ingen", value: "" },
+      { label: "Bomull", value: "Bomull" },
+      { label: "Silke", value: "Silke" },
+      { label: "Polyester", value: "Polyester" },
+      { label: "Ull", value: "Ull" },
+      { label: "Mix", value: "Mix" },
+      { label: "Syntetisk", value: "Syntetisk" },
+    ],
+  },
+  {
+    title: "town",
+    titleNorwegian: "Sted",
+    options: [
+      { label: "Ingen", value: "" },
+      { label: "Oslo", value: "Oslo" },
+      { label: "Bergen", value: "Bergen" },
+      { label: "Kristiansand", value: "Kristiansand" },
+      { label: "Trondheim", value: "Trondheim" },
+      { label: "Skien", value: "Skien" },
+      { label: "Tromsø", value: "Tromsø" },
+    ],
+  },
 ];
 export default FilterOptions;
