@@ -32,7 +32,11 @@ interface Props {
   setProfileData: React.Dispatch<React.SetStateAction<Profile>>;
   filterCategories: FilterCategories;
 }
-
+type Property = {
+  filterCategories: {
+    property: { [key: string]: any };
+  };
+};
 // Functional component
 export const SearchField = ({
   placeholder,
@@ -49,12 +53,13 @@ export const SearchField = ({
   const handleUserInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(event.target.value);
   };
-
+  // Update search results on page
   const updateSearchResults = (result: Profile) => {
     if (result) {
       setProfileData(result);
     }
   };
+
   // Return
   return (
     <Container maxWidth="sm">
@@ -73,7 +78,6 @@ export const SearchField = ({
                     searchInput,
                     filterCategories
                   );
-                  console.log(result);
                   updateSearchResults(result);
                 }}
               >

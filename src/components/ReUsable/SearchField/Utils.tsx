@@ -1,5 +1,12 @@
+// Imports
+
+// Types
 import { Profile } from "../../../types/Types";
 import { FilterCategories } from "../../../types/Types";
+type FilterCategoriesDynamicProperty = {
+  [key: string]: string;
+};
+
 /**
  * Function for filtering search result by query
  * @param {Profile} profileData Data from all profiles
@@ -10,23 +17,49 @@ import { FilterCategories } from "../../../types/Types";
 export const filterSearchItems = (
   profileData: Profile,
   query: string,
-  filterCategories: FilterCategories
+  filterCategories: FilterCategoriesDynamicProperty
 ): Profile => {
-  let searchItems: any;
+  let searchItems = profileData;
   if (query) {
     searchItems = filterQuerySearch(profileData, query);
   }
-  if (filterCategories.gender) {
-    searchItems = filterGenderSearch(searchItems, filterCategories);
-  }
-  if (filterCategories.color) {
-    searchItems = filterColorSearch(searchItems, filterCategories);
-  }
-  if (filterCategories.size) {
-    searchItems = filterSizeSearch(searchItems, filterCategories);
-  }
+  Object.keys(filterCategories).forEach((category) => {
+    if (filterCategories[category]) {
+      searchItems = filterCategorySearch(
+        searchItems,
+        filterCategories,
+        category
+      );
+    }
+  });
+
   return searchItems;
 };
+
+/**
+ * Function for filtering search result by categories
+ * @param {Profile} profileData Data from all profiles
+ * @param {FilterCategories} filterCategories All categories user can filter from (gender, size, color...)
+ * @param {string} property Dynamic property/bracket notation for the filterCategories object
+ * @return {Profile} A filtered version of profileData
+ */
+export const filterCategorySearch = (
+  profileData: Profile,
+  filterCategories: FilterCategoriesDynamicProperty,
+  property: string
+): Profile => {
+  return profileData.map((profile: any) => {
+    return {
+      ...profile,
+      ad: profile.ad.filter(
+        (ad: any) =>
+          ad[property].toLowerCase() ===
+          filterCategories[property].toLowerCase()
+      ),
+    };
+  });
+};
+
 /**
  * Function for filtering search result by query
  * @param {Profile} profileData Data from all profiles
@@ -42,66 +75,6 @@ export const filterQuerySearch = (
       ...profile,
       ad: profile.ad.filter((ad: any) =>
         ad.title.toLowerCase().includes(query.toLowerCase())
-      ),
-    };
-  });
-};
-/**
- * Function for filtering search result by gender
- * @param {Profile} profileData Data from all profiles
- * @param {FilterCategories} filterCategories All categories user can filter from (gender, size, color)
- * @return {Profile} A filtered version of profileData
- */
-export const filterGenderSearch = (
-  profileData: Profile,
-  filterCategories: FilterCategories
-): Profile => {
-  return profileData.map((profile: any) => {
-    return {
-      ...profile,
-      ad: profile.ad.filter(
-        (ad: any) =>
-          ad.gender.toLowerCase() === filterCategories.gender.toLowerCase()
-      ),
-    };
-  });
-};
-/**
- * Function for filtering search result by color
- * @param {Profile} profileData Data from all profiles
- * @param {FilterCategories} filterCategories All categories user can filter from (gender, size, color)
- * @return {Profile} A filtered version of profileData
- */
-export const filterColorSearch = (
-  profileData: Profile,
-  filterCategories: FilterCategories
-): Profile => {
-  return profileData.map((profile: any) => {
-    return {
-      ...profile,
-      ad: profile.ad.filter(
-        (ad: any) =>
-          ad.color.toLowerCase() === filterCategories.color.toLowerCase()
-      ),
-    };
-  });
-};
-/**
- * Function for filtering search result by size
- * @param {Profile} profileData Data from all profiles
- * @param {FilterCategories} filterCategories All categories user can filter from (gender, size, color)
- * @return {Profile} A filtered version of profileData
- */
-export const filterSizeSearch = (
-  profileData: Profile,
-  filterCategories: FilterCategories
-): Profile => {
-  return profileData.map((profile: any) => {
-    return {
-      ...profile,
-      ad: profile.ad.filter(
-        (ad: any) =>
-          ad.size.toLowerCase() === filterCategories.size.toLowerCase()
       ),
     };
   });

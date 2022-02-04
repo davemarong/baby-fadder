@@ -33,5 +33,18 @@ const FilterOptions = [
       { label: "Blå", value: "Blå" },
     ],
   },
+  // {
+  //   title: "fabric",
+  //   titleNorwegian: "Stoff",
+  //   options: [
+  //     { label: "Ingen", value: "" },
+  //     { label: "Bomull", value: "Bomull" },
+  //     { label: "Silke", value: "Silke" },
+  //     { label: "Polyester", value: "Polyester" },
+  //     { label: "Ull", value: "Ull" },
+  //     { label: "Mix", value: "Mix" },
+  //     { label: "Syntetisk", value: "Syntetisk" },
+  //   ],
+  // },
 ];
 export default FilterOptions;
