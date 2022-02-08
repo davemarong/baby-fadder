@@ -6,32 +6,26 @@ import type { AppProps } from "next/app";
 import { useState } from "react";
 
 // Default Value
-import { defaultValue_Ad } from "../src/types/DefaultValues";
+import {
+  defaultValue_Ad,
+  defaultValue_Profile,
+} from "../src/types/DefaultValues";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // State
-  const [currentAd, setCurrentAd] = useState({
-    name: "james",
-    profileId: 0,
-    id: 0,
-    title: "Fin rød bukse",
-    description:
-      "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
-    brand: "H&M",
-    price: 200,
-    gender: "Gutt",
-    size: "82-92",
-    color: "Rød",
-    clothingType: "bukse",
-    img: "",
-  });
+  const [currentAd, setCurrentAd] = useState(defaultValue_Ad);
+  const [jwt, setJwt] = useState("");
+  const [profile, setProfile] = useState(defaultValue_Profile);
 
   // Props object
   const PagePropsObject = {
     currentAd: currentAd,
     setCurrentAd: setCurrentAd,
+    jwt: jwt,
+    setJwt: setJwt,
+    profile: profile,
+    setProfile: setProfile,
   };
-
   return <Component {...pageProps} {...PagePropsObject} />;
 }
 

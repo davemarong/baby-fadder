@@ -18,9 +18,16 @@ import { SelectField } from "../src/components/PostAd/SelectField";
 import { SelectFieldContainer } from "../src/components/PostAd/SelectFieldContainer";
 
 // Utils
+import { updateProfile } from "../src/utils/Utils";
 
 // Data
 import InputData from "../src/dummyData/InputData";
+
+// Custom hook
+import { useUpdateProfile } from "../src/components/CustomHook/useUpdateProfile";
+
+// Other
+import axios from "axios";
 
 // Default value
 import { defaultValue_Ad } from "../src/types/DefaultValues";
@@ -28,13 +35,24 @@ import { MainButton } from "../src/components/Buttons/MainButton";
 import { UploadImage } from "../src/components/UploadImage/UploadImage";
 
 // TYPE/INTERFACE
-
+import { ProfileObject } from "../src/types/Types";
+type Props = {
+  jwt: string;
+  profile: ProfileObject;
+  setProfile: (value: ProfileObject) => void;
+};
 // Functional component
-const LeggUt = () => {
+const LeggUt = ({ jwt, profile, setProfile }: Props) => {
   // State
   const [newAd, setNewAd] = useState(defaultValue_Ad);
 
   // Functions
+  const updateProfileContainerFunc = () => {
+    const updateObject = {
+      ad: [...profile.ad, newAd],
+    };
+    updateProfile(jwt, profile.profileId, updateObject, setProfile);
+  };
 
   // Return
   return (
@@ -49,7 +67,7 @@ const LeggUt = () => {
           <SelectField newAd={newAd} setNewAd={setNewAd} />
         </SelectFieldContainer>
         <UploadImage />
-        <MainButton>Publiser</MainButton>
+        <MainButton func={updateProfileContainerFunc}>Publiser</MainButton>
       </Container>
     </>
   );
