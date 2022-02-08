@@ -60,7 +60,7 @@ export const UploadImage = () => {
             component="span"
             endIcon={<FileUploadRoundedIcon />}
           >
-            Upload
+            Last opp
           </Button>
         </label>
       </Grid>
