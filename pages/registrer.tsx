@@ -2,6 +2,7 @@
 
 // Next
 import type { NextPage } from "next";
+import { MainButton } from "../src/components/Buttons/MainButton";
 
 // React
 
@@ -10,6 +11,7 @@ import type { NextPage } from "next";
 // Components
 import { Nav } from "../src/components/Nav/Nav";
 import Register from "../src/components/Register/Registrer";
+import { Header } from "../src/components/Header/Header";
 
 // Utils
 
@@ -27,7 +29,12 @@ const Registrer: NextPage = () => {
   return (
     <>
       <Nav />
-      <Register />
+      <Header align="center" margin={50}>
+        Registrer
+      </Header>
+      <Register>
+        <MainButton align="center">Registrer</MainButton>
+      </Register>
     </>
   );
 };

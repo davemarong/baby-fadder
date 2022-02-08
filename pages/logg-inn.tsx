@@ -11,6 +11,8 @@ import Container from "@mui/material/Container";
 // Components
 import { Nav } from "../src/components/Nav/Nav";
 import Login from "../src/components/Login/Login";
+import { MainButton } from "../src/components/Buttons/MainButton";
+import { Header } from "../src/components/Header/Header";
 
 // Utils
 
@@ -18,8 +20,7 @@ import Login from "../src/components/Login/Login";
 
 // TYPE/INTERFACE
 import { ProfileObject } from "../src/types/Types";
-import { MainButton } from "../src/components/Buttons/MainButton";
-import { Header } from "../src/components/Header/Header";
+
 type Props = {
   jwt: string;
   setJwt: (value: string) => void;

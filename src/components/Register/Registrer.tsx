@@ -1,7 +1,7 @@
 //   IMPORT
 
 // React
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 // Next
 import Router from "next/router";
 // MUI
@@ -9,11 +9,15 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
+import Grid from "@mui/material/Grid";
+
 // Other
 import axios from "axios";
-
+type Props = {
+  children: any;
+};
 // FUNCTIONAL COMPONENT
-export default function Register() {
+export default function Register({ children }: Props) {
   //   State
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -55,21 +59,35 @@ export default function Register() {
   };
   //   Return
   return (
-    <div>
-      <h1>Registrer deg</h1>
-      <TextField onChange={handleEmailInput} label="Email" variant="outlined" />
-      <TextField
-        onChange={handleUsernameInput}
-        label="Brukernavn"
-        variant="outlined"
-      />
-      <TextField
-        onChange={handlePasswordInput}
-        label="Passord"
-        variant="outlined"
-      />
-      <button onClick={handleRegisterUser}>Registrer!</button>
+    <Grid container justifyContent="center">
+      <Grid item xs={10} sm={5} md={4}>
+        <TextField
+          onChange={handleEmailInput}
+          label="Email"
+          variant="outlined"
+          fullWidth
+        />
+      </Grid>
+      <Grid style={{ margin: 20 }} item xs={12}></Grid>
+      <Grid item xs={10} sm={5} md={4}>
+        <TextField
+          onChange={handleUsernameInput}
+          label="Brukernavn"
+          variant="outlined"
+          fullWidth
+        />
+      </Grid>
+      <Grid style={{ margin: 20 }} item xs={12}></Grid>
+      <Grid item xs={10} sm={5} md={4}>
+        <TextField
+          onChange={handlePasswordInput}
+          label="Passord"
+          variant="outlined"
+          fullWidth
+        />
+      </Grid>
+      {React.cloneElement(children, { func: handleRegisterUser })}
       {isLoading && <CircularProgress />}
-    </div>
+    </Grid>
   );
 }

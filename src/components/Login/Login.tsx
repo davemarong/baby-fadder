@@ -81,7 +81,7 @@ export default function Login({
   //   Return
   return (
     <Grid container justifyContent="center">
-      <Grid item xs={4}>
+      <Grid item xs={10} sm={5} md={4}>
         <TextField
           onChange={handleUsernameInput}
           label="Brukernavn/Email"
@@ -90,7 +90,7 @@ export default function Login({
         />
       </Grid>
       <Grid style={{ margin: 20 }} item xs={12}></Grid>
-      <Grid item xs={4}>
+      <Grid item xs={10} sm={5} md={4}>
         <TextField
           onChange={handlePasswordInput}
           label="Passord"
