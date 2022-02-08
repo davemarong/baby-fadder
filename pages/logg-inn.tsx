@@ -6,6 +6,7 @@ import type { NextPage } from "next";
 // React
 
 // Material UI
+import Container from "@mui/material/Container";
 
 // Components
 import { Nav } from "../src/components/Nav/Nav";
@@ -17,6 +18,8 @@ import Login from "../src/components/Login/Login";
 
 // TYPE/INTERFACE
 import { ProfileObject } from "../src/types/Types";
+import { MainButton } from "../src/components/Buttons/MainButton";
+import { Header } from "../src/components/Header/Header";
 type Props = {
   jwt: string;
   setJwt: (value: string) => void;
@@ -36,12 +39,17 @@ const LoggInn = ({ jwt, setJwt, setProfile, profile }: Props) => {
     setProfile: setProfile,
     profile: profile,
   };
-  console.log(profile, jwt);
+
   // Return
   return (
     <>
       <Nav />
-      <Login {...LoginProps} />
+      <Header align="center" margin={50}>
+        Logg inn
+      </Header>
+      <Login {...LoginProps}>
+        <MainButton align="center">Logg inn</MainButton>
+      </Login>
     </>
   );
 };

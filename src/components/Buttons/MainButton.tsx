@@ -22,6 +22,7 @@ type Props = {
   icon?: any;
   align?: string;
   func?: () => void;
+  margin?: string;
 };
 // Functional component
 export const MainButton = ({
@@ -29,11 +30,12 @@ export const MainButton = ({
   func,
   icon,
   align = "flex-end",
+  margin = "20px 0",
 }: Props) => {
   // Styled component
 
   const MainButton = styled(Button)`
-    margin: 20px;
+    margin: ${margin};
     background-color: #ee7768;
     &:hover {
       background-color: #bd5d51;

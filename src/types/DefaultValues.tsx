@@ -17,7 +17,7 @@ export const defaultValue_Ad = {
 export const defaultValue_Profile = {
   name: "",
   location: "",
-  profileId: 0,
+  id: 0,
   ad: [defaultValue_Ad],
 };
 export const defaultValue_FilterCategories = {

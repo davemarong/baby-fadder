@@ -51,7 +51,7 @@ const LeggUt = ({ jwt, profile, setProfile }: Props) => {
     const updateObject = {
       ad: [...profile.ad, newAd],
     };
-    updateProfile(jwt, profile.profileId, updateObject, setProfile);
+    updateProfile(jwt, profile.id, updateObject, setProfile);
   };
 
   // Return

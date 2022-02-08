@@ -1,7 +1,7 @@
 //   IMPORT
 
 // React
-import React from "react";
+import React, { ReactNode } from "react";
 import { useState } from "react";
 
 // Next
@@ -11,6 +11,7 @@ import Router from "next/router";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import CircularProgress from "@mui/material/CircularProgress";
 
 // Styles
@@ -21,6 +22,7 @@ import axios from "axios";
 // TYPE/INTERFACE
 import { ProfileObject } from "../../types/Types";
 type Props = {
+  children: any;
   jwt: string;
   setJwt: (value: string) => void;
   profile: ProfileObject;
@@ -28,7 +30,13 @@ type Props = {
 };
 
 // FUNCTIONAL COMPONENT
-export default function Login({ jwt, setJwt, profile, setProfile }: Props) {
+export default function Login({
+  jwt,
+  setJwt,
+  profile,
+  setProfile,
+  children,
+}: Props) {
   //   State
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -57,7 +65,7 @@ export default function Login({ jwt, setJwt, profile, setProfile }: Props) {
         console.log("User profile", response.data);
         setProfile({
           name: name,
-          profileId: id,
+          id: id,
           ad: ad,
           location: location,
         });
@@ -72,22 +80,27 @@ export default function Login({ jwt, setJwt, profile, setProfile }: Props) {
 
   //   Return
   return (
-    <>
-      <div>
-        <h1>Logg inn</h1>
+    <Grid container justifyContent="center">
+      <Grid item xs={4}>
         <TextField
           onChange={handleUsernameInput}
           label="Brukernavn/Email"
           variant="outlined"
+          fullWidth
         />
+      </Grid>
+      <Grid style={{ margin: 20 }} item xs={12}></Grid>
+      <Grid item xs={4}>
         <TextField
           onChange={handlePasswordInput}
           label="Passord"
           variant="outlined"
+          fullWidth
         />
-        <button onClick={handleLoginUser}>Logg inn!</button>
-        {isLoading && <CircularProgress />}
-      </div>
-    </>
+      </Grid>
+      <Grid item xs={12}></Grid>
+      {React.cloneElement(children, { func: handleLoginUser })}
+      {isLoading && <CircularProgress />}
+    </Grid>
   );
 }

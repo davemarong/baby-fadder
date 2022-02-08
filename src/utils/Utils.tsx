@@ -5,7 +5,7 @@ import axios from "axios";
 import { Ad, ProfileObject } from "../types/Types";
 type UpdateProperties = {
   name?: string;
-  profileId?: number;
+  id?: number;
   location?: string;
   ad?: Ad[];
 };
@@ -33,7 +33,7 @@ export const updateProfile = (
     .then((res) => {
       console.log(res);
       const { name, ad, id, location } = res.data;
-      profile = { name: name, ad: ad, profileId: id, location: location };
+      profile = { name: name, ad: ad, id: id, location: location };
       setProfile(profile);
     })
     .catch((err) => console.log(err));

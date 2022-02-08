@@ -17,14 +17,14 @@ export type Ad = {
 
 export type Profile = {
   name: string;
-  profileId: number;
+  id: number;
   ad: Ad[];
   location: string;
 }[];
 
 export type ProfileObject = {
   name: string;
-  profileId: number;
+  id: number;
   ad: Ad[];
   location: string;
 };
