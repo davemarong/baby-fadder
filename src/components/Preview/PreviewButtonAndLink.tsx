@@ -42,7 +42,9 @@ export const PreviewButtonAndLink = (props: Props) => {
   // Return
   return (
     <Grid container justifyContent="flex-end">
-      <MainButton func={redirectToAdPage}>Les mer</MainButton>
+      <MainButton margin="20px" func={redirectToAdPage}>
+        Les mer
+      </MainButton>
     </Grid>
   );
 };

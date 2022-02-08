@@ -17,13 +17,19 @@ import Typography from "@mui/material/Typography";
 // TYPE/INTERFACE
 type Props = {
   children: ReactNode;
+  align?: "left" | "center" | "right";
+  margin?: number | string;
 };
 // Functional component
-export const Header = ({ children }: Props) => {
+export const Header = ({ children, align = "left", margin = 0 }: Props) => {
   // State
 
   // Functions
 
   // Return
-  return <Typography variant="h4">{children}</Typography>;
+  return (
+    <Typography style={{ margin: margin }} align={align} variant="h4">
+      {children}
+    </Typography>
+  );
 };

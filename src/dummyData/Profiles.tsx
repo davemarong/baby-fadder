@@ -1,7 +1,7 @@
 export const profiles = [
   {
     name: "james",
-    profileId: 0,
+    id: 0,
     location: "oslo",
     ad: [
       {
@@ -76,7 +76,7 @@ export const profiles = [
   },
   {
     name: "carl",
-    profileId: 1,
+    id: 1,
     location: "oslo",
     ad: [
       {
@@ -151,7 +151,7 @@ export const profiles = [
   },
   {
     name: "Dave",
-    profileId: 2,
+    id: 2,
     location: "oslo",
     ad: [
       {
@@ -226,7 +226,7 @@ export const profiles = [
   },
   {
     name: "Durek",
-    profileId: 3,
+    id: 3,
     location: "oslo",
     ad: [
       {
