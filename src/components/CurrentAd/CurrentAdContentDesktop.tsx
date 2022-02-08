@@ -28,9 +28,9 @@ import babyclothes from "../../../src/dummyData/images/babyclothes.jpg";
 // Data
 
 // TYPE/INTERFACE
-import { Ad } from "../../types/Types";
+import { CurrentAd } from "../../types/Types";
 type Props = {
-  currentAd: Ad;
+  currentAd: CurrentAd;
   children: ReactNode;
 };
 // Functional component

@@ -17,7 +17,7 @@ import { Nav } from "../../src/components/Nav/Nav";
 import { SearchField } from "../../src/components/ReUsable/SearchField/SearchField";
 import { SelectField } from "../../src/components/SelectField/SelectField";
 import { SelectFieldContainer } from "../../src/components/SelectField/SelectFieldContainer";
-import { ClothingAds } from "../../src/components/ClothingAds/ClothingAds";
+import { ClothingAdDesktop } from "../../src/components/ClothingAds/ClothingAdDesktop";
 import { ClothingAdMobile } from "../../src/components/ClothingAds/ClothingAdMobile";
 import { ClothingAdsContainer } from "../../src/components/ClothingAds/ClothingAdsContainer";
 import { Preview } from "../../src/components/Preview/Preview";
@@ -36,10 +36,10 @@ import {
 
 // TYPE/INTERFACE
 import { Profile } from "../../src/types/Types";
-import { Ad } from "../../src/types/Types";
+import { CurrentAd } from "../../src/types/Types";
 type Props = {
-  currentAd: Ad;
-  setCurrentAd: (value: Ad) => void;
+  currentAd: CurrentAd;
+  setCurrentAd: (value: CurrentAd) => void;
 };
 
 // Functional component
@@ -52,7 +52,7 @@ const Finn = ({ currentAd, setCurrentAd }: Props) => {
 
   // Media Query
   const matches = useMediaQuery("(min-width:600px)");
-  const ClothingAd = matches ? ClothingAds : ClothingAdMobile;
+  const ClothingAd = matches ? ClothingAdDesktop : ClothingAdMobile;
 
   // Props object
   const SearchFieldProps = {

@@ -20,22 +20,36 @@ import { MainButton } from "../Buttons/MainButton";
 import { defaultValue_Ad } from "../../types/DefaultValues";
 
 // TYPE/INTERFACE
-import { Ad } from "../../types/Types";
+import { Ad, CurrentAd } from "../../types/Types";
 type Props = {
-  setCurrentAd: (value: Ad) => void;
+  setCurrentAd: (value: CurrentAd) => void;
   ad?: Ad;
+  name?: string;
+  location?: string;
+  profileId?: number;
 };
 // Functional component
 export const PreviewButtonAndLink = (props: Props) => {
   // Props
-  const { setCurrentAd, ad = defaultValue_Ad } = props;
+  const {
+    setCurrentAd,
+    ad = defaultValue_Ad,
+    name = "Ukjent",
+    location = "Ukjent",
+    profileId = 0,
+  } = props;
 
   // Router
   const router = useRouter();
 
   // Functions
   const redirectToAdPage = () => {
-    setCurrentAd(ad);
+    setCurrentAd({
+      ...ad,
+      name: name,
+      location: location,
+      profileId: profileId,
+    });
     const slug = ad.title.split(" ").join("_");
     router.push(`/finn/${slug}`);
   };

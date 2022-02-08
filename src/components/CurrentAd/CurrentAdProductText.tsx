@@ -16,9 +16,9 @@ import { ProductText } from "../../../src/components/ReUsable/StyledComp/Product
 // Data
 
 // TYPE/INTERFACE
-import { Ad } from "../../../src/types/Types";
+import { CurrentAd } from "../../../src/types/Types";
 type Props = {
-  currentAd: Ad;
+  currentAd: CurrentAd;
 };
 // Functional component
 export const CurrentAdProductText = ({ currentAd }: Props) => {

@@ -1,5 +1,19 @@
 export const defaultValue_Ad = {
-  name: "",
+  title: "",
+  id: 0,
+  description: "",
+  brand: "",
+  price: 0,
+  gender: "",
+  size: "",
+  color: "",
+  clothingType: "",
+  img: "",
+  fabric: "",
+};
+export const defaultValue_CurrentAd = {
+  name: "Ukjent",
+  location: "Ukjent",
   profileId: 0,
   title: "",
   id: 0,
@@ -11,7 +25,6 @@ export const defaultValue_Ad = {
   color: "",
   clothingType: "",
   img: "",
-  location: "",
   fabric: "",
 };
 export const defaultValue_Profile = {
@@ -27,20 +40,7 @@ export const defaultValue_FilterCategories = {
   fabric: "",
   location: "",
 };
-// export const defaultValue_newAd = {
-//   name: "",
-//   profileId: 0,
-//   title: "",
-//   id: 0,
-//   description: "",
-//   brand: "",
-//   price: 0,
-//   gender: "",
-//   size: "",
-//   color: "",
-//   clothingType: "",
-//   img: "",
-// };
+
 export const defaultValue_filterOption = {
   title: "",
   titleNorwegian: "string",

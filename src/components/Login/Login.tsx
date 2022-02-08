@@ -1,20 +1,16 @@
 //   IMPORT
 
 // React
-import React, { ReactNode } from "react";
+import React from "react";
 import { useState } from "react";
 
 // Next
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 // MUI
 import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import CircularProgress from "@mui/material/CircularProgress";
-
-// Styles
 
 // Other
 import axios from "axios";
@@ -23,24 +19,25 @@ import axios from "axios";
 import { ProfileObject } from "../../types/Types";
 type Props = {
   children: any;
-  jwt: string;
   setJwt: (value: string) => void;
-  profile: ProfileObject;
   setProfile: (value: ProfileObject) => void;
+  setIsLogged: (value: boolean) => void;
 };
 
 // FUNCTIONAL COMPONENT
 export default function Login({
-  jwt,
   setJwt,
-  profile,
   setProfile,
+  setIsLogged,
   children,
 }: Props) {
   //   State
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  // Router
+  const router = useRouter();
 
   //   Functions
   const handleUsernameInput = (
@@ -70,15 +67,17 @@ export default function Login({
           location: location,
         });
         setJwt(response.data.jwt);
+        setIsLogged(true);
         setIsLoading(false);
+        router.push("/finn");
       })
       .catch((error) => {
-        console.log("An error occurred:", error.response);
+        console.log("An error occurred:", error);
         setIsLoading(false);
       });
   };
 
-  //   Return
+  // Return
   return (
     <Grid container justifyContent="center">
       <Grid item xs={10} sm={5} md={4}>

@@ -18,9 +18,9 @@ import { CurrentAdProductText } from "../../../src/components/CurrentAd/CurrentA
 // Data
 
 // TYPE/INTERFACE
-import { Ad } from "../../../src/types/Types";
+import { CurrentAd } from "../../../src/types/Types";
 type Props = {
-  currentAd: Ad;
+  currentAd: CurrentAd;
 };
 // Functional component
 const CurrentAdPage = ({ currentAd }: Props) => {
@@ -38,6 +38,7 @@ const CurrentAdPage = ({ currentAd }: Props) => {
   const CurrentAdProp = {
     currentAd: currentAd,
   };
+  console.log(currentAd);
   // Return
   return (
     <CurrentAdContainer {...CurrentAdProp}>
