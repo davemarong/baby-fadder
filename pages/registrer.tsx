@@ -18,9 +18,11 @@ import { Header } from "../src/components/Header/Header";
 // Data
 
 // TYPE/INTERFACE
-
+type Props = {
+  isLogged: boolean;
+};
 // Functional component
-const Registrer: NextPage = () => {
+const Registrer = ({ isLogged }: Props) => {
   // State
 
   // Functions
@@ -28,7 +30,7 @@ const Registrer: NextPage = () => {
   // Return
   return (
     <>
-      <Nav />
+      <Nav isLogged={isLogged} />
       <Header align="center" margin={50}>
         Registrer
       </Header>

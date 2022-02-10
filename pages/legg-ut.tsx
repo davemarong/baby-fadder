@@ -40,9 +40,10 @@ type Props = {
   jwt: string;
   profile: ProfileObject;
   setProfile: (value: ProfileObject) => void;
+  isLogged: boolean;
 };
 // Functional component
-const LeggUt = ({ jwt, profile, setProfile }: Props) => {
+const LeggUt = ({ jwt, profile, setProfile, isLogged }: Props) => {
   // State
   const [newAd, setNewAd] = useState(defaultValue_Ad);
 
@@ -57,7 +58,7 @@ const LeggUt = ({ jwt, profile, setProfile }: Props) => {
   // Return
   return (
     <>
-      <Nav />
+      <Nav isLogged={isLogged} />
       <Container maxWidth="md" style={{ maxWidth: 800 }}>
         <Header>Legg ut</Header>
         <InputFieldContainer inputData={InputData}>

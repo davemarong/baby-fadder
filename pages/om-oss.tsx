@@ -15,9 +15,11 @@ import { Nav } from "../src/components/Nav/Nav";
 // Data
 
 // TYPE/INTERFACE
-
+type Props = {
+  isLogged: boolean;
+};
 // Functional component
-const OmOss: NextPage = () => {
+const OmOss = ({ isLogged }: Props) => {
   // State
 
   // Functions
@@ -25,7 +27,7 @@ const OmOss: NextPage = () => {
   // Return
   return (
     <>
-      <Nav />
+      <Nav isLogged={isLogged} />
     </>
   );
 };

@@ -13,11 +13,13 @@ import { Nav } from "../src/components/Nav/Nav";
 // Data
 
 // TYPE/INTERFACE
-
-const Home: NextPage = () => {
+type Props = {
+  isLogged: boolean;
+};
+const Home = ({ isLogged }: Props) => {
   return (
     <div>
-      <Nav />
+      <Nav isLogged={isLogged} />
     </div>
   );
 };
