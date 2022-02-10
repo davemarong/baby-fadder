@@ -33,17 +33,27 @@ import babyclothes from "../../dummyData/images/babyclothes.jpg";
 import { defaultValue_Ad } from "../../types/DefaultValues";
 
 // TYPE/INTERFACE
-import { Ad } from "../../types/Types";
+import { Ad, CurrentAd } from "../../types/Types";
 
 type Props = {
   children: any;
   ad?: Ad;
-  setCurrentAd: (value: Ad) => void;
+  setCurrentAd: (value: CurrentAd) => void;
+  name?: string;
+  location?: string;
+  profileId?: number;
 };
 // Functional component
-export const ClothingAds = (props: Props) => {
+export const ClothingAdDesktop = (props: Props) => {
   // Props
-  const { children, setCurrentAd, ad = defaultValue_Ad } = props;
+  const {
+    children,
+    setCurrentAd,
+    ad = defaultValue_Ad,
+    name = "Ukjent",
+    location = "Ukjent",
+    profileId = 0,
+  } = props;
 
   // State
   const [isOpen, setIsOpen] = useState(false);
@@ -62,6 +72,7 @@ export const ClothingAds = (props: Props) => {
   const toggleMobilePreview = () => {
     setMobilePreview(!mobilePreview);
   };
+
   // Return
   return (
     <>
@@ -86,17 +97,15 @@ export const ClothingAds = (props: Props) => {
         <AdText fontSize={0} bigText={ad.title}>
           {ad.brand} - {ad.size} - {ad.price}kr
         </AdText>
-        {/* {mobileMatches && mobilePreview && (
-          <>
-            <Typography>{ad.description}</Typography>
-            <PreviewButtonAndLink setCurrentAd={setCurrentAd} />
-          </>
-        )}
-        {desktopMatches && ( */}
         <MuiModal open={isOpen} func={toggleModal} width="sm">
-          {React.cloneElement(children, { ad: ad, toggleModal: toggleModal })}
+          {React.cloneElement(children, {
+            ad: ad,
+            toggleModal: toggleModal,
+            name: name,
+            location: location,
+            profileId: profileId,
+          })}
         </MuiModal>
-        {/* )} */}
         <TransparentButton func={toggleModal}>Se mer</TransparentButton>
       </Grid>
     </>

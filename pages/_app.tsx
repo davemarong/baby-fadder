@@ -7,15 +7,16 @@ import { useState } from "react";
 
 // Default Value
 import {
-  defaultValue_Ad,
+  defaultValue_CurrentAd,
   defaultValue_Profile,
 } from "../src/types/DefaultValues";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // State
-  const [currentAd, setCurrentAd] = useState(defaultValue_Ad);
+  const [currentAd, setCurrentAd] = useState(defaultValue_CurrentAd);
   const [jwt, setJwt] = useState("");
   const [profile, setProfile] = useState(defaultValue_Profile);
+  const [isLogged, setIsLogged] = useState(false);
 
   // Props object
   const PagePropsObject = {
@@ -25,6 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     setJwt: setJwt,
     profile: profile,
     setProfile: setProfile,
+    isLogged: isLogged,
+    setIsLogged: setIsLogged,
   };
   return <Component {...pageProps} {...PagePropsObject} />;
 }

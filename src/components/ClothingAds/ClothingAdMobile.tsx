@@ -34,17 +34,27 @@ import babyclothes from "../../dummyData/images/babyclothes.jpg";
 import { defaultValue_Ad } from "../../types/DefaultValues";
 
 // TYPE/INTERFACE
-import { Ad } from "../../types/Types";
+import { Ad, CurrentAd } from "../../types/Types";
 
 type Props = {
   children: any;
   ad?: Ad;
-  setCurrentAd: (value: Ad) => void;
+  setCurrentAd: (value: CurrentAd) => void;
+  name?: string;
+  location?: string;
+  profileId?: number;
 };
 // Functional component
 export const ClothingAdMobile = (props: Props) => {
   // Props
-  const { children, setCurrentAd, ad = defaultValue_Ad } = props;
+  const {
+    children,
+    setCurrentAd,
+    ad = defaultValue_Ad,
+    name = "Ukjent",
+    location = "Ukjent",
+    profileId = 0,
+  } = props;
 
   // State
   const [isOpen, setIsOpen] = useState(false);
@@ -88,7 +98,13 @@ export const ClothingAdMobile = (props: Props) => {
         {mobilePreview && (
           <Grid style={{ margin: "0 20px" }}>
             <Typography>{ad.description}</Typography>
-            <PreviewButtonAndLink setCurrentAd={setCurrentAd} ad={ad} />
+            <PreviewButtonAndLink
+              setCurrentAd={setCurrentAd}
+              ad={ad}
+              name={name}
+              location={location}
+              profileId={profileId}
+            />
           </Grid>
         )}
         {!mobilePreview && (

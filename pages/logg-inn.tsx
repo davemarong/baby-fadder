@@ -22,23 +22,21 @@ import { Header } from "../src/components/Header/Header";
 import { ProfileObject } from "../src/types/Types";
 
 type Props = {
-  jwt: string;
   setJwt: (value: string) => void;
-  profile: ProfileObject;
   setProfile: (value: ProfileObject) => void;
+  setIsLogged: (value: boolean) => void;
 };
 // Functional component
-const LoggInn = ({ jwt, setJwt, setProfile, profile }: Props) => {
+const LoggInn = ({ setJwt, setProfile, setIsLogged }: Props) => {
   // State
 
   // Functions
 
   // Props object
   const LoginProps = {
-    jwt: jwt,
     setJwt: setJwt,
     setProfile: setProfile,
-    profile: profile,
+    setIsLogged: setIsLogged,
   };
 
   // Return

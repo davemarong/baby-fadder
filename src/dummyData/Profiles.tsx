@@ -5,8 +5,6 @@ export const profiles = [
     location: "oslo",
     ad: [
       {
-        name: "james",
-        profileId: 0,
         id: 0,
         title: "Fin rød bukse",
         description:
@@ -19,11 +17,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Oslo",
       },
       {
-        name: "james",
-        profileId: 0,
         id: 1,
         title: "Fin gul genser",
         description:
@@ -36,11 +31,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Oslo",
       },
       {
-        name: "james",
-        profileId: 0,
         id: 2,
         title: "Fin grønn sko",
         description:
@@ -53,11 +45,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Oslo",
       },
       {
-        name: "james",
-        profileId: 0,
         id: 3,
         title: "Fin blå bukse",
         description:
@@ -70,7 +59,6 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Ull",
-        location: "Oslo",
       },
     ],
   },
@@ -80,8 +68,6 @@ export const profiles = [
     location: "oslo",
     ad: [
       {
-        name: "carl",
-        profileId: 1,
         id: 4,
         title: "Fin rød bukse",
         description:
@@ -94,11 +80,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Ull",
-        location: "Oslo",
       },
       {
-        name: "carl",
-        profileId: 1,
         id: 5,
         title: "Fin gul genser",
         description:
@@ -111,11 +94,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Ull",
-        location: "Tromsø",
       },
       {
-        name: "carl",
-        profileId: 1,
         id: 6,
         title: "Fin grønn sko",
         description:
@@ -128,11 +108,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Tromsø",
       },
       {
-        name: "carl",
-        profileId: 1,
         id: 7,
         title: "Fin blå bukse",
         description:
@@ -145,7 +122,6 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Tromsø",
       },
     ],
   },
@@ -155,8 +131,6 @@ export const profiles = [
     location: "oslo",
     ad: [
       {
-        name: "Dave",
-        profileId: 2,
         id: 8,
         title: "Fin rød bukse",
         description:
@@ -169,11 +143,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Oslo",
       },
       {
-        name: "Dave",
-        profileId: 2,
         id: 9,
         title: "Fin gul genser",
         description:
@@ -186,11 +157,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Oslo",
       },
       {
-        name: "Dave",
-        profileId: 2,
         id: 10,
         title: "Fin grønn sko",
         description:
@@ -203,11 +171,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Skien",
       },
       {
-        name: "Dave",
-        profileId: 2,
         id: 11,
         title: "Fin blå genser",
         description:
@@ -220,7 +185,6 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Skien",
       },
     ],
   },
@@ -230,8 +194,6 @@ export const profiles = [
     location: "oslo",
     ad: [
       {
-        name: "Durek",
-        profileId: 3,
         id: 12,
         title: "Fin rød bukse",
         description:
@@ -244,11 +206,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Skien",
       },
       {
-        name: "Durek",
-        profileId: 3,
         id: 13,
         title: "Fin gul genser",
         description:
@@ -261,11 +220,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Oslo",
       },
       {
-        name: "Durek",
-        profileId: 3,
         id: 14,
         title: "Fin grønn sko",
         description:
@@ -278,11 +234,8 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Oslo",
       },
       {
-        name: "Durek",
-        profileId: 3,
         id: 15,
         title: "Fin blå genser",
         description:
@@ -295,7 +248,6 @@ export const profiles = [
         clothingType: "bukse",
         img: "",
         fabric: "Bomull",
-        location: "Oslo",
       },
     ],
   },

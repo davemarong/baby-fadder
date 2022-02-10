@@ -36,12 +36,22 @@ type Props = {
   children: any;
   ad?: Ad;
   toggleModal?: () => void;
+  name?: string;
+  location?: string;
+  profileId?: number;
 };
 
 // Functional component
 export const Preview = (props: Props) => {
   // Props
-  const { ad = defaultValue_Ad, children, toggleModal } = props;
+  const {
+    ad = defaultValue_Ad,
+    children,
+    toggleModal,
+    name = "Ukjent",
+    location = "Ukjent",
+    profileId = 0,
+  } = props;
   // State
 
   // Functions
@@ -61,7 +71,12 @@ export const Preview = (props: Props) => {
           alt=""
         />
         <PreviewTextAndIcon ad={ad} />
-        {React.cloneElement(children, { ad: ad })}
+        {React.cloneElement(children, {
+          ad: ad,
+          name: name,
+          location: location,
+          profileId: profileId,
+        })}
       </Grid>
     </Card>
   );

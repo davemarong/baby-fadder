@@ -17,12 +17,12 @@ import Grid from "@mui/material/Grid";
 // TYPE/INTERFACE
 import { Profile } from "../../types/Types";
 import { Ad } from "../../types/Types";
-import { ClothingAds } from "./ClothingAds";
 
 type ProfileMapped = {
   name: string;
-  profileId: number;
+  id: number;
   ad: Ad[];
+  location: string;
 };
 
 type Props = {
@@ -42,7 +42,12 @@ export const ClothingAdsContainer = ({ profileData, children }: Props) => {
         return profile.ad.map((ad: Ad) => {
           return (
             <React.Fragment key={ad.id}>
-              {React.cloneElement(children, { ad: ad })}
+              {React.cloneElement(children, {
+                ad: ad,
+                name: profile.name,
+                location: profile.location,
+                profileId: profile.id,
+              })}
             </React.Fragment>
           );
         });

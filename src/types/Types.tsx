@@ -1,6 +1,4 @@
 export type Ad = {
-  name: string;
-  profileId: number;
   title: string;
   id: number;
   description: string;
@@ -11,10 +9,24 @@ export type Ad = {
   color: string;
   clothingType: string;
   img: string;
-  location: string;
   fabric: string;
 };
-
+export type CurrentAd = {
+  name: string;
+  profileId: number;
+  location: string;
+  title: string;
+  id: number;
+  description: string;
+  brand: string;
+  price: number;
+  gender: string;
+  size: string;
+  color: string;
+  clothingType: string;
+  img: string;
+  fabric: string;
+};
 export type Profile = {
   name: string;
   id: number;
