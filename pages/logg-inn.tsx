@@ -25,9 +25,10 @@ type Props = {
   setJwt: (value: string) => void;
   setProfile: (value: ProfileObject) => void;
   setIsLogged: (value: boolean) => void;
+  isLogged: boolean;
 };
 // Functional component
-const LoggInn = ({ setJwt, setProfile, setIsLogged }: Props) => {
+const LoggInn = ({ setJwt, setProfile, setIsLogged, isLogged }: Props) => {
   // State
 
   // Functions
@@ -42,7 +43,7 @@ const LoggInn = ({ setJwt, setProfile, setIsLogged }: Props) => {
   // Return
   return (
     <>
-      <Nav />
+      <Nav isLogged={isLogged} />
       <Header align="center" margin={50}>
         Logg inn
       </Header>

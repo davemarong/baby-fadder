@@ -10,8 +10,6 @@ import React, { useState, useEffect } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Container from "@mui/material/Container";
 
-// Icon
-
 // Components
 import { Nav } from "../../src/components/Nav/Nav";
 import { SearchField } from "../../src/components/ReUsable/SearchField/SearchField";
@@ -40,10 +38,11 @@ import { CurrentAd } from "../../src/types/Types";
 type Props = {
   currentAd: CurrentAd;
   setCurrentAd: (value: CurrentAd) => void;
+  isLogged: boolean;
 };
 
 // Functional component
-const Finn = ({ currentAd, setCurrentAd }: Props) => {
+const Finn = ({ currentAd, setCurrentAd, isLogged }: Props) => {
   // State
   const [filterCategories, setFilterCategories] = useState(
     defaultValue_FilterCategories
@@ -75,7 +74,7 @@ const Finn = ({ currentAd, setCurrentAd }: Props) => {
   // Return
   return (
     <Container>
-      <Nav />
+      <Nav isLogged={isLogged} />
       <SearchField {...SearchFieldProps} />
       <SelectFieldContainer>
         <SelectField {...SelectFieldProps} />

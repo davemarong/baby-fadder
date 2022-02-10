@@ -21,9 +21,10 @@ import { CurrentAdProductText } from "../../../src/components/CurrentAd/CurrentA
 import { CurrentAd } from "../../../src/types/Types";
 type Props = {
   currentAd: CurrentAd;
+  isLogged: boolean;
 };
 // Functional component
-const CurrentAdPage = ({ currentAd }: Props) => {
+const CurrentAdPage = ({ currentAd, isLogged }: Props) => {
   // State
 
   // Media Query
