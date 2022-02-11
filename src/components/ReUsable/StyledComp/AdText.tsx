@@ -19,7 +19,7 @@ type Props = {
   children: ReactNode;
   bigText: string;
   fontSize: number;
-  textAlign: string;
+  textAlign?: string;
   margin?: string;
   fontWeightBig?: string;
   fontWeightSmall?: string;
