@@ -26,7 +26,7 @@ export const HvordanFunkerDet_Desktop = () => {
 
   // Return
   return (
-    <Grid container justifyContent="center">
+    <>
       {HvordanFunkerDet_data.map((step: any) => {
         return (
           <Grid
@@ -61,6 +61,6 @@ export const HvordanFunkerDet_Desktop = () => {
           </Grid>
         );
       })}
-    </Grid>
+    </>
   );
 };

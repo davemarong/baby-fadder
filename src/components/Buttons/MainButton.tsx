@@ -35,7 +35,6 @@ export const MainButton = ({
   // Styled component
 
   const MainButton = styled(Button)`
-    margin: ${margin};
     background-color: #ee7768;
     &:hover {
       background-color: #bd5d51;
@@ -46,7 +45,7 @@ export const MainButton = ({
 
   // Return
   return (
-    <Grid container justifyContent={align}>
+    <Grid container justifyContent={align} style={{ margin: margin }}>
       <MainButton variant="contained" onClick={func} endIcon={icon}>
         {children}
       </MainButton>

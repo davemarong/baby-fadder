@@ -22,7 +22,7 @@ import motherAndChild from "../../assets/images/motherAndChild.svg";
 // TYPE/INTERFACE
 
 // Functional component
-export const ImageAndContentLayout = () => {
+export const Miljøvennlig = () => {
   // State
 
   // Media Query
@@ -34,10 +34,9 @@ export const ImageAndContentLayout = () => {
 foreldrene i ditt nærområde, ente du vil selge, kjøpe eller la noen arve
 baby utstyr/ klær.`;
 
-  const title = `Miljøvennlig.<br /> Givende.<br /> Billig.`;
   // Return
   return (
-    <>
+    <Grid style={{ backgroundColor: "#FDF1EF", padding: "50px 0" }} container>
       {mobileMatches && (
         <Grid container direction="column" alignItems="center">
           <Typography variant="h4" align="center">
@@ -78,6 +77,6 @@ baby utstyr/ klær.`;
           </Grid>
         </>
       )}
-    </>
+    </Grid>
   );
 };
