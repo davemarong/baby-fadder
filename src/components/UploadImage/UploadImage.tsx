@@ -27,7 +27,7 @@ type ImageFile = {
 // Functional component
 export const UploadImage = () => {
   // State
-  const [selectedImage, setSelectedImage] = useState<ImageFile | null>(null);
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   // Styled component
   const Input = styled("input")({

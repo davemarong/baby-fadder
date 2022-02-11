@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // TYPE/INTERFACE
-import { Ad, ProfileObject } from "../types/Types";
+import { Ad, Profile } from "../types/Types";
 type UpdateProperties = {
   name?: string;
   id?: number;
@@ -21,9 +21,9 @@ export const updateProfile = (
   jwt: string,
   id: number,
   updateProperties: UpdateProperties,
-  setProfile: (value: ProfileObject) => void
+  setProfile: (value: Profile) => void
 ) => {
-  let profile: ProfileObject;
+  let profile: Profile;
   axios
     .put(`http://localhost:1337/api/users/${id}`, updateProperties, {
       headers: {

@@ -23,13 +23,13 @@ import { filterSearchItems } from "./Utils";
 import { profiles } from "../../../dummyData/Profiles";
 
 // TYPE/INTERFACE
-import { Profile } from "../../../types/Types";
+import { AllProfiles } from "../../../types/Types";
 import { FilterCategories } from "../../../types/Types";
 
 interface Props {
   placeholder: string;
   suggestions: string;
-  setProfileData: React.Dispatch<React.SetStateAction<Profile>>;
+  setProfileData: React.Dispatch<React.SetStateAction<AllProfiles>>;
   filterCategories: FilterCategories;
 }
 type Property = {
@@ -54,7 +54,7 @@ export const SearchField = ({
     setSearchInput(event.target.value);
   };
   // Update search results on page
-  const updateSearchResults = (result: Profile) => {
+  const updateSearchResults = (result: AllProfiles) => {
     if (result) {
       setProfileData(result);
     }

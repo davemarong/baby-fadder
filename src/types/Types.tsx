@@ -27,14 +27,14 @@ export type CurrentAd = {
   img: string;
   fabric: string;
 };
-export type Profile = {
+export type AllProfiles = {
   name: string;
   id: number;
   ad: Ad[];
   location: string;
 }[];
 
-export type ProfileObject = {
+export type Profile = {
   name: string;
   id: number;
   ad: Ad[];

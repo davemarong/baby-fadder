@@ -33,7 +33,7 @@ import {
 } from "../../src/types/DefaultValues";
 
 // TYPE/INTERFACE
-import { Profile } from "../../src/types/Types";
+import { AllProfiles } from "../../src/types/Types";
 import { CurrentAd } from "../../src/types/Types";
 type Props = {
   currentAd: CurrentAd;
@@ -47,7 +47,7 @@ const Finn = ({ currentAd, setCurrentAd, isLogged }: Props) => {
   const [filterCategories, setFilterCategories] = useState(
     defaultValue_FilterCategories
   );
-  const [profileData, setProfileData] = useState<Profile>(profiles);
+  const [profileData, setProfileData] = useState<AllProfiles>(profiles);
 
   // Media Query
   const matches = useMediaQuery("(min-width:600px)");

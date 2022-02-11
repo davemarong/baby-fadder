@@ -19,11 +19,11 @@ import { Header } from "../src/components/Header/Header";
 // Data
 
 // TYPE/INTERFACE
-import { ProfileObject } from "../src/types/Types";
+import { Profile } from "../src/types/Types";
 
 type Props = {
   setJwt: (value: string) => void;
-  setProfile: (value: ProfileObject) => void;
+  setProfile: (value: Profile) => void;
   setIsLogged: (value: boolean) => void;
   isLogged: boolean;
 };

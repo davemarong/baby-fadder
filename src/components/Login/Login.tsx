@@ -16,11 +16,11 @@ import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 
 // TYPE/INTERFACE
-import { ProfileObject } from "../../types/Types";
+import { Profile } from "../../types/Types";
 type Props = {
   children: any;
   setJwt: (value: string) => void;
-  setProfile: (value: ProfileObject) => void;
+  setProfile: (value: Profile) => void;
   setIsLogged: (value: boolean) => void;
 };
 

@@ -1,6 +1,7 @@
 // IMPORT
 
 // Next
+import { useRouter } from "next/router";
 
 // React
 import React, { useState } from "react";
@@ -23,6 +24,9 @@ import Menu from "@mui/material/Menu";
 export const AccountMenu = () => {
   // State
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  // Router
+  const router = useRouter();
 
   // Functions
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -61,8 +65,21 @@ export const AccountMenu = () => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profil</MenuItem>
-        <MenuItem onClick={handleClose}>Mine annonser</MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose();
+          }}
+        >
+          Profil
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            router.push("/mine-annonser");
+            handleClose();
+          }}
+        >
+          Mine annonser
+        </MenuItem>
         <MenuItem onClick={handleClose}>Favoritter</MenuItem>
       </Menu>
     </div>

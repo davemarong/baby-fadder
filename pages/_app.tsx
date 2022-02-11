@@ -13,9 +13,16 @@ import {
 
 function MyApp({ Component, pageProps }: AppProps) {
   // State
+  // The current selected ad when the user navigates to a page to showcase a single ad (www.babyfadder.no/finn/[id])
   const [currentAd, setCurrentAd] = useState(defaultValue_CurrentAd);
+
+  // The jwt token
   const [jwt, setJwt] = useState("");
+
+  // The current users profile information. Updated on login and PUT-requests
   const [profile, setProfile] = useState(defaultValue_Profile);
+
+  // If user is logged in or not
   const [isLogged, setIsLogged] = useState(false);
 
   // Props object

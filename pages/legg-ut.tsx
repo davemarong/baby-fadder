@@ -35,11 +35,11 @@ import { MainButton } from "../src/components/Buttons/MainButton";
 import { UploadImage } from "../src/components/UploadImage/UploadImage";
 
 // TYPE/INTERFACE
-import { ProfileObject } from "../src/types/Types";
+import { Profile } from "../src/types/Types";
 type Props = {
   jwt: string;
-  profile: ProfileObject;
-  setProfile: (value: ProfileObject) => void;
+  profile: Profile;
+  setProfile: (value: Profile) => void;
   isLogged: boolean;
 };
 // Functional component

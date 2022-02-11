@@ -15,7 +15,7 @@ import Grid from "@mui/material/Grid";
 // Data
 
 // TYPE/INTERFACE
-import { Profile } from "../../types/Types";
+import { AllProfiles } from "../../types/Types";
 import { Ad } from "../../types/Types";
 
 type ProfileMapped = {
@@ -26,7 +26,7 @@ type ProfileMapped = {
 };
 
 type Props = {
-  profileData: Profile;
+  profileData: AllProfiles;
   children: any;
 };
 // Functional component
