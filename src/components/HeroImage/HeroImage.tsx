@@ -27,8 +27,8 @@ export const HeroImage = () => {
   // State
 
   // Media Query
-  const desktopMatches = useMediaQuery("(min-width:600px)");
-  const mobileMatches = useMediaQuery("(max-width:600px)");
+  const desktopMatches = useMediaQuery("(min-width:800px)");
+  const mobileMatches = useMediaQuery("(max-width:800px)");
 
   // Functions
 
@@ -44,7 +44,7 @@ export const HeroImage = () => {
             </Typography>
             <MainButton align="flex-start">Søk her</MainButton>
           </Grid>
-          <Grid item xs>
+          <Grid item sm={6} md={5}>
             <Image
               src={homepage}
               alt="Picture of the author"

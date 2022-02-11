@@ -13,6 +13,8 @@ import { HeroImageContainer } from "../src/components/HeroImage/HeroImageContain
 import { HeroImage } from "../src/components/HeroImage/HeroImage";
 import { HvordanFunkerDet_Desktop } from "../src/components/HvordanFunkerDet/HvordanFunkerDet_Desktop";
 import { HvordanFunkerDet_Mobile } from "../src/components/HvordanFunkerDet/HvordanFunkerDet_Mobile";
+import { ImageAndContentLayout_Container } from "../src/components/ImageAndContentLayout/ImageAndContentLayout_Container";
+import { ImageAndContentLayout } from "../src/components/ImageAndContentLayout/ImageAndContentLayout";
 
 // Utils
 
@@ -38,6 +40,9 @@ const Home = ({ isLogged }: Props) => {
         <HeroImage />
       </HeroImageContainer>
       <HvordanFunkerDet />
+      <ImageAndContentLayout_Container>
+        <ImageAndContentLayout />
+      </ImageAndContentLayout_Container>
     </>
   );
 };
