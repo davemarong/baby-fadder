@@ -9,9 +9,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 // Components
 import { Nav } from "../src/components/Nav/Nav";
-import { HeroImage } from "../src/components/HeroImage/HeroImage";
 import { HeroImageContainer } from "../src/components/HeroImage/HeroImageContainer";
-import { HeroImageContent } from "../src/components/HeroImage/HeroImageContent";
+import { HeroImage } from "../src/components/HeroImage/HeroImage";
 import { HvordanFunkerDet_Desktop } from "../src/components/HvordanFunkerDet/HvordanFunkerDet_Desktop";
 import { HvordanFunkerDet_Mobile } from "../src/components/HvordanFunkerDet/HvordanFunkerDet_Mobile";
 
@@ -36,7 +35,6 @@ const Home = ({ isLogged }: Props) => {
     <>
       <Nav isLogged={isLogged} />
       <HeroImageContainer>
-        <HeroImageContent />
         <HeroImage />
       </HeroImageContainer>
       <HvordanFunkerDet />

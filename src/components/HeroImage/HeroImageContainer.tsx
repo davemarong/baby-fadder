@@ -7,6 +7,7 @@
 // Material UI
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 // Components
 
@@ -22,7 +23,8 @@ type Props = {
 // Functional component
 export const HeroImageContainer = ({ children }: Props) => {
   // State
-
+  // Media Query
+  const matches = useMediaQuery("(min-width:600px)");
   // Functions
 
   // Return

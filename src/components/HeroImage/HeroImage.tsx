@@ -3,11 +3,22 @@
 // Next
 import Image from "next/image";
 
-// MUI
+// React
+
+// Material UI
+import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
+// Components
+import { MainButton } from "../Buttons/MainButton";
+
+// Utils
 
 // Images
 import homepage from "../../assets/images/homepage.svg";
+
+// Data
 
 // TYPE/INTERFACE
 
@@ -15,17 +26,49 @@ import homepage from "../../assets/images/homepage.svg";
 export const HeroImage = () => {
   // State
 
+  // Media Query
+  const desktopMatches = useMediaQuery("(min-width:600px)");
+  const mobileMatches = useMediaQuery("(max-width:600px)");
+
   // Functions
 
   // Return
   return (
-    <Grid item xs={6}>
-      <Image
-        src={homepage}
-        alt="Picture of the author"
-        width={500}
-        height={500}
-      />
-    </Grid>
+    <>
+      {desktopMatches && (
+        <>
+          <Grid item xs={5}>
+            <Typography variant="h2">Babyfadder</Typography>
+            <Typography variant="h5">
+              Norges største samling av baby klær og utstyr.
+            </Typography>
+            <MainButton align="flex-start">Søk her</MainButton>
+          </Grid>
+          <Grid item xs>
+            <Image
+              src={homepage}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+            />
+          </Grid>
+        </>
+      )}
+      {mobileMatches && (
+        <>
+          <Typography variant="h2">Babyfadder</Typography>
+          <Typography align="center" variant="h5">
+            Norges største samling av baby klær og utstyr.
+          </Typography>
+          <Image
+            src={homepage}
+            alt="Picture of the author"
+            width={500}
+            height={500}
+          />
+          <MainButton align="center">Søk her</MainButton>
+        </>
+      )}
+    </>
   );
 };
