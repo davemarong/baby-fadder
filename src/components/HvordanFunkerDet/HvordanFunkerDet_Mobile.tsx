@@ -26,7 +26,7 @@ export const HvordanFunkerDet_Mobile = () => {
 
   // Return
   return (
-    <Grid container justifyContent="center" style={{ margin: "70px 0" }}>
+    <>
       {HvordanFunkerDet_data.map((step: any) => {
         return (
           <Grid
@@ -51,6 +51,6 @@ export const HvordanFunkerDet_Mobile = () => {
           </Grid>
         );
       })}
-    </Grid>
+    </>
   );
 };

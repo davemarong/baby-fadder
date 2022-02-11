@@ -13,8 +13,10 @@ import { HeroImageContainer } from "../src/components/HeroImage/HeroImageContain
 import { HeroImage } from "../src/components/HeroImage/HeroImage";
 import { HvordanFunkerDet_Desktop } from "../src/components/HvordanFunkerDet/HvordanFunkerDet_Desktop";
 import { HvordanFunkerDet_Mobile } from "../src/components/HvordanFunkerDet/HvordanFunkerDet_Mobile";
-import { ImageAndContentLayout_Container } from "../src/components/ImageAndContentLayout/ImageAndContentLayout_Container";
-import { ImageAndContentLayout } from "../src/components/ImageAndContentLayout/ImageAndContentLayout";
+import { Miljøvennlig } from "../src/components/Miljøvennlig/Miljøvennlig";
+import { Header } from "../src/components/Header/Header";
+import { MainButton } from "../src/components/Buttons/MainButton";
+import { HvordanFunkerDet_Container } from "../src/components/HvordanFunkerDet/HvordanFunkerDet_Container";
 
 // Utils
 
@@ -39,10 +41,12 @@ const Home = ({ isLogged }: Props) => {
       <HeroImageContainer>
         <HeroImage />
       </HeroImageContainer>
-      <HvordanFunkerDet />
-      <ImageAndContentLayout_Container>
-        <ImageAndContentLayout />
-      </ImageAndContentLayout_Container>
+      <Header align="center">Hvordan funker det?</Header>
+      <HvordanFunkerDet_Container>
+        <HvordanFunkerDet />
+        <MainButton align="center">Registrer deg</MainButton>
+      </HvordanFunkerDet_Container>
+      <Miljøvennlig />
     </>
   );
 };
