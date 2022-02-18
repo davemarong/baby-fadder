@@ -11,6 +11,9 @@ import {
   defaultValue_Profile,
 } from "../src/types/DefaultValues";
 
+// Snackbar
+import { SnackbarProvider } from "notistack";
+
 function MyApp({ Component, pageProps }: AppProps) {
   // State
   // The current selected ad when the user navigates to a page to showcase a single ad (www.babyfadder.no/finn/[id])
@@ -36,7 +39,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     isLogged: isLogged,
     setIsLogged: setIsLogged,
   };
-  return <Component {...pageProps} {...PagePropsObject} />;
+  return (
+    <SnackbarProvider maxSnack={3}>
+      <Component {...pageProps} {...PagePropsObject} />
+    </SnackbarProvider>
+  );
 }
 
 export default MyApp;

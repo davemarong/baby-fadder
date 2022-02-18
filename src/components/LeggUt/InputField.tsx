@@ -22,6 +22,7 @@ type InputData = {
   labelNorwegian: string;
   multiline?: boolean;
   rows?: number;
+  labelDescription: string;
 };
 type Props = {
   inputData?: InputData;
@@ -32,11 +33,18 @@ type Props = {
 export const InputField = (props: Props) => {
   // Props
   const {
-    inputData = { labelNorwegian: "", label: "", multiline: false, rows: 1 },
+    inputData = {
+      labelNorwegian: "",
+      label: "",
+      multiline: false,
+      rows: 1,
+      labelDescription: "",
+    },
     newAd,
     setNewAd,
   } = props;
-  const { labelNorwegian, label, multiline, rows } = inputData;
+  const { labelNorwegian, label, multiline, rows, labelDescription } =
+    inputData;
 
   // State
   const [userInput, setUserInput] = useState("");
@@ -48,11 +56,14 @@ export const InputField = (props: Props) => {
   const addValueToNewAd = (value: string) => {
     setNewAd({ ...newAd, [label]: value });
   };
+
+  // Return
   return (
     <TextField
       multiline={multiline}
       rows={rows}
       label={labelNorwegian}
+      helperText={labelDescription}
       onChange={(event) => {
         handleChange(event);
         addValueToNewAd(event.target.value);

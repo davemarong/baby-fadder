@@ -15,7 +15,7 @@ import { SelectField } from "./SelectField";
 // Utils
 
 // Data
-import FilterOptionsPostAd from "../../dummyData/FilterOptionsPostAd";
+import FilterOptionsLeggUt from "../../dummyData/FilterOptionsLeggUt";
 
 // TYPE/INTERFACE
 type Props = {
@@ -31,7 +31,7 @@ export const SelectFieldContainer = ({ children }: Props) => {
   return (
     <>
       <Grid container style={{ maxWidth: 400 }}>
-        {FilterOptionsPostAd.map((item: any) => {
+        {FilterOptionsLeggUt.map((item: any) => {
           return (
             <Grid
               style={{ margin: 20, marginLeft: 0 }}
