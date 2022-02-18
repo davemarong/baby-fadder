@@ -18,13 +18,22 @@ import { CurrentAdProductText } from "../../../src/components/CurrentAd/CurrentA
 // Data
 
 // TYPE/INTERFACE
-import { CurrentAd } from "../../../src/types/Types";
+import { CurrentAd, Profile } from "../../../src/types/Types";
 type Props = {
   currentAd: CurrentAd;
   isLogged: boolean;
+  jwt: string;
+  profile: Profile;
+  setProfile: (value: Profile) => void;
 };
 // Functional component
-const CurrentAdPage = ({ currentAd, isLogged }: Props) => {
+const CurrentAdPage = ({
+  currentAd,
+  isLogged,
+  jwt,
+  profile,
+  setProfile,
+}: Props) => {
   // State
 
   // Media Query
@@ -38,6 +47,9 @@ const CurrentAdPage = ({ currentAd, isLogged }: Props) => {
   // Props object
   const CurrentAdProp = {
     currentAd: currentAd,
+    jwt: jwt,
+    profile: profile,
+    setProfile: setProfile,
   };
   console.log(currentAd);
   // Return

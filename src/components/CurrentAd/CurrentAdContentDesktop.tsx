@@ -25,16 +25,26 @@ import { CurrentAdProductText } from "./CurrentAdProductText";
 // Images
 import babyclothes from "../../../src/dummyData/images/babyclothes.jpg";
 
-// Data
+// Utils
+import { updateFavorites } from "../../utils/Utils";
 
 // TYPE/INTERFACE
-import { CurrentAd } from "../../types/Types";
+import { CurrentAd, Profile } from "../../types/Types";
 type Props = {
   currentAd: CurrentAd;
   children: ReactNode;
+  jwt: string;
+  profile: Profile;
+  setProfile: (value: Profile) => void;
 };
 // Functional component
-export const CurrentAdContentDesktop = ({ currentAd, children }: Props) => {
+export const CurrentAdContentDesktop = ({
+  currentAd,
+  children,
+  jwt,
+  profile,
+  setProfile,
+}: Props) => {
   // State
 
   // Media Query
@@ -53,7 +63,13 @@ export const CurrentAdContentDesktop = ({ currentAd, children }: Props) => {
               item
               sm={2}
             >
-              <IconButton>{HearthIcon}</IconButton>
+              <IconButton
+                onClick={() => {
+                  updateFavorites(profile, currentAd, jwt, setProfile);
+                }}
+              >
+                {HearthIcon}
+              </IconButton>
             </Grid>
             <Grid container justifyContent="center" item sm={8}>
               <Image

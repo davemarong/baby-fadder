@@ -1,5 +1,6 @@
 export const defaultValue_Ad = {
   title: "",
+  profileId: 0,
   id: 0,
   description: "",
   brand: "",
@@ -10,6 +11,7 @@ export const defaultValue_Ad = {
   clothingType: "",
   img: "",
   fabric: "",
+  contactInfo: "",
 };
 export const defaultValue_CurrentAd = {
   name: "Ukjent",
@@ -26,12 +28,18 @@ export const defaultValue_CurrentAd = {
   clothingType: "",
   img: "",
   fabric: "",
+  contactInfo: "",
+};
+export const defaultValue_favorites = {
+  profileId: 0,
+  id: 100,
 };
 export const defaultValue_Profile = {
   name: "",
   location: "",
   id: 0,
   ad: [defaultValue_Ad],
+  favorites: [defaultValue_favorites],
 };
 export const defaultValue_FilterCategories = {
   gender: "",

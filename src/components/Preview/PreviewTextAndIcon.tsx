@@ -19,16 +19,20 @@ import { HearthIcon } from "../../assets/icons/MuiIcons";
 import { AdText } from "../ReUsable/StyledComp/AdText";
 
 // Utils
+import { updateFavorites } from "../../utils/Utils";
 
 // Data
 
 // TYPE/INTERFACE
-import { Ad } from "../../types/Types";
+import { Ad, Profile } from "../../types/Types";
 type Props = {
   ad: Ad;
+  profile: Profile;
+  setProfile: (value: Profile) => void;
+  jwt: string;
 };
 // Functional component
-export const PreviewTextAndIcon = ({ ad }: Props) => {
+export const PreviewTextAndIcon = ({ ad, profile, setProfile, jwt }: Props) => {
   // State
 
   // Functions
@@ -44,7 +48,13 @@ export const PreviewTextAndIcon = ({ ad }: Props) => {
           item
           xs={3}
         >
-          <IconButton>{HearthIcon}</IconButton>
+          <IconButton
+            onClick={() => {
+              updateFavorites(profile, ad, jwt, setProfile);
+            }}
+          >
+            {HearthIcon}
+          </IconButton>
         </Grid>
         <Grid item xs={6}>
           <AdText fontSize={0.5} bigText={ad.title}>

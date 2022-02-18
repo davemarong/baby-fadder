@@ -58,13 +58,20 @@ export default function Login({
         password: password,
       })
       .then((response) => {
-        const { name, id, ad, location } = response.data.user;
+        const {
+          name,
+          id,
+          ad = [],
+          location,
+          favorites = [],
+        } = response.data.user;
         console.log("User profile", response.data);
         setProfile({
           name: name,
           id: id,
           ad: ad,
           location: location,
+          favorites: favorites,
         });
         setJwt(response.data.jwt);
         setIsLogged(true);

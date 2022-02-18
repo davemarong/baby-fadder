@@ -33,16 +33,25 @@ import {
 } from "../../src/types/DefaultValues";
 
 // TYPE/INTERFACE
-import { AllProfiles } from "../../src/types/Types";
-import { CurrentAd } from "../../src/types/Types";
+import { AllProfiles, CurrentAd, Profile } from "../../src/types/Types";
 type Props = {
   currentAd: CurrentAd;
   setCurrentAd: (value: CurrentAd) => void;
   isLogged: boolean;
+  profile: Profile;
+  setProfile: (value: Profile) => void;
+  jwt: string;
 };
 
 // Functional component
-const Finn = ({ currentAd, setCurrentAd, isLogged }: Props) => {
+const Finn = ({
+  currentAd,
+  setCurrentAd,
+  isLogged,
+  profile,
+  setProfile,
+  jwt,
+}: Props) => {
   // State
   const [filterCategories, setFilterCategories] = useState(
     defaultValue_FilterCategories
@@ -70,7 +79,11 @@ const Finn = ({ currentAd, setCurrentAd, isLogged }: Props) => {
   const setCurrentAdProp = {
     setCurrentAd: setCurrentAd,
   };
-
+  const PreviewProps = {
+    profile: profile,
+    setProfile: setProfile,
+    jwt: jwt,
+  };
   // Return
   return (
     <Container>
@@ -81,7 +94,7 @@ const Finn = ({ currentAd, setCurrentAd, isLogged }: Props) => {
       </SelectFieldContainer>
       <ClothingAdsContainer {...ClothingAdsContainerProps}>
         <ClothingAd {...setCurrentAdProp}>
-          <Preview>
+          <Preview {...PreviewProps}>
             <PreviewButtonAndLink {...setCurrentAdProp} />
           </Preview>
         </ClothingAd>
