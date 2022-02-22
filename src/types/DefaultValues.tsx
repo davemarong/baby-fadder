@@ -34,6 +34,9 @@ export const defaultValue_favorites = {
   profileId: 0,
   id: 100,
 };
+export const defaultValue_Favorites = {
+  0: [0],
+};
 export const defaultValue_Profile = {
   name: "",
   location: "",

@@ -8,7 +8,7 @@ type UpdateProperties = {
   id?: number;
   location?: string;
   ad?: Ad[];
-  favorites?: Favorites[];
+  favorites?: Favorites;
 };
 
 // Functions
@@ -62,12 +62,19 @@ export const updateFavorites = (
   jwt: string,
   setProfile: (value: Profile) => void
 ) => {
-  const newFavorite = { id: ad.id, profileId: ad.profileId };
-  let updatedFavorites: { favorites: Favorites[] };
-  if (profile.favorites) {
-    updatedFavorites = { favorites: [...profile.favorites, newFavorite] };
+  const { favorites = [] } = profile;
+  console.log(ad);
+  let updatedFavorites: { favorites: Favorites };
+  if (favorites?.[ad.profileId]) {
+    updatedFavorites = {
+      favorites: {
+        ...favorites,
+        [ad.profileId]: [...favorites[ad.profileId], ad.id],
+      },
+    };
   } else {
-    updatedFavorites = { favorites: [newFavorite] };
+    updatedFavorites = { favorites: { ...favorites, [ad.profileId]: [ad.id] } };
   }
+
   updateProfile(jwt, profile.id, updatedFavorites, setProfile);
 };

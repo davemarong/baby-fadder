@@ -30,10 +30,11 @@ export type CurrentAd = {
   fabric: string;
   contactInfo: string;
 };
+
 export type Favorites = {
-  id: number;
-  profileId: number;
+  [key: number]: number[] | (number | number[])[];
 };
+
 export type AllProfiles = {
   name: string;
   id: number;
@@ -47,7 +48,7 @@ export type Profile = {
   id: number;
   ad: Ad[];
   location: string;
-  favorites: Favorites[];
+  favorites: Favorites;
 };
 
 export type FilterCategories = {
