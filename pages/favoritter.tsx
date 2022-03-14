@@ -5,7 +5,6 @@
 // React
 
 // Material UI
-import Container from "@mui/material/Container";
 
 // Components
 import { Nav } from "../src/components/Nav/Nav";
@@ -21,6 +20,7 @@ import { useFavoriteAdsItems } from "../src/components/CustomHook/useFavoriteAds
 
 // TYPE/INTERFACE
 import { Profile } from "../src/types/Types";
+import { Header } from "../src/components/Header/Header";
 type Props = {
   profile: Profile;
   isLogged: boolean;
@@ -34,14 +34,13 @@ const FavoritterPage = ({ profile, isLogged }: Props) => {
   return (
     <>
       <Nav isLogged={isLogged} />
-      <Container maxWidth="md">
-        <RegularList
-          items={favoriteAdsItems}
-          itemComponent={FavoritesListItem}
-          resourceName="profile"
-          gridProps={{ justifyContent: "center" }}
-        />
-      </Container>
+      <Header align="center">Favoritter</Header>
+      <RegularList
+        items={favoriteAdsItems}
+        itemComponent={FavoritesListItem}
+        resourceName="profile"
+        gridProps={{ justifyContent: "center" }}
+      />
     </>
   );
 };

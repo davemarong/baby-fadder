@@ -31,6 +31,7 @@ type Props = {
   // When using the type "FavorittAnnonser" on Profile, I get an error
   profile: any;
 };
+
 // Functional component
 export const FavoritesListItem = ({ profile }: Props) => {
   // Destructuring
