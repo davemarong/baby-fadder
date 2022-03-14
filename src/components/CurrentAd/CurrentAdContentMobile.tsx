@@ -25,16 +25,26 @@ import { CurrentAdProductText } from "./CurrentAdProductText";
 // Images
 import babyclothes from "../../../src/dummyData/images/babyclothes.jpg";
 
-// Data
+// Utils
+import { updateFavorites } from "../../utils/Utils";
 
 // TYPE/INTERFACE
-import { CurrentAd } from "../../../src/types/Types";
+import { CurrentAd, Profile } from "../../../src/types/Types";
 type Props = {
   currentAd: CurrentAd;
   children: ReactNode;
+  jwt: string;
+  profile: Profile;
+  setProfile: (value: Profile) => void;
 };
 // Functional component
-export const CurrentAdContentMobile = ({ currentAd, children }: Props) => {
+export const CurrentAdContentMobile = ({
+  currentAd,
+  children,
+  jwt,
+  profile,
+  setProfile,
+}: Props) => {
   // State
 
   // Media Query
@@ -59,7 +69,13 @@ export const CurrentAdContentMobile = ({ currentAd, children }: Props) => {
           >
             <Grid>{children}</Grid>
             <Grid>
-              <IconButton>{HearthIcon}</IconButton>
+              <IconButton
+                onClick={() => {
+                  updateFavorites(profile, currentAd, jwt, setProfile);
+                }}
+              >
+                {HearthIcon}
+              </IconButton>
             </Grid>
           </Grid>
           <Typography variant="h6">{currentAd.description}</Typography>

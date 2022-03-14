@@ -52,15 +52,22 @@ const LeggUt = ({ jwt, profile, setProfile, isLogged }: Props) => {
 
   // Functions
   const updateProfileContainerFunc = () => {
-    const updateObject = {
-      ad: [...profile.ad, newAd],
-    };
+    let updateObject;
+    if (profile.ad) {
+      updateObject = {
+        ad: [...profile.ad, newAd],
+      };
+    } else {
+      updateObject = {
+        ad: [newAd],
+      };
+    }
     updateProfile(jwt, profile.id, updateObject, setProfile);
     enqueueSnackbar(`Annonsen "${newAd.title}" er lagret!`, {
       variant: "success",
     });
   };
-
+  console.log(profile);
   // Return
   return (
     <>

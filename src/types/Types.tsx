@@ -1,4 +1,5 @@
 export type Ad = {
+  profileId: number;
   title: string;
   id: number;
   description: string;
@@ -10,6 +11,7 @@ export type Ad = {
   clothingType: string;
   img: string;
   fabric: string;
+  contactInfo: string;
 };
 export type CurrentAd = {
   name: string;
@@ -26,12 +28,18 @@ export type CurrentAd = {
   clothingType: string;
   img: string;
   fabric: string;
+  contactInfo: string;
+};
+export type Favorites = {
+  id: number;
+  profileId: number;
 };
 export type AllProfiles = {
   name: string;
   id: number;
   ad: Ad[];
   location: string;
+  favorites: Favorites[];
 }[];
 
 export type Profile = {
@@ -39,6 +47,7 @@ export type Profile = {
   id: number;
   ad: Ad[];
   location: string;
+  favorites: Favorites[];
 };
 
 export type FilterCategories = {

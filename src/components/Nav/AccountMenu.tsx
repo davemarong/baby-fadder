@@ -67,10 +67,11 @@ export const AccountMenu = () => {
       >
         <MenuItem
           onClick={() => {
+            router.push("/min-side");
             handleClose();
           }}
         >
-          Profil
+          Min side
         </MenuItem>
         <MenuItem
           onClick={() => {

@@ -31,7 +31,7 @@ import babyclothes from "../../dummyData/images/babyclothes.jpg";
 import { defaultValue_Ad } from "../../types/DefaultValues";
 
 // TYPE/INTERFACE
-import { Ad } from "../../types/Types";
+import { Ad, Profile } from "../../types/Types";
 type Props = {
   children: any;
   ad?: Ad;
@@ -39,6 +39,9 @@ type Props = {
   name?: string;
   location?: string;
   profileId?: number;
+  profile: Profile;
+  setProfile: (value: Profile) => void;
+  jwt: string;
 };
 
 // Functional component
@@ -51,6 +54,9 @@ export const Preview = (props: Props) => {
     name = "Ukjent",
     location = "Ukjent",
     profileId = 0,
+    profile,
+    setProfile,
+    jwt,
   } = props;
   // State
 
@@ -70,7 +76,12 @@ export const Preview = (props: Props) => {
           width={250}
           alt=""
         />
-        <PreviewTextAndIcon ad={ad} />
+        <PreviewTextAndIcon
+          jwt={jwt}
+          ad={ad}
+          setProfile={setProfile}
+          profile={profile}
+        />
         {React.cloneElement(children, {
           ad: ad,
           name: name,
