@@ -12,10 +12,10 @@ import Container from "@mui/material/Container";
 
 // Components
 import { Nav } from "../src/components/Nav/Nav";
-import { InputField } from "../src/components/PostAd/InputField";
-import { InputFieldContainer } from "../src/components/PostAd/InputFieldContainer";
-import { SelectField } from "../src/components/PostAd/SelectField";
-import { SelectFieldContainer } from "../src/components/PostAd/SelectFieldContainer";
+import { InputField } from "../src/components/LeggUt/InputField";
+import { InputFieldContainer } from "../src/components/LeggUt/InputFieldContainer";
+import { SelectField } from "../src/components/LeggUt/SelectField";
+import { SelectFieldContainer } from "../src/components/LeggUt/SelectFieldContainer";
 
 // Utils
 import { updateProfile } from "../src/utils/Utils";
@@ -27,7 +27,7 @@ import InputData from "../src/dummyData/InputData";
 import { useUpdateProfile } from "../src/components/CustomHook/useUpdateProfile";
 
 // Other
-import axios from "axios";
+import { useSnackbar } from "notistack";
 
 // Default value
 import { defaultValue_Ad } from "../src/types/DefaultValues";
@@ -47,12 +47,18 @@ const LeggUt = ({ jwt, profile, setProfile, isLogged }: Props) => {
   // State
   const [newAd, setNewAd] = useState(defaultValue_Ad);
 
+  // Snackbar
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
   // Functions
   const updateProfileContainerFunc = () => {
     const updateObject = {
       ad: [...profile.ad, newAd],
     };
     updateProfile(jwt, profile.id, updateObject, setProfile);
+    enqueueSnackbar(`Annonsen "${newAd.title}" er lagret!`, {
+      variant: "success",
+    });
   };
 
   // Return

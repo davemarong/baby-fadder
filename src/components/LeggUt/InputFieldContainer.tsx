@@ -26,8 +26,7 @@ type Props = {
     multiline?: boolean;
     rows?: number;
     xs: number;
-    sm: number;
-    md: number;
+    labelDescription: string;
   }[];
 };
 // Functional component
@@ -42,13 +41,7 @@ export const InputFieldContainer = ({ children, inputData }: Props) => {
       {inputData.map((item: any) => {
         return (
           <Grid container item key={item.label}>
-            <Grid
-              style={{ margin: 20, marginLeft: 0 }}
-              item
-              xs={item.xs}
-              sm={item.sm}
-              md={item.md}
-            >
+            <Grid style={{ margin: 20, marginLeft: 0 }} item xs={item.xs}>
               {React.cloneElement(children, { inputData: item })}
             </Grid>
           </Grid>
