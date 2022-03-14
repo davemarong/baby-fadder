@@ -5,6 +5,7 @@
 // React
 
 // Material UI
+import Container from "@mui/material/Container";
 
 // Components
 import { Nav } from "../src/components/Nav/Nav";
@@ -33,11 +34,14 @@ const FavoritterPage = ({ profile, isLogged }: Props) => {
   return (
     <>
       <Nav isLogged={isLogged} />
-      <RegularList
-        items={favoriteAdsItems}
-        itemComponent={FavoritesListItem}
-        resourceName="profile"
-      />
+      <Container maxWidth="md">
+        <RegularList
+          items={favoriteAdsItems}
+          itemComponent={FavoritesListItem}
+          resourceName="profile"
+          gridProps={{ justifyContent: "center" }}
+        />
+      </Container>
     </>
   );
 };

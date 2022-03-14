@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 
 // Styled Components
 import { AdText } from "../ReUsable/StyledComp/AdText";
+
 // Utils
 
 // Images

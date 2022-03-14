@@ -7,6 +7,7 @@ import { ReactNode } from "react";
 // React
 
 // Material UI
+import Grid from "@mui/material/Grid";
 
 // Components
 
@@ -20,12 +21,14 @@ type Props = {
   items: any;
   resourceName: string;
   itemComponent: any;
+  gridProps?: any;
 };
 // Functional component
 export const RegularList = ({
   items,
   resourceName,
   itemComponent: ItemComponent,
+  gridProps,
 }: Props) => {
   // State
 
@@ -33,10 +36,10 @@ export const RegularList = ({
 
   // Return
   return (
-    <>
+    <Grid container {...gridProps}>
       {items.map((data: any, id: number) => {
         return <ItemComponent key={id} {...{ [resourceName]: data }} />;
       })}
-    </>
+    </Grid>
   );
 };
