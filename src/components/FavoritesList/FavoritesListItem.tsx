@@ -4,15 +4,15 @@
 import Image from "next/image";
 
 // React
+import { useEffect, useState } from "react";
 
 // Material UI
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-
-// Components
 
 // Styled Components
 import { AdText } from "../ReUsable/StyledComp/AdText";
+
+// Components
 
 // Utils
 
@@ -22,21 +22,24 @@ import clothesImage from "../../assets/images/pexels-polina-tankilevitch-3875080
 // Styles
 import styles from "../../styles/Style.module.css";
 
-// TYPE/INTERFACE
-import { Profile, Ad } from "../../types/Types";
-type Props = {
-  profile: Profile;
-};
-// Functional component
-export const MineAnnonser = ({ profile }: Props) => {
-  // State
+// Data
 
-  // Functions
+// TYPE/INTERFACE
+import { FavorittAnnonser, Ad } from "../../types/Types";
+
+type Props = {
+  // When using the type "FavorittAnnonser" on Profile, I get an error
+  profile: any;
+};
+
+// Functional component
+export const FavoritesListItem = ({ profile }: Props) => {
+  // Destructuring
 
   // Return
   return (
-    <Grid container justifyContent="center">
-      {profile.ad.map((ad: Ad) => {
+    <>
+      {profile.ads.map((ad: Ad, id: number) => {
         return (
           <Grid
             container
@@ -70,6 +73,6 @@ export const MineAnnonser = ({ profile }: Props) => {
           </Grid>
         );
       })}
-    </Grid>
+    </>
   );
 };

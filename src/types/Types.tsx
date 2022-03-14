@@ -30,10 +30,17 @@ export type CurrentAd = {
   fabric: string;
   contactInfo: string;
 };
+
 export type Favorites = {
-  id: number;
-  profileId: number;
+  // The key is the profileId of the user owning the ads, and the values are the id's of the ads
+  [key: number]: number[];
 };
+export type FavorittAnnonser = {
+  name: string;
+  location: string;
+  ads: Ad[];
+}[];
+
 export type AllProfiles = {
   name: string;
   id: number;
@@ -47,7 +54,7 @@ export type Profile = {
   id: number;
   ad: Ad[];
   location: string;
-  favorites: Favorites[];
+  favorites: Favorites;
 };
 
 export type FilterCategories = {
