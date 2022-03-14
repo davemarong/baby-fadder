@@ -10,6 +10,8 @@
 import { Nav } from "../src/components/Nav/Nav";
 import { RegularList } from "../src/components/RegularList/RegularList";
 import { FavoritesListItem } from "../src/components/FavoritesList/FavoritesListItem";
+import { Header } from "../src/components/Header/Header";
+import { MinSideMenu } from "../src/components/MinSideMenu/MinSideMenu";
 
 // Custom hook
 import { useFavoriteAdsItems } from "../src/components/CustomHook/useFavoriteAdsItems";
@@ -20,7 +22,6 @@ import { useFavoriteAdsItems } from "../src/components/CustomHook/useFavoriteAds
 
 // TYPE/INTERFACE
 import { Profile } from "../src/types/Types";
-import { Header } from "../src/components/Header/Header";
 type Props = {
   profile: Profile;
   isLogged: boolean;
@@ -35,6 +36,7 @@ const FavoritterPage = ({ profile, isLogged }: Props) => {
     <>
       <Nav isLogged={isLogged} />
       <Header align="center">Favoritter</Header>
+      <MinSideMenu />
       <RegularList
         items={favoriteAdsItems}
         itemComponent={FavoritesListItem}
