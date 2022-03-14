@@ -7,8 +7,12 @@
 // Material UI
 
 // Components
-import { Favoritter } from "../src/components/Favoritter/Favoritter";
 import { Nav } from "../src/components/Nav/Nav";
+import { RegularList } from "../src/components/RegularList/RegularList";
+import { FavoritesListItem } from "../src/components/FavoritesList/FavoritesListItem";
+
+// Custom hook
+import { useFavoriteAdsItems } from "../src/components/CustomHook/useFavoriteAdsItems";
 
 // Utils
 
@@ -22,11 +26,18 @@ type Props = {
 };
 // Functional component
 const FavoritterPage = ({ profile, isLogged }: Props) => {
+  // Custom hooks
+  const favoriteAdsItems = useFavoriteAdsItems({ profile: profile });
+
   // Return
   return (
     <>
       <Nav isLogged={isLogged} />
-      <Favoritter profile={profile} />
+      <RegularList
+        items={favoriteAdsItems}
+        itemComponent={FavoritesListItem}
+        resourceName="profile"
+      />
     </>
   );
 };

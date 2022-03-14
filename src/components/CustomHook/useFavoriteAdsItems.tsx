@@ -17,7 +17,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 // Default Values
-import { defaultValue_FavoritesAds } from "../../types/DefaultValues";
+import {
+  defaultValue_FavoritesAds,
+  defaultValue_Profile,
+} from "../../types/DefaultValues";
 
 // TYPE/INTERFACE
 import { Profile, Ad, FavorittAnnonser } from "../../types/Types";
@@ -26,7 +29,7 @@ type Props = {
   profile: Profile;
 };
 // Functional component
-export const Favoritter = ({ profile }: Props) => {
+export const useFavoriteAdsItems = ({ profile }: Props) => {
   // Destructure props
   const { favorites } = profile;
 
@@ -45,7 +48,7 @@ export const Favoritter = ({ profile }: Props) => {
 
   // Functions
 
-  const fetchFavoritter = async (profileId: number) => {
+  const fetchFavoritter = (profileId: number) => {
     axios
       .get(`http://localhost:1337/api/users/${profileId}`)
       .then((response) => {
@@ -55,7 +58,6 @@ export const Favoritter = ({ profile }: Props) => {
         const favoriteAds = data.ad.filter((ad: Ad) => {
           return profile.favorites[profileId].includes(ad.id);
         });
-        console.log(favorites, ...favoriteAds);
         setFavorittAnnonser((prev) => [
           ...prev,
           {
@@ -70,21 +72,5 @@ export const Favoritter = ({ profile }: Props) => {
       });
   };
   // Return
-  return (
-    <>
-      <div>Favoritter</div>
-      <div>
-        {favorittAnnonser.map((items: any) => {
-          return items.ads.map((item: any) => {
-            return (
-              <div key={item.id}>
-                {item.title}
-                {item.profileId}
-              </div>
-            );
-          });
-        })}
-      </div>
-    </>
-  );
+  return favorittAnnonser;
 };

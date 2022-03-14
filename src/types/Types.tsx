@@ -40,6 +40,7 @@ export type FavorittAnnonser = {
   location: string;
   ads: Ad[];
 }[];
+
 export type AllProfiles = {
   name: string;
   id: number;
