@@ -81,7 +81,14 @@ export const AccountMenu = () => {
         >
           Mine annonser
         </MenuItem>
-        <MenuItem onClick={handleClose}>Favoritter</MenuItem>
+        <MenuItem
+          onClick={() => {
+            router.push("/favoritter");
+            handleClose();
+          }}
+        >
+          Favoritter
+        </MenuItem>
       </Menu>
     </div>
   );

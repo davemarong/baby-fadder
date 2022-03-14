@@ -37,6 +37,27 @@ export const defaultValue_favorites = {
 export const defaultValue_Favorites = {
   0: [0],
 };
+export const defaultValue_FavoritesAds = {
+  name: "",
+  location: "",
+  ads: [
+    {
+      title: "",
+      profileId: 0,
+      id: 0,
+      description: "",
+      brand: "",
+      price: 0,
+      gender: "",
+      size: "",
+      color: "",
+      clothingType: "",
+      img: "",
+      fabric: "",
+      contactInfo: "",
+    },
+  ],
+};
 export const defaultValue_Profile = {
   name: "",
   location: "",
