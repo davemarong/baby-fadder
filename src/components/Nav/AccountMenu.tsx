@@ -17,6 +17,7 @@ import Menu from "@mui/material/Menu";
 // Utils
 
 // Data
+import { minSideMenuItems } from "../MinSideMenu/MinSideMenuItems";
 
 // TYPE/INTERFACE
 
@@ -65,30 +66,19 @@ export const AccountMenu = () => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem
-          onClick={() => {
-            router.push("/min-side");
-            handleClose();
-          }}
-        >
-          Min side
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            router.push("/mine-annonser");
-            handleClose();
-          }}
-        >
-          Mine annonser
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            router.push("/favoritter");
-            handleClose();
-          }}
-        >
-          Favoritter
-        </MenuItem>
+        {minSideMenuItems.map((item) => {
+          return (
+            <MenuItem
+              key={item.id}
+              onClick={() => {
+                router.push(`${item.path}`);
+                handleClose();
+              }}
+            >
+              {item.title}
+            </MenuItem>
+          );
+        })}
       </Menu>
     </div>
   );

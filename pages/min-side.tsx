@@ -11,6 +11,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { Nav } from "../src/components/Nav/Nav";
 import { Header } from "../src/components/Header/Header";
 import { MinSide } from "../src/components/MinSide/MinSide";
+import { MinSideMenu } from "../src/components/MinSideMenu/MinSideMenu";
 
 // Utils
 
@@ -32,6 +33,7 @@ const Min_side = ({ isLogged, profile }: Props) => {
     <>
       <Nav isLogged={isLogged} />
       <Header align="center">Min Side</Header>
+      <MinSideMenu />
       <MinSide profile={profile} />
     </>
   );

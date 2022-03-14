@@ -10,6 +10,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 // Components
 import { Nav } from "../src/components/Nav/Nav";
 import { MineAnnonser } from "../src/components/MineAnnonser/MineAnnonser";
+import { MinSideMenu } from "../src/components/MinSideMenu/MinSideMenu";
+import { Header } from "../src/components/Header/Header";
 
 // Utils
 
@@ -19,7 +21,6 @@ import { MineAnnonser } from "../src/components/MineAnnonser/MineAnnonser";
 
 // TYPE/INTERFACE
 import { Profile } from "../src/types/Types";
-import { Header } from "../src/components/Header/Header";
 type Props = {
   isLogged: boolean;
   profile: Profile;
@@ -32,6 +33,7 @@ const Mine_Annonser = ({ isLogged, profile }: Props) => {
     <>
       <Nav isLogged={isLogged} />
       <Header align="center">Mine Annonser</Header>
+      <MinSideMenu />
       <MineAnnonser profile={profile} />
     </>
   );
