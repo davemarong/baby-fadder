@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 // Next
 
 // React
+import React from "react";
 
 // Material UI
 import Grid from "@mui/material/Grid";
@@ -20,15 +21,17 @@ import { FavorittAnnonser, Ad } from "../../types/Types";
 type Props = {
   items: any;
   resourceName: string;
-  itemComponent: any;
+  // itemComponent: any;
   gridProps?: any;
+  children: any;
 };
 // Functional component
 export const RegularList = ({
   items,
   resourceName,
-  itemComponent: ItemComponent,
+  // itemComponent: ItemComponent,
   gridProps,
+  children,
 }: Props) => {
   // State
 
@@ -38,7 +41,11 @@ export const RegularList = ({
   return (
     <Grid container {...gridProps}>
       {items.map((data: any, id: number) => {
-        return <ItemComponent key={id} {...{ [resourceName]: data }} />;
+        return (
+          <React.Fragment key={id}>
+            {React.cloneElement(children, { ...{ [resourceName]: data } })}
+          </React.Fragment>
+        );
       })}
     </Grid>
   );

@@ -63,7 +63,6 @@ export const updateFavorites = (
   setProfile: (value: Profile) => void
 ) => {
   const { favorites = [] } = profile;
-  console.log(ad);
   let updatedFavorites: { favorites: Favorites };
   if (favorites?.[ad.profileId]) {
     updatedFavorites = {
