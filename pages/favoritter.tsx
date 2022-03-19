@@ -22,15 +22,30 @@ import { useFavoriteAdsItems } from "../src/components/CustomHook/useFavoriteAds
 
 // TYPE/INTERFACE
 import { Profile } from "../src/types/Types";
+import { withRemoveFavorites } from "../src/components/HigherOrderComponents/withRemoveFavorites";
 type Props = {
   profile: Profile;
+  setProfile: (value: Profile) => void;
   isLogged: boolean;
+  jwt: string;
 };
 // Functional component
-const FavoritterPage = ({ profile, isLogged }: Props) => {
+const FavoritterPage = ({ setProfile, profile, isLogged, jwt }: Props) => {
   // Custom hooks
-  const favoriteAdsItems = useFavoriteAdsItems({ profile: profile });
+  const [favoriteAdsItems, setFavoriteAdsItems] = useFavoriteAdsItems({
+    profile: profile,
+  });
 
+  // High Order Component
+  const FavoritesListItemWithRemoveFavorite = withRemoveFavorites(
+    FavoritesListItem,
+    profile,
+    jwt,
+    setProfile
+  );
+
+  // console.log(profile, favoriteAdsItems);
+  // console.log("favoritter", profile, favoriteAdsItems);
   // Return
   return (
     <>
@@ -39,10 +54,14 @@ const FavoritterPage = ({ profile, isLogged }: Props) => {
       <MinSideMenu />
       <RegularList
         items={favoriteAdsItems}
-        itemComponent={FavoritesListItem}
-        resourceName="profile"
+        resourceName="adsProfile"
         gridProps={{ justifyContent: "center" }}
-      />
+      >
+        {/* GET PAGE TO RERENDER */}
+        <FavoritesListItemWithRemoveFavorite
+          setFavoriteAdsItems={setFavoriteAdsItems}
+        />
+      </RegularList>
     </>
   );
 };

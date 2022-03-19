@@ -16,12 +16,6 @@ import { useEffect, useState } from "react";
 // Other
 import axios from "axios";
 
-// Default Values
-import {
-  defaultValue_FavoritesAds,
-  defaultValue_Profile,
-} from "../../types/DefaultValues";
-
 // TYPE/INTERFACE
 import { Profile, Ad, FavorittAnnonser } from "../../types/Types";
 
@@ -34,23 +28,32 @@ export const useFavoriteAdsItems = ({ profile }: Props) => {
   const { favorites } = profile;
 
   // State
-  const [favorittAnnonser, setFavorittAnnonser] = useState<FavorittAnnonser>(
+  const [favoriteAdsItems, setFavoriteAdsItems] = useState<FavorittAnnonser>(
     []
   );
 
   useEffect(() => {
+    // If components mounts/rerender, empty favoriteAdsItems
+    setFavoriteAdsItems([]);
+
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
+
     const favoritesArray = Object.keys(favorites);
-    console.log(favoritesArray);
     favoritesArray.forEach((favoriteId: any) => {
-      fetchFavoritter(favoriteId);
+      fetchFavoritter(favoriteId, source);
     });
-  }, []);
+    return () => {
+      source.cancel();
+    };
+  }, [profile, favorites]);
 
   // Functions
-
-  const fetchFavoritter = (profileId: number) => {
+  const fetchFavoritter = (profileId: number, source: any) => {
     axios
-      .get(`http://localhost:1337/api/users/${profileId}`)
+      .get(`http://localhost:1337/api/users/${profileId}`, {
+        cancelToken: source.token,
+      })
       .then((response) => {
         const { data } = response;
 
@@ -58,7 +61,7 @@ export const useFavoriteAdsItems = ({ profile }: Props) => {
         const favoriteAds = data.ad.filter((ad: Ad) => {
           return profile.favorites[profileId].includes(ad.id);
         });
-        setFavorittAnnonser((prev) => [
+        setFavoriteAdsItems((prev) => [
           ...prev,
           {
             name: data.name,
@@ -72,5 +75,5 @@ export const useFavoriteAdsItems = ({ profile }: Props) => {
       });
   };
   // Return
-  return favorittAnnonser;
+  return [favoriteAdsItems, setFavoriteAdsItems];
 };

@@ -8,11 +8,19 @@ import { useEffect, useState } from "react";
 
 // Material UI
 import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+
+// Icon
+import { DeleteIcon } from "../../assets/icons/MuiIcons";
+import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 
 // Styled Components
 import { AdText } from "../ReUsable/StyledComp/AdText";
 
 // Components
+
+// CustomHook
+import { useRemoveFavoriteAd } from "../CustomHook/useRemoveFavoriteAd";
 
 // Utils
 
@@ -29,17 +37,28 @@ import { FavorittAnnonser, Ad } from "../../types/Types";
 
 type Props = {
   // When using the type "FavorittAnnonser" on Profile, I get an error
+  adsProfile: any;
   profile: any;
+  removeFavoriteAd: any;
+  setFavoriteAdsItems: any;
 };
 
 // Functional component
-export const FavoritesListItem = ({ profile }: Props) => {
+export const FavoritesListItem = ({
+  // adsProfile = owner of the ads that has been marked as favorites
+  adsProfile,
+  removeFavoriteAd,
+  // profile = the user that is logged in
+  profile,
+  setFavoriteAdsItems,
+}: Props) => {
   // Destructuring
 
   // Return
+
   return (
     <>
-      {profile.ads.map((ad: Ad, id: number) => {
+      {adsProfile.ads.map((ad: Ad, id: number) => {
         return (
           <Grid
             container
@@ -49,7 +68,7 @@ export const FavoritesListItem = ({ profile }: Props) => {
             flexWrap="nowrap"
             style={{ margin: "40px 0" }}
           >
-            <Grid container item justifyContent="flex-end" xs={6}>
+            <Grid container item justifyContent="flex-end" xs={5}>
               <Image
                 className={styles.ad_image}
                 src={clothesImage}
@@ -58,17 +77,32 @@ export const FavoritesListItem = ({ profile }: Props) => {
                 height={100}
               />
             </Grid>
-            <Grid xs={6} item container alignItems="center">
-              <AdText
-                fontWeightBig="normal"
-                fontWeightSmall="lighter"
-                margin="10px"
-                textAlign="left"
-                fontSize={0}
-                bigText={ad.title}
+            <Grid xs={5} item container alignItems="center" wrap="nowrap">
+              <Grid item>
+                <AdText
+                  fontWeightBig="normal"
+                  fontWeightSmall="lighter"
+                  margin="10px"
+                  textAlign="left"
+                  fontSize={0}
+                  bigText={ad.title}
+                >
+                  {ad.brand} - {ad.size} - {ad.price}kr
+                </AdText>
+              </Grid>
+            </Grid>
+            <Grid item container xs={2}>
+              <IconButton
+                onClick={() => {
+                  const favoriteAdsList = removeFavoriteAd(
+                    profile.favorites,
+                    ad.profileId,
+                    ad.id
+                  );
+                }}
               >
-                {ad.brand} - {ad.size} - {ad.price}kr
-              </AdText>
+                {DeleteIcon}
+              </IconButton>
             </Grid>
           </Grid>
         );

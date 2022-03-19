@@ -27,7 +27,6 @@ type Props = {
   jwt: string;
   id: number;
   updateProperties: UpdateProperties;
-  setProfile: (value: any) => void;
 };
 // Functional component
 /**
@@ -37,12 +36,7 @@ type Props = {
  * @param {UpdateProperties} updateProperties Profile data that will get updated
  * @return {void}
  */
-export const useUpdateProfile = ({
-  jwt,
-  id,
-  updateProperties,
-  setProfile,
-}: Props) => {
+export const useUpdateProfile = ({ jwt, id, updateProperties }: Props) => {
   // State
 
   // Functions

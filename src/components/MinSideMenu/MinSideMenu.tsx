@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 // React
 import { useState } from "react";
+
 // Material UI
 
 // Components
@@ -23,6 +24,7 @@ import { minSideMenuItems } from "./MinSideMenuItems";
 export const MinSideMenu = () => {
   // State
   const [active, setActive] = useState();
+
   // Functions
 
   // Router
