@@ -32,7 +32,9 @@ type Props = {
 // Functional component
 const FavoritterPage = ({ setProfile, profile, isLogged, jwt }: Props) => {
   // Custom hooks
-  const favoriteAdsItems = useFavoriteAdsItems({ profile: profile });
+  const [favoriteAdsItems, setFavoriteAdsItems] = useFavoriteAdsItems({
+    profile: profile,
+  });
 
   // High Order Component
   const FavoritesListItemWithRemoveFavorite = withRemoveFavorites(
@@ -42,7 +44,8 @@ const FavoritterPage = ({ setProfile, profile, isLogged, jwt }: Props) => {
     setProfile
   );
 
-  console.log(profile, favoriteAdsItems);
+  // console.log(profile, favoriteAdsItems);
+  // console.log("favoritter", profile, favoriteAdsItems);
   // Return
   return (
     <>
@@ -51,13 +54,13 @@ const FavoritterPage = ({ setProfile, profile, isLogged, jwt }: Props) => {
       <MinSideMenu />
       <RegularList
         items={favoriteAdsItems}
-        // Change itemcomponent to children, so you can directly pass the "Profile" to "FavoritesListItem"
-        // Or just use an HOC to add the methods to the component, and using the profile and setProfile from here. Thats less code in the return field here.
-        // itemComponent={FavoritesListItem}
         resourceName="adsProfile"
         gridProps={{ justifyContent: "center" }}
       >
-        <FavoritesListItemWithRemoveFavorite />
+        {/* GET PAGE TO RERENDER */}
+        <FavoritesListItemWithRemoveFavorite
+          setFavoriteAdsItems={setFavoriteAdsItems}
+        />
       </RegularList>
     </>
   );

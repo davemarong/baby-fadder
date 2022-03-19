@@ -39,8 +39,10 @@ export const withRemoveFavorites = (
       const updatedFavorites = { favorites: favoriteAdsList };
       console.log(favoriteAdsList);
       console.log(favorites);
+
       //   GET PAGE TO RERENDER
       updateProfile(jwt, profile.id, updatedFavorites, setProfile);
+      return favoriteAdsList;
     };
 
     // Return

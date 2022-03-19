@@ -14,6 +14,9 @@ import Grid from "@mui/material/Grid";
 
 // Utils
 
+// Library
+import { v4 as uuidv4 } from "uuid";
+
 // Data
 
 // TYPE/INTERFACE
@@ -36,13 +39,14 @@ export const RegularList = ({
   // State
 
   // Functions
-
+  // console.log(items);
+  // console.log("RegularList", items);
   // Return
   return (
     <Grid container {...gridProps}>
       {items.map((data: any, id: number) => {
         return (
-          <React.Fragment key={id}>
+          <React.Fragment key={uuidv4()}>
             {React.cloneElement(children, { ...{ [resourceName]: data } })}
           </React.Fragment>
         );

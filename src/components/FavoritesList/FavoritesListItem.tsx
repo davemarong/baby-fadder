@@ -40,6 +40,7 @@ type Props = {
   adsProfile: any;
   profile: any;
   removeFavoriteAd: any;
+  setFavoriteAdsItems: any;
 };
 
 // Functional component
@@ -49,11 +50,10 @@ export const FavoritesListItem = ({
   removeFavoriteAd,
   // profile = the user that is logged in
   profile,
+  setFavoriteAdsItems,
 }: Props) => {
   // Destructuring
 
-  console.log(adsProfile);
-  console.log(profile, "userproilfe");
   // Return
 
   return (
@@ -94,7 +94,11 @@ export const FavoritesListItem = ({
             <Grid item container xs={2}>
               <IconButton
                 onClick={() => {
-                  removeFavoriteAd(profile.favorites, ad.profileId, ad.id);
+                  const favoriteAdsList = removeFavoriteAd(
+                    profile.favorites,
+                    ad.profileId,
+                    ad.id
+                  );
                 }}
               >
                 {DeleteIcon}
