@@ -32,7 +32,7 @@ type Props = {
 // Functional component
 const FavoritterPage = ({ setProfile, profile, isLogged, jwt }: Props) => {
   // Custom hooks
-  const [favoriteAdsItems, setFavoriteAdsItems] = useFavoriteAdsItems({
+  const favoriteAdsItems = useFavoriteAdsItems({
     profile: profile,
   });
 
@@ -44,8 +44,6 @@ const FavoritterPage = ({ setProfile, profile, isLogged, jwt }: Props) => {
     setProfile
   );
 
-  // console.log(profile, favoriteAdsItems);
-  // console.log("favoritter", profile, favoriteAdsItems);
   // Return
   return (
     <>
@@ -57,10 +55,7 @@ const FavoritterPage = ({ setProfile, profile, isLogged, jwt }: Props) => {
         resourceName="adsProfile"
         gridProps={{ justifyContent: "center" }}
       >
-        {/* GET PAGE TO RERENDER */}
-        <FavoritesListItemWithRemoveFavorite
-          setFavoriteAdsItems={setFavoriteAdsItems}
-        />
+        <FavoritesListItemWithRemoveFavorite />
       </RegularList>
     </>
   );

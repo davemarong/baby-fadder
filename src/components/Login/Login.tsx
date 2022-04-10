@@ -9,8 +9,13 @@ import { useRouter } from "next/router";
 
 // MUI
 import TextField from "@mui/material/TextField";
+import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import CircularProgress from "@mui/material/CircularProgress";
+import FormControlLabel from "@mui/material/FormControlLabel";
+
+// Utils
+import { loginUser } from "../../utils/Utils";
 
 // Other
 import axios from "axios";
@@ -35,6 +40,7 @@ export default function Login({
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [checked, setChecked] = useState(true);
 
   // Router
   const router = useRouter();
@@ -50,40 +56,76 @@ export default function Login({
   ) => {
     setPassword(event.target.value);
   };
-  const handleLoginUser = () => {
-    setIsLoading(true);
-    axios
-      .post("http://localhost:1337/api/auth/local", {
-        identifier: username,
-        password: password,
-      })
-      .then((response) => {
-        const {
-          name,
-          id,
-          ad = [],
-          location,
-          favorites = [],
-        } = response.data.user;
-        console.log("User profile", response.data);
-        setProfile({
-          name: name,
-          id: id,
-          ad: ad,
-          location: location,
-          favorites: favorites,
-        });
-        setJwt(response.data.jwt);
-        setIsLogged(true);
-        setIsLoading(false);
-        router.push("/finn");
-      })
-      .catch((error) => {
-        console.log("An error occurred:", error);
-        setIsLoading(false);
-      });
+  const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+  };
+  const saveUserLoginInfo = (checked: boolean) => {
+    if (checked) {
+      localStorage.setItem("password", password);
+      localStorage.setItem("username", username);
+    }
   };
 
+  const successfulLogin = (response: any) => {
+    const { name, id, ad = [], location, favorites = [] } = response.data.user;
+    setProfile({
+      name: name,
+      id: id,
+      ad: ad,
+      location: location,
+      favorites: favorites,
+    });
+    setJwt(response.data.jwt);
+    setIsLogged(true);
+    saveUserLoginInfo(checked);
+    setIsLoading(false);
+    router.push("/finn");
+  };
+  const failedLogin = (error: any) => {
+    console.log(error);
+  };
+  const handleLoginUser = () => {
+    setIsLoading(true);
+    loginUser(username, password, successfulLogin, failedLogin);
+    // Insert LoginUser utils func
+  };
+  // const handleLoginUser = () => {
+  //   setIsLoading(true);
+
+  //   // Insert LoginUser utils func
+  //   axios
+  //     .post("http://localhost:1337/api/auth/local", {
+  //       identifier: username,
+  //       password: password,
+  //     })
+  //     .then((response) => {
+  //       const {
+  //         name,
+  //         id,
+  //         ad = [],
+  //         location,
+  //         favorites = [],
+  //       } = response.data.user;
+  //       console.log("User profile", response);
+
+  //       setProfile({
+  //         name: name,
+  //         id: id,
+  //         ad: ad,
+  //         location: location,
+  //         favorites: favorites,
+  //       });
+  //       setJwt(response.data.jwt);
+  //       setIsLogged(true);
+  //       saveUserLoginInfo(checked);
+  //       setIsLoading(false);
+  //       router.push("/finn");
+  //     })
+  //     .catch((error) => {
+  //       console.log("An error occurred:", error);
+  //       setIsLoading(false);
+  //     });
+  // };
   // Return
   return (
     <Grid container justifyContent="center">
@@ -105,7 +147,18 @@ export default function Login({
         />
       </Grid>
       <Grid item xs={12}></Grid>
-      {React.cloneElement(children, { func: handleLoginUser })}
+      <Grid container item>
+        <Grid item xs={4} sm={5}></Grid>
+        <Grid item xs={4} sm={2}>
+          {React.cloneElement(children, { func: handleLoginUser })}
+        </Grid>
+        <Grid container alignItems="center" item xs={4} sm={5}>
+          <FormControlLabel
+            control={<Checkbox checked={checked} onChange={handleChecked} />}
+            label="Husk meg?"
+          />
+        </Grid>
+      </Grid>
       {isLoading && <CircularProgress />}
     </Grid>
   );

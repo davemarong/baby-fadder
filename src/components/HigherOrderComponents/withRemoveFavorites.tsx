@@ -37,12 +37,8 @@ export const withRemoveFavorites = (
       let favoriteAdsList = favorites;
       favoriteAdsList[profileId].splice(indexOfFavoriteAd, 1);
       const updatedFavorites = { favorites: favoriteAdsList };
-      console.log(favoriteAdsList);
-      console.log(favorites);
 
-      //   GET PAGE TO RERENDER
       updateProfile(jwt, profile.id, updatedFavorites, setProfile);
-      return favoriteAdsList;
     };
 
     // Return

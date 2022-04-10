@@ -11,6 +11,9 @@ import {
   defaultValue_Profile,
 } from "../src/types/DefaultValues";
 
+// Custom Hook
+import { useLogUserIn } from "../src/components/CustomHook/useLogUserIn";
+
 // Snackbar
 import { SnackbarProvider } from "notistack";
 
@@ -39,6 +42,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     isLogged: isLogged,
     setIsLogged: setIsLogged,
   };
+  // Custom hook
+  useLogUserIn();
+
   return (
     <SnackbarProvider maxSnack={3}>
       <Component {...pageProps} {...PagePropsObject} />
