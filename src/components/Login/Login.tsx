@@ -17,9 +17,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 // Utils
 import { loginUser } from "../../utils/Utils";
 
-// Other
-import axios from "axios";
-
 // TYPE/INTERFACE
 import { Profile } from "../../types/Types";
 type Props = {
@@ -45,7 +42,7 @@ export default function Login({
   // Router
   const router = useRouter();
 
-  //   Functions
+  // Controlled Input fields functions
   const handleUsernameInput = (
     event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
@@ -59,6 +56,8 @@ export default function Login({
   const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
   };
+
+  // Functions
   const saveUserLoginInfo = (checked: boolean) => {
     if (checked) {
       localStorage.setItem("password", password);
@@ -78,54 +77,19 @@ export default function Login({
     setJwt(response.data.jwt);
     setIsLogged(true);
     saveUserLoginInfo(checked);
-    setIsLoading(false);
     router.push("/finn");
   };
+
   const failedLogin = (error: any) => {
     console.log(error);
   };
+
   const handleLoginUser = () => {
     setIsLoading(true);
     loginUser(username, password, successfulLogin, failedLogin);
-    // Insert LoginUser utils func
+    setIsLoading(false);
   };
-  // const handleLoginUser = () => {
-  //   setIsLoading(true);
 
-  //   // Insert LoginUser utils func
-  //   axios
-  //     .post("http://localhost:1337/api/auth/local", {
-  //       identifier: username,
-  //       password: password,
-  //     })
-  //     .then((response) => {
-  //       const {
-  //         name,
-  //         id,
-  //         ad = [],
-  //         location,
-  //         favorites = [],
-  //       } = response.data.user;
-  //       console.log("User profile", response);
-
-  //       setProfile({
-  //         name: name,
-  //         id: id,
-  //         ad: ad,
-  //         location: location,
-  //         favorites: favorites,
-  //       });
-  //       setJwt(response.data.jwt);
-  //       setIsLogged(true);
-  //       saveUserLoginInfo(checked);
-  //       setIsLoading(false);
-  //       router.push("/finn");
-  //     })
-  //     .catch((error) => {
-  //       console.log("An error occurred:", error);
-  //       setIsLoading(false);
-  //     });
-  // };
   // Return
   return (
     <Grid container justifyContent="center">

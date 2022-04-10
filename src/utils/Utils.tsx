@@ -90,7 +90,7 @@ export const loginUser = (
   username: string,
   password: string,
   success: (response: any) => void,
-  error: (error: any) => void
+  error: (errorMessage: any) => void
 ) => {
   axios
     .post("http://localhost:1337/api/auth/local", {
@@ -98,12 +98,9 @@ export const loginUser = (
       password: password,
     })
     .then((response) => {
-      console.log("User profile", response);
-      // Callbakc function
       success(response);
     })
-    .catch((error) => {
-      console.log("An error occurred:", error);
-      error(error);
+    .catch((errorMessage) => {
+      error(errorMessage);
     });
 };

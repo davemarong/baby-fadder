@@ -16,7 +16,8 @@ import { useLogUserIn } from "../src/components/CustomHook/useLogUserIn";
 
 // Snackbar
 import { SnackbarProvider } from "notistack";
-
+import { updateProfile } from "../src/utils/Utils";
+// import {updateProfile} from
 function MyApp({ Component, pageProps }: AppProps) {
   // State
   // The current selected ad when the user navigates to a page to showcase a single ad (www.babyfadder.no/finn/[id])
@@ -43,8 +44,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     setIsLogged: setIsLogged,
   };
   // Custom hook
-  useLogUserIn();
-
+  // console.log(setProfile);
+  useLogUserIn({
+    setProfile: setProfile,
+    setJwt: setJwt,
+    setIsLogged: setIsLogged,
+  });
   return (
     <SnackbarProvider maxSnack={3}>
       <Component {...pageProps} {...PagePropsObject} />
