@@ -28,6 +28,7 @@ import { useUpdateProfile } from "../src/components/CustomHook/useUpdateProfile"
 
 // Other
 import { useSnackbar } from "notistack";
+import { v4 as uuidv4 } from "uuid";
 
 // Default value
 import { defaultValue_Ad } from "../src/types/DefaultValues";
@@ -45,10 +46,15 @@ type Props = {
 // Functional component
 const LeggUt = ({ jwt, profile, setProfile, isLogged }: Props) => {
   // State
-  const [newAd, setNewAd] = useState(defaultValue_Ad);
+  const [newAd, setNewAd] = useState({
+    ...defaultValue_Ad,
+    profileId: profile.id,
+    id: uuidv4(),
+  });
 
   // Snackbar
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  console.log(newAd);
 
   // Functions
   const updateProfileContainerFunc = () => {
@@ -67,7 +73,6 @@ const LeggUt = ({ jwt, profile, setProfile, isLogged }: Props) => {
       variant: "success",
     });
   };
-  console.log(profile);
   // Return
   return (
     <>

@@ -2,6 +2,7 @@
 
 // Next
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 // React
 import { useEffect, useState } from "react";
@@ -18,9 +19,10 @@ import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { AdText } from "../ReUsable/StyledComp/AdText";
 
 // Components
+import { MainButton } from "../Buttons/MainButton";
 
 // CustomHook
-import { useRemoveFavoriteAd } from "../CustomHook/useRemoveFavoriteAd";
+import { useRedirectToAdPage } from "../CustomHook/useRedirectToAdPage";
 
 // Utils
 
@@ -30,16 +32,20 @@ import clothesImage from "../../assets/images/pexels-polina-tankilevitch-3875080
 // Styles
 import styles from "../../styles/Style.module.css";
 
+// Other
+import { v4 as uuidv4 } from "uuid";
+
 // Data
 
 // TYPE/INTERFACE
-import { FavorittAnnonser, Ad, Profile } from "../../types/Types";
+import { Ad, Profile, CurrentAd } from "../../types/Types";
 
 type Props = {
   // When using the type "FavorittAnnonser" on Profile, I get an error
   adsProfile: any;
   profile: Profile;
   removeFavoriteAd: any;
+  setCurrentAd: (value: CurrentAd) => void;
 };
 
 // Functional component
@@ -49,10 +55,30 @@ export const FavoritesListItem = ({
   removeFavoriteAd,
   // profile = the user that is logged in
   profile,
+  setCurrentAd,
 }: Props) => {
-  console.log("adsProfile", adsProfile);
-  console.log("profile", profile);
-  console.log("removeFavoriteAd", removeFavoriteAd);
+  // Router
+  // const router = useRouter();
+
+  // Custom hook
+  const redirectToAdPage = useRedirectToAdPage({
+    setCurrentAd: setCurrentAd,
+    name: adsProfile.name,
+    location: adsProfile.location,
+  });
+
+  // Functions
+  // const redirectToAdPage = (ad: any) => {
+  //   setCurrentAd({
+  //     ...ad,
+  //     name: adsProfile.name,
+  //     location: adsProfile.location,
+  //     profileId: ad.profileId,
+  //   });
+  //   const slug = ad.title.split(" ").join("_");
+  //   router.push(`/finn/${slug}`);
+  // };
+
   // Return
   return (
     <>
@@ -62,7 +88,7 @@ export const FavoritesListItem = ({
             container
             item
             sm={5}
-            key={ad.id}
+            key={uuidv4()}
             flexWrap="nowrap"
             style={{ margin: "40px 0" }}
           >
@@ -97,6 +123,13 @@ export const FavoritesListItem = ({
               >
                 {DeleteIcon}
               </IconButton>
+              <MainButton
+                func={() => {
+                  redirectToAdPage(ad);
+                }}
+              >
+                Se mer
+              </MainButton>
             </Grid>
           </Grid>
         );

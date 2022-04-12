@@ -1,7 +1,7 @@
 export type Ad = {
   profileId: number;
   title: string;
-  id: number;
+  id: string;
   description: string;
   brand: string;
   price: number;
@@ -18,7 +18,7 @@ export type CurrentAd = {
   profileId: number;
   location: string;
   title: string;
-  id: number;
+  id: string;
   description: string;
   brand: string;
   price: number;
@@ -33,7 +33,7 @@ export type CurrentAd = {
 
 export type Favorites = {
   // The key is the profileId of the user owning the ads, and the values are the id's of the ads
-  [key: number]: number[];
+  [key: number]: string[];
 };
 export type FavorittAnnonser = {
   name: string;
@@ -46,7 +46,7 @@ export type AllProfiles = {
   id: number;
   ad: Ad[];
   location: string;
-  favorites: Favorites[];
+  favorites: Favorites;
 }[];
 
 export type Profile = {

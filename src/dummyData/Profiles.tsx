@@ -6,7 +6,7 @@ export const profiles = [
     favorites: [],
     ad: [
       {
-        id: 0,
+        id: "0",
         title: "Fin rød bukse",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -22,7 +22,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 1,
+        id: "1",
         title: "Fin gul genser",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -38,7 +38,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 2,
+        id: "2",
         title: "Fin grønn sko",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -54,7 +54,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 3,
+        id: "3",
         title: "Fin blå bukse",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -78,7 +78,7 @@ export const profiles = [
     favorites: [],
     ad: [
       {
-        id: 4,
+        id: "4",
         title: "Fin rød bukse",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -94,7 +94,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 5,
+        id: "5",
         title: "Fin gul genser",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -110,7 +110,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 6,
+        id: "6",
         title: "Fin grønn sko",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -126,7 +126,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 7,
+        id: "7",
         title: "Fin blå bukse",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -150,7 +150,7 @@ export const profiles = [
     favorites: [],
     ad: [
       {
-        id: 8,
+        id: "8",
         title: "Fin rød bukse",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -166,7 +166,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 9,
+        id: "9",
         title: "Fin gul genser",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -182,7 +182,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 10,
+        id: "10",
         title: "Fin grønn sko",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -198,7 +198,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 11,
+        id: "11",
         title: "Fin blå genser",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -222,7 +222,7 @@ export const profiles = [
     favorites: [],
     ad: [
       {
-        id: 12,
+        id: "12",
         title: "Fin rød bukse",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -238,7 +238,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 13,
+        id: "13",
         title: "Fin gul genser",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -254,7 +254,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 14,
+        id: "14",
         title: "Fin grønn sko",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",
@@ -270,7 +270,7 @@ export const profiles = [
         contactInfo: "46807041",
       },
       {
-        id: 15,
+        id: "15",
         title: "Fin blå genser",
         description:
           "Denne buksa vil vi ikke har mer fordi de ikke passer til vår lille Georg. Den er helt burkbar. Hvis vi kommer dit så for vi se da, min venn",

@@ -15,22 +15,29 @@ import { MinSideMenu } from "../src/components/MinSideMenu/MinSideMenu";
 
 // Custom hook
 import { useFavoriteAdsItems } from "../src/components/CustomHook/useFavoriteAdsItems";
+import { withRemoveFavorites } from "../src/components/HigherOrderComponents/withRemoveFavorites";
 
 // Utils
 
 // Data
 
 // TYPE/INTERFACE
-import { Profile } from "../src/types/Types";
-import { withRemoveFavorites } from "../src/components/HigherOrderComponents/withRemoveFavorites";
+import { Profile, CurrentAd } from "../src/types/Types";
 type Props = {
   profile: Profile;
   setProfile: (value: Profile) => void;
+  setCurrentAd: (value: CurrentAd) => void;
   isLogged: boolean;
   jwt: string;
 };
 // Functional component
-const FavoritterPage = ({ setProfile, profile, isLogged, jwt }: Props) => {
+const FavoritterPage = ({
+  setProfile,
+  profile,
+  isLogged,
+  jwt,
+  setCurrentAd,
+}: Props) => {
   // Custom hooks
   const favoriteAdsItems = useFavoriteAdsItems({
     profile: profile,
@@ -43,7 +50,7 @@ const FavoritterPage = ({ setProfile, profile, isLogged, jwt }: Props) => {
     jwt,
     setProfile
   );
-
+  console.log(profile);
   // Return
   return (
     <>
@@ -55,7 +62,7 @@ const FavoritterPage = ({ setProfile, profile, isLogged, jwt }: Props) => {
         resourceName="adsProfile"
         gridProps={{ justifyContent: "center" }}
       >
-        <FavoritesListItemWithRemoveFavorite />
+        <FavoritesListItemWithRemoveFavorite setCurrentAd={setCurrentAd} />
       </RegularList>
     </>
   );

@@ -1,7 +1,7 @@
 export const defaultValue_Ad = {
   title: "",
   profileId: 0,
-  id: 0,
+  id: "0",
   description: "",
   brand: "",
   price: 0,
@@ -18,7 +18,7 @@ export const defaultValue_CurrentAd = {
   location: "Ukjent",
   profileId: 0,
   title: "",
-  id: 0,
+  id: "0",
   description: "",
   brand: "",
   price: 0,
@@ -35,7 +35,7 @@ export const defaultValue_favorites = {
   id: 100,
 };
 export const defaultValue_Favorites = {
-  0: [0],
+  0: ["0"],
 };
 export const defaultValue_FavoritesAds = {
   name: "",
@@ -44,7 +44,7 @@ export const defaultValue_FavoritesAds = {
     {
       title: "",
       profileId: 0,
-      id: 0,
+      id: "0",
       description: "",
       brand: "",
       price: 0,
@@ -63,7 +63,7 @@ export const defaultValue_Profile = {
   location: "",
   id: 0,
   ad: [defaultValue_Ad],
-  favorites: [defaultValue_favorites],
+  favorites: [defaultValue_Favorites],
 };
 export const defaultValue_FilterCategories = {
   gender: "",
