@@ -20,14 +20,20 @@ import { HvordanFunkerDet_Container } from "../src/components/HvordanFunkerDet/H
 
 // Utils
 
+// Custom hook
+import { useLogUserIn } from "../src/components/CustomHook/useLogUserIn";
+import { useTry } from "../src/components/CustomHook/useTry";
+
 // Data
 
 // Image
 
 // TYPE/INTERFACE
+import { Profile } from "../src/types/Types";
 type Props = {
   isLogged: boolean;
 };
+
 const Home = ({ isLogged }: Props) => {
   // Media Query
   const matches = useMediaQuery("(min-width:600px)");

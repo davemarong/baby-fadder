@@ -33,14 +33,13 @@ import styles from "../../styles/Style.module.css";
 // Data
 
 // TYPE/INTERFACE
-import { FavorittAnnonser, Ad } from "../../types/Types";
+import { FavorittAnnonser, Ad, Profile } from "../../types/Types";
 
 type Props = {
   // When using the type "FavorittAnnonser" on Profile, I get an error
   adsProfile: any;
-  profile: any;
+  profile: Profile;
   removeFavoriteAd: any;
-  setFavoriteAdsItems: any;
 };
 
 // Functional component
@@ -50,12 +49,11 @@ export const FavoritesListItem = ({
   removeFavoriteAd,
   // profile = the user that is logged in
   profile,
-  setFavoriteAdsItems,
 }: Props) => {
-  // Destructuring
-
+  console.log("adsProfile", adsProfile);
+  console.log("profile", profile);
+  console.log("removeFavoriteAd", removeFavoriteAd);
   // Return
-
   return (
     <>
       {adsProfile.ads.map((ad: Ad, id: number) => {
@@ -94,11 +92,7 @@ export const FavoritesListItem = ({
             <Grid item container xs={2}>
               <IconButton
                 onClick={() => {
-                  const favoriteAdsList = removeFavoriteAd(
-                    profile.favorites,
-                    ad.profileId,
-                    ad.id
-                  );
+                  removeFavoriteAd(profile.favorites, ad.profileId, ad.id);
                 }}
               >
                 {DeleteIcon}

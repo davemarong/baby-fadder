@@ -9,11 +9,13 @@ import { useRouter } from "next/router";
 
 // MUI
 import TextField from "@mui/material/TextField";
+import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import CircularProgress from "@mui/material/CircularProgress";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
-// Other
-import axios from "axios";
+// Utils
+import { loginUser } from "../../utils/Utils";
 
 // TYPE/INTERFACE
 import { Profile } from "../../types/Types";
@@ -35,11 +37,12 @@ export default function Login({
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [checked, setChecked] = useState(true);
 
   // Router
   const router = useRouter();
 
-  //   Functions
+  // Controlled Input fields functions
   const handleUsernameInput = (
     event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
@@ -50,38 +53,41 @@ export default function Login({
   ) => {
     setPassword(event.target.value);
   };
+  const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+  };
+
+  // Functions
+  const saveUserLoginInfo = (checked: boolean) => {
+    if (checked) {
+      localStorage.setItem("password", password);
+      localStorage.setItem("username", username);
+    }
+  };
+
+  const successfulLogin = (response: any) => {
+    const { name, id, ad = [], location, favorites = [] } = response.data.user;
+    setProfile({
+      name: name,
+      id: id,
+      ad: ad,
+      location: location,
+      favorites: favorites,
+    });
+    setJwt(response.data.jwt);
+    setIsLogged(true);
+    saveUserLoginInfo(checked);
+    router.push("/finn");
+  };
+
+  const failedLogin = (error: any) => {
+    console.log(error);
+  };
+
   const handleLoginUser = () => {
     setIsLoading(true);
-    axios
-      .post("http://localhost:1337/api/auth/local", {
-        identifier: username,
-        password: password,
-      })
-      .then((response) => {
-        const {
-          name,
-          id,
-          ad = [],
-          location,
-          favorites = [],
-        } = response.data.user;
-        console.log("User profile", response.data);
-        setProfile({
-          name: name,
-          id: id,
-          ad: ad,
-          location: location,
-          favorites: favorites,
-        });
-        setJwt(response.data.jwt);
-        setIsLogged(true);
-        setIsLoading(false);
-        router.push("/finn");
-      })
-      .catch((error) => {
-        console.log("An error occurred:", error);
-        setIsLoading(false);
-      });
+    loginUser(username, password, successfulLogin, failedLogin);
+    setIsLoading(false);
   };
 
   // Return
@@ -105,7 +111,18 @@ export default function Login({
         />
       </Grid>
       <Grid item xs={12}></Grid>
-      {React.cloneElement(children, { func: handleLoginUser })}
+      <Grid container item>
+        <Grid item xs={4} sm={5}></Grid>
+        <Grid item xs={4} sm={2}>
+          {React.cloneElement(children, { func: handleLoginUser })}
+        </Grid>
+        <Grid container alignItems="center" item xs={4} sm={5}>
+          <FormControlLabel
+            control={<Checkbox checked={checked} onChange={handleChecked} />}
+            label="Husk meg?"
+          />
+        </Grid>
+      </Grid>
       {isLoading && <CircularProgress />}
     </Grid>
   );

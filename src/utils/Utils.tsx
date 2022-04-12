@@ -77,3 +77,30 @@ export const updateFavorites = (
 
   updateProfile(jwt, profile.id, updatedFavorites, setProfile);
 };
+
+/**
+ * Function for updating profile data in strapi backend
+ * @param {String} username User's login username
+ * @param {String} password User's login password
+ * @param {Any} success If login is successful, run this
+ * @param {Any} error If login fails, run this
+ * @return {void}
+ */
+export const loginUser = (
+  username: string,
+  password: string,
+  success: (response: any) => void,
+  error: (errorMessage: any) => void
+) => {
+  axios
+    .post("http://localhost:1337/api/auth/local", {
+      identifier: username,
+      password: password,
+    })
+    .then((response) => {
+      success(response);
+    })
+    .catch((errorMessage) => {
+      error(errorMessage);
+    });
+};

@@ -24,7 +24,6 @@ import { FavorittAnnonser, Ad } from "../../types/Types";
 type Props = {
   items: any;
   resourceName: string;
-  // itemComponent: any;
   gridProps?: any;
   children: any;
 };
@@ -32,15 +31,12 @@ type Props = {
 export const RegularList = ({
   items,
   resourceName,
-  // itemComponent: ItemComponent,
   gridProps,
   children,
 }: Props) => {
   // State
 
   // Functions
-  // console.log(items);
-  // console.log("RegularList", items);
   // Return
   return (
     <Grid container {...gridProps}>

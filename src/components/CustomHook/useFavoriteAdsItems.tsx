@@ -75,5 +75,5 @@ export const useFavoriteAdsItems = ({ profile }: Props) => {
       });
   };
   // Return
-  return [favoriteAdsItems, setFavoriteAdsItems];
+  return favoriteAdsItems;
 };
