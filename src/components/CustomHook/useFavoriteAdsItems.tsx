@@ -41,6 +41,7 @@ export const useFavoriteAdsItems = ({ profile }: Props) => {
 
     const favoritesArray = Object.keys(favorites);
     favoritesArray.forEach((favoriteId: any) => {
+      console.log(favoriteId);
       fetchFavoritter(favoriteId, source);
     });
     return () => {
@@ -55,8 +56,9 @@ export const useFavoriteAdsItems = ({ profile }: Props) => {
         cancelToken: source.token,
       })
       .then((response) => {
+        console.log(typeof profileId);
         const { data } = response;
-
+        console.log(response);
         // Filter out ads that is not in "FavorittAnnonser"
         const favoriteAds = data.ad.filter((ad: Ad) => {
           return profile.favorites[profileId].includes(ad.id);

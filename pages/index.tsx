@@ -20,10 +20,6 @@ import { HvordanFunkerDet_Container } from "../src/components/HvordanFunkerDet/H
 
 // Utils
 
-// Custom hook
-import { useLogUserIn } from "../src/components/CustomHook/useLogUserIn";
-import { useTry } from "../src/components/CustomHook/useTry";
-
 // Data
 
 // Image

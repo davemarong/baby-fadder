@@ -22,6 +22,9 @@ import clothesImage from "../../assets/images/pexels-polina-tankilevitch-3875080
 // Styles
 import styles from "../../styles/Style.module.css";
 
+// Other
+import { v4 as uuidv4 } from "uuid";
+
 // TYPE/INTERFACE
 import { Profile, Ad } from "../../types/Types";
 type Props = {
@@ -42,7 +45,7 @@ export const MineAnnonser = ({ profile }: Props) => {
             container
             item
             sm={5}
-            key={ad.id}
+            key={uuidv4()}
             flexWrap="nowrap"
             style={{ margin: "40px 0" }}
           >

@@ -3,10 +3,11 @@
 // Next
 
 // React
-import React, { ReactNode } from "react";
+import React, { useState, ReactNode } from "react";
 
 // Material UI
 import Grid from "@mui/material/Grid";
+import CircularProgress from "@mui/material/CircularProgress";
 
 // Components
 
@@ -27,31 +28,44 @@ type ProfileMapped = {
 
 type Props = {
   profileData: AllProfiles;
+  loading: boolean;
   children: any;
 };
 // Functional component
-export const ClothingAdsContainer = ({ profileData, children }: Props) => {
+export const ClothingAdsContainer = ({
+  profileData,
+  loading,
+  children,
+}: Props) => {
   // State
 
   // Functions
 
   // Return
-  return (
-    <Grid container>
-      {profileData.map((profile: ProfileMapped) => {
-        return profile.ad.map((ad: Ad) => {
-          return (
-            <React.Fragment key={ad.id}>
-              {React.cloneElement(children, {
-                ad: ad,
-                name: profile.name,
-                location: profile.location,
-                profileId: profile.id,
-              })}
-            </React.Fragment>
-          );
-        });
-      })}
-    </Grid>
-  );
+  if (loading) {
+    return (
+      <Grid container justifyContent="center" style={{ marginTop: 40 }}>
+        <CircularProgress color="secondary" size={100} />
+      </Grid>
+    );
+  } else {
+    return (
+      <Grid container>
+        {profileData?.map((profile: ProfileMapped) => {
+          return profile?.ad?.map((ad: Ad) => {
+            return (
+              <React.Fragment key={ad.id}>
+                {React.cloneElement(children, {
+                  ad: ad,
+                  name: profile.name,
+                  location: profile.location,
+                  profileId: profile.id,
+                })}
+              </React.Fragment>
+            );
+          });
+        })}
+      </Grid>
+    );
+  }
 };

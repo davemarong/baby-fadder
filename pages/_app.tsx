@@ -43,13 +43,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     isLogged: isLogged,
     setIsLogged: setIsLogged,
   };
+
   // Custom hook
-  // console.log(setProfile);
   useLogUserIn({
     setProfile: setProfile,
     setJwt: setJwt,
     setIsLogged: setIsLogged,
   });
+
+  // Return
   return (
     <SnackbarProvider maxSnack={3}>
       <Component {...pageProps} {...PagePropsObject} />

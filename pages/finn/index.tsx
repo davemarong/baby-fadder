@@ -21,16 +21,14 @@ import { ClothingAdsContainer } from "../../src/components/ClothingAds/ClothingA
 import { Preview } from "../../src/components/Preview/Preview";
 import { PreviewButtonAndLink } from "../../src/components/Preview/PreviewButtonAndLink";
 
-// Utils
+// Custom hook
+import { useFetchData } from "../../src/components/CustomHook/useFetchData";
 
 // Data
 import { profiles } from "../../src/dummyData/Profiles";
 
 // Default value
-import {
-  defaultValue_Profile,
-  defaultValue_FilterCategories,
-} from "../../src/types/DefaultValues";
+import { defaultValue_FilterCategories } from "../../src/types/DefaultValues";
 
 // TYPE/INTERFACE
 import { AllProfiles, CurrentAd, Profile } from "../../src/types/Types";
@@ -58,6 +56,12 @@ const Finn = ({
   );
   const [profileData, setProfileData] = useState<AllProfiles>(profiles);
 
+  // Custom hook
+
+  const [data, loading] = useFetchData({
+    url: "http://localhost:1337/api/users/",
+  });
+  console.log(data, profileData);
   // Media Query
   const matches = useMediaQuery("(min-width:600px)");
   const ClothingAd = matches ? ClothingAdDesktop : ClothingAdMobile;
@@ -74,7 +78,8 @@ const Finn = ({
     filterCategories: filterCategories,
   };
   const ClothingAdsContainerProps = {
-    profileData: profileData,
+    profileData: data,
+    loading: loading,
   };
   const setCurrentAdProp = {
     setCurrentAd: setCurrentAd,

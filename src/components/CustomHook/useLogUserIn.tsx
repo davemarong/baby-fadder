@@ -16,10 +16,9 @@ import { loginUser } from "../../utils/Utils";
 // Data
 
 // TYPE/INTERFACE
-import { Profile } from "../../types/Types";
 type Props = {
   setJwt: (value: string) => void;
-  setProfile: (value: Profile) => void;
+  setProfile: any;
   setIsLogged: (value: boolean) => void;
 };
 // Functional component
@@ -29,10 +28,9 @@ export const useLogUserIn = ({ setProfile, setJwt, setIsLogged }: Props) => {
   // Router
   const router = useRouter();
 
-  console.log(setProfile, setJwt, setIsLogged);
-
   // Functions
   const successfulLogin = (response: any) => {
+    console.log(response);
     const { name, id, ad = [], location, favorites = [] } = response.data.user;
     setProfile({
       name: name,
@@ -43,7 +41,6 @@ export const useLogUserIn = ({ setProfile, setJwt, setIsLogged }: Props) => {
     });
     setJwt(response.data.jwt);
     setIsLogged(true);
-    router.push("/finn");
   };
 
   const failedLogin = (error: any) => {
@@ -53,7 +50,6 @@ export const useLogUserIn = ({ setProfile, setJwt, setIsLogged }: Props) => {
   useEffect(() => {
     const username = localStorage.getItem("username");
     const password = localStorage.getItem("password");
-    console.log(username, password);
     if (username && password) {
       loginUser(username, password, successfulLogin, failedLogin);
     }
