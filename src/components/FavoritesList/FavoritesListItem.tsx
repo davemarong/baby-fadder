@@ -2,7 +2,6 @@
 
 // Next
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 // React
 import { useEffect, useState } from "react";
@@ -57,9 +56,6 @@ export const FavoritesListItem = ({
   profile,
   setCurrentAd,
 }: Props) => {
-  // Router
-  // const router = useRouter();
-
   // Custom hook
   const redirectToAdPage = useRedirectToAdPage({
     setCurrentAd: setCurrentAd,
@@ -68,16 +64,6 @@ export const FavoritesListItem = ({
   });
 
   // Functions
-  // const redirectToAdPage = (ad: any) => {
-  //   setCurrentAd({
-  //     ...ad,
-  //     name: adsProfile.name,
-  //     location: adsProfile.location,
-  //     profileId: ad.profileId,
-  //   });
-  //   const slug = ad.title.split(" ").join("_");
-  //   router.push(`/finn/${slug}`);
-  // };
 
   // Return
   return (

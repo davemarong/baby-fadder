@@ -8,11 +8,20 @@ import Image from "next/image";
 // Material UI
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+
+// Icon
+import { DeleteIcon } from "../../assets/icons/MuiIcons";
 
 // Components
+import { MainButton } from "../Buttons/MainButton";
 
 // Styled Components
 import { AdText } from "../ReUsable/StyledComp/AdText";
+
+// Custom hook
+import { useRedirectToAdPage } from "../CustomHook/useRedirectToAdPage";
+import { useRemoveAd } from "../CustomHook/useRemoveAd";
 
 // Utils
 
@@ -26,16 +35,32 @@ import styles from "../../styles/Style.module.css";
 import { v4 as uuidv4 } from "uuid";
 
 // TYPE/INTERFACE
-import { Profile, Ad } from "../../types/Types";
+import { Profile, Ad, CurrentAd } from "../../types/Types";
 type Props = {
   profile: Profile;
+  setCurrentAd: (value: CurrentAd) => void;
+  jwt: string;
+  setProfile: (value: Profile) => void;
 };
 // Functional component
-export const MineAnnonser = ({ profile }: Props) => {
+export const MineAnnonser = ({
+  profile,
+  setCurrentAd,
+  jwt,
+  setProfile,
+}: Props) => {
   // State
 
-  // Functions
+  // Custom hook
+  const redirectToAdPage = useRedirectToAdPage({
+    setCurrentAd: setCurrentAd,
+    name: profile.name,
+    location: profile.location,
+  });
 
+  const removeAd = useRemoveAd({ jwt: jwt, setProfile: setProfile });
+
+  // Functions
   // Return
   return (
     <Grid container justifyContent="center">
@@ -70,6 +95,20 @@ export const MineAnnonser = ({ profile }: Props) => {
                 {ad.brand} - {ad.size} - {ad.price}kr
               </AdText>
             </Grid>
+            <MainButton
+              func={() => {
+                redirectToAdPage(ad);
+              }}
+            >
+              Se mer
+            </MainButton>
+            <IconButton
+              onClick={() => {
+                removeAd(ad.id, profile);
+              }}
+            >
+              {DeleteIcon}
+            </IconButton>
           </Grid>
         );
       })}

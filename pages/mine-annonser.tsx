@@ -20,21 +20,37 @@ import { Header } from "../src/components/Header/Header";
 // Image
 
 // TYPE/INTERFACE
-import { Profile } from "../src/types/Types";
+import { Profile, CurrentAd } from "../src/types/Types";
 type Props = {
   isLogged: boolean;
   profile: Profile;
+  setCurrentAd: (value: CurrentAd) => void;
+  jwt: string;
+  setProfile: (value: Profile) => void;
 };
-const Mine_Annonser = ({ isLogged, profile }: Props) => {
+const Mine_Annonser = ({
+  isLogged,
+  profile,
+  setCurrentAd,
+  jwt,
+  setProfile,
+}: Props) => {
   // Media Query
   const matches = useMediaQuery("(min-width:600px)");
 
+  // Props
+  const MineAnnonserProps = {
+    profile: profile,
+    setCurrentAd: setCurrentAd,
+    setProfile: setProfile,
+    jwt: jwt,
+  };
   return (
     <>
       <Nav isLogged={isLogged} />
       <Header align="center">Mine Annonser</Header>
       <MinSideMenu />
-      <MineAnnonser profile={profile} />
+      <MineAnnonser {...MineAnnonserProps} />
     </>
   );
 };
