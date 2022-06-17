@@ -31,7 +31,7 @@ export const withRemoveFavorites = (
     const removeFavoriteAd = (
       favorites: Favorites,
       profileId: number,
-      adId: number
+      adId: any
     ) => {
       const indexOfFavoriteAd = favorites[profileId].indexOf(adId);
       let favoriteAdsList = favorites;

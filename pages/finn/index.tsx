@@ -50,18 +50,17 @@ const Finn = ({
   setProfile,
   jwt,
 }: Props) => {
+  // Custom hook
+  const [data, loading] = useFetchData({
+    url: "http://localhost:1337/api/users/",
+  });
+
   // State
   const [filterCategories, setFilterCategories] = useState(
     defaultValue_FilterCategories
   );
   const [profileData, setProfileData] = useState<AllProfiles>(profiles);
 
-  // Custom hook
-
-  const [data, loading] = useFetchData({
-    url: "http://localhost:1337/api/users/",
-  });
-  console.log(data, profileData);
   // Media Query
   const matches = useMediaQuery("(min-width:600px)");
   const ClothingAd = matches ? ClothingAdDesktop : ClothingAdMobile;
@@ -78,7 +77,7 @@ const Finn = ({
     filterCategories: filterCategories,
   };
   const ClothingAdsContainerProps = {
-    profileData: data,
+    profileData: profileData,
     loading: loading,
   };
   const setCurrentAdProp = {

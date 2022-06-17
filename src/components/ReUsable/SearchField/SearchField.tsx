@@ -79,6 +79,7 @@ export const SearchField = ({
                     filterCategories
                   );
                   updateSearchResults(result);
+                  console.log(result);
                 }}
               >
                 <SearchRoundedIcon />

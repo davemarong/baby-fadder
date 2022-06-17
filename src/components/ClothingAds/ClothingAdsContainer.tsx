@@ -40,7 +40,6 @@ export const ClothingAdsContainer = ({
   // State
 
   // Functions
-
   // Return
   if (loading) {
     return (
@@ -49,6 +48,7 @@ export const ClothingAdsContainer = ({
       </Grid>
     );
   } else {
+    console.log(profileData);
     return (
       <Grid container>
         {profileData?.map((profile: ProfileMapped) => {
