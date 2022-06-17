@@ -1,7 +1,7 @@
 // IMPORT
 
 // Next
-
+import { useRouter } from "next/router";
 // React
 
 // Material UI
@@ -18,7 +18,8 @@ import { Header } from "../src/components/Header/Header";
 import { MainButton } from "../src/components/Buttons/MainButton";
 import { HvordanFunkerDet_Container } from "../src/components/HvordanFunkerDet/HvordanFunkerDet_Container";
 
-// Utils
+// Custom hook
+import { useRedirectToPage } from "../src/components/CustomHook/useRedirectToPage";
 
 // Data
 
@@ -37,6 +38,8 @@ const Home = ({ isLogged }: Props) => {
     ? HvordanFunkerDet_Desktop
     : HvordanFunkerDet_Mobile;
 
+  const redirectToPage = useRedirectToPage();
+
   return (
     <>
       <Nav isLogged={isLogged} />
@@ -46,7 +49,14 @@ const Home = ({ isLogged }: Props) => {
       <Header align="center">Hvordan funker det?</Header>
       <HvordanFunkerDet_Container>
         <HvordanFunkerDet />
-        <MainButton align="center">Registrer deg</MainButton>
+        <MainButton
+          align="center"
+          func={() => {
+            redirectToPage("registrer");
+          }}
+        >
+          Registrer deg
+        </MainButton>
       </HvordanFunkerDet_Container>
       <Miljøvennlig />
     </>

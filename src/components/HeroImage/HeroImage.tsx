@@ -13,7 +13,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 // Components
 import { MainButton } from "../Buttons/MainButton";
 
-// Utils
+// CustomHook
+import { useRedirectToPage } from "../CustomHook/useRedirectToPage";
 
 // Images
 import homepage from "../../assets/images/homepage.svg";
@@ -25,6 +26,9 @@ import homepage from "../../assets/images/homepage.svg";
 // Functional component
 export const HeroImage = () => {
   // State
+
+  // customHook
+  const redirectToPage = useRedirectToPage();
 
   // Media Query
   const desktopMatches = useMediaQuery("(min-width:800px)");
@@ -66,7 +70,14 @@ export const HeroImage = () => {
             width={500}
             height={500}
           />
-          <MainButton align="center">Søk her</MainButton>
+          <MainButton
+            align="center"
+            func={() => {
+              redirectToPage("finn");
+            }}
+          >
+            Søk her
+          </MainButton>
         </>
       )}
     </>
