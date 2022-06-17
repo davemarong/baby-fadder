@@ -1,4 +1,4 @@
-# Brukte barne klær - "Finn.no" for barne klær
+# Brukte barne klær - "Finn.no" for children's clothes
 
 > Norway's biggest collection of used children's clothes.
 
@@ -16,8 +16,6 @@
 - [Contact](#contact)
 
 ## General Information
-
-If you have a playlist of songs on youtube, and some of the videos get taken down, all the information disappears. Unless you have a photographic memory, you will probably not remember the title of the song. That means you can't add the song again to your playlist. That is the reason why i created this extension. An easy and simple way to save the titles of those deleted videos.
 
 As a father, I quickly fell into the trap of buying new clothes for my little one. After A few months, I decided to make an app to contribute to a solution. The main goal was to make it fast and simple to sell and buy used children clothes online.
 
