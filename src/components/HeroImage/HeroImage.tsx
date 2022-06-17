@@ -42,9 +42,9 @@ export const HeroImage = () => {
       {desktopMatches && (
         <>
           <Grid item xs={5}>
-            <Typography variant="h2">Babyfadder</Typography>
+            <Typography variant="h2">Brukte barne klær</Typography>
             <Typography variant="h5">
-              Norges største samling av baby klær og utstyr.
+              Norges største samling av barne klær.
             </Typography>
             <MainButton align="flex-start">Søk her</MainButton>
           </Grid>
@@ -60,9 +60,9 @@ export const HeroImage = () => {
       )}
       {mobileMatches && (
         <>
-          <Typography variant="h2">Babyfadder</Typography>
+          <Typography variant="h2">Brukte barne klær</Typography>
           <Typography align="center" variant="h5">
-            Norges største samling av baby klær og utstyr.
+            Norges største samling av brukte barne klær.
           </Typography>
           <Image
             src={homepage}
