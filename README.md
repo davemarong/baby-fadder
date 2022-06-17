@@ -1,34 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Brukte barne klær - "Finn.no" for barne klær
 
-## Getting Started
+> Norway's biggest collection of used children's clothes.
 
-First, run the development server:
+<!-- > Live demo [_here_](https://www.example.com). If you have the project hosted somewhere, include the link here. --> https://babyfadder.netlify.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [General Info](#general-information)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Screenshot](#screenshot)
+- [Usage](#usage)
+- [Project Status](#project-status)
+- [Future features](#feature-features)
+- [Contact](#contact)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## General Information
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+If you have a playlist of songs on youtube, and some of the videos get taken down, all the information disappears. Unless you have a photographic memory, you will probably not remember the title of the song. That means you can't add the song again to your playlist. That is the reason why i created this extension. An easy and simple way to save the titles of those deleted videos.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+As a father, I quickly fell into the trap of buying new clothes for my little one. After A few months, I decided to make an app to contribute to a solution. The main goal was to make it fast and simple to sell and buy used children clothes online.
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- React.js 18
+- Next.js 12
+- Typescript 4.7
+- Strapi 4.2
+- Material/Mui 5.3
+- Styled components 5.3
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Easy and simple UI
+- Find and buy used children clothes in your area.
+- Your own "Favorite" list.
+- Find clothes by filter such as Gender, Size, Color, Fabric and Location.
 
-## Deploy on Vercel
+## Screenshot
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Example screenshot](./src/assets/images/BarneKl%C3%A6r.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Usage
+
+If you want to find clothes, you don't even have to create an account. You can just search for the clothes you want and contact the seller with phone or email.
+
+If you want to sell something, you first need to create an account. Then you can put out as many clothes as you want. There more information you add to your clothes, the higher chance of people finding your product.
+
+With an account, you will also be able to save others clothing-ads in your favorite list to quickly find them again.
+
+## Project Status
+
+The project is still being worked on and has not been officially released yet, but the website is live.
+
+## Future features
+
+To do:
+
+- Create an instant message application.
+- Integrating images to the clothing products.
+- Create a mobile app
+
+## Contact
+
+Created by [@davemarong](https://www.codebydave.no/) - feel free to contact me!
